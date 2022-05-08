@@ -20,5 +20,5 @@
 </div>
 
 <style lang="scss">
-// For some reason, SCSS doesn't work in this file.
+/* For some reason, SCSS doesn't work in this file. */
 </style>
