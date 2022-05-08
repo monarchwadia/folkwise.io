@@ -18,11 +18,16 @@
   @use "../styles/colors" as colors;
 
   .navbar-wrapper {
-    background-color: colors.$dark;
     padding: 2vh 2vw;
   }
 
   .content-wrapper {
     padding: 2vh 2vw;
+    max-width: 600px;
+    margin: auto;
+  }
+
+  .wrapper {
+    background-color: colors.$dark;
   }
 </style>
