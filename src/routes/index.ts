@@ -13,17 +13,19 @@ export type Post = {
 const getPosts = () => {
   const modules = import.meta.globEager("./posts/*.md");
   
-  const posts: Post[] = Object.entries(modules).map(([filepath, module]) => {
-    const slug = basename(dirname(filepath));
-    const { metadata } = module;
-    const { html } = module.default.render();
+  const posts: Post[] = Object.entries(modules)
+    .map(([filepath, module]): Post => {
+      const slug = basename(dirname(filepath));
+      const { metadata } = module;
+      const { html } = module.default.render();
 
-    return {
-      slug,
-      html,
-      ...metadata,
-    };
-  });
+      return {
+        slug,
+        html,
+        ...metadata,
+      };
+    })
+    .sort((a, b) => a.publishedOn < b.publishedOn ? 1 : -1)
 
   return posts;
 }
