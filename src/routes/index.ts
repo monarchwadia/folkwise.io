@@ -11,7 +11,7 @@ export type Post = {
 };
 
 const getPosts = () => {
-  const modules = import.meta.globEager("./*.md");
+  const modules = import.meta.globEager("./posts/*.md");
   
   const posts: Post[] = Object.entries(modules).map(([filepath, module]) => {
     const slug = basename(dirname(filepath));
@@ -28,14 +28,14 @@ const getPosts = () => {
   return posts;
 }
 
-
-
 // the endpoint
 export async function get() {
   const posts = getPosts();
 
   return {
     status: 200,
-    body: posts
+    body: {
+      posts
+    }
   };
 }
