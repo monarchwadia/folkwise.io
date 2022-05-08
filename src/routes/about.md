@@ -12,9 +12,11 @@ I live with my wife in the suburbs of Toronto, Canada. I enjoy taking long walks
 
 ## As a businessperson
 
-In the past 5 years, I've also founded 2 startups as a technical CEO. 
+In the past 5 years, I've founded 2 startups as a technical CEO. 
   1. Zero Projects was a software development firm that created MVPs for startups and did digital transformation for larger firms. We completed ~50 projects and grew to a team of 10 in 2.5 years.
   2. Mintbean was a hiring hackathon community for junior developers that helped new coders build confidence and gain skills. We held 95 hackathons, 300+ workshops, a 500-person conference, and 10k users in 2.5 years.
+
+I also regularly advise startups under the [Loyal VC](https://loyal.vc/) umbrella.
 
 ## As a software developer
 
