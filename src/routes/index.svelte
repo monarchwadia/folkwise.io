@@ -28,7 +28,7 @@
 
   .post {
     border-radius: 0px 100px 100px 100px;
-    border: 10px solid darken(colors.$light, 30);
+    border: 10px solid colors.$dark;
     padding: 90px 60px;
     background-color: colors.$light;
   }

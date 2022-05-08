@@ -19,6 +19,7 @@
 
   .navbar-wrapper {
     padding: 2vh 2vw;
+    background-color: colors.$dark;
   }
 
   .content-wrapper {
@@ -28,6 +29,6 @@
   }
 
   .wrapper {
-    background-color: colors.$dark;
+    background-color: colors.$light;
   }
 </style>
