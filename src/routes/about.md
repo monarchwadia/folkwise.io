@@ -1,6 +1,7 @@
 ---
 date: "2021-08-30T18:27:58+01:00"
 title: "About Me"
+layout: false
 ---
 
 # About Me

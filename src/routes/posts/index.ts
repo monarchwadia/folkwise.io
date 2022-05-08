@@ -2,6 +2,7 @@ import { basename, dirname } from "path";
 
 export type Post = {
   slug: string;
+  html: string;
   title: string;
   excerpt: string;
   isPublished: boolean;
@@ -11,8 +12,6 @@ export type Post = {
 
 const getPosts = () => {
   const modules = import.meta.globEager("./*.md");
-
-  console.log(modules);
   
   const posts: Post[] = Object.entries(modules).map(([filepath, module]) => {
     const slug = basename(dirname(filepath));
@@ -37,8 +36,6 @@ export async function get() {
 
   return {
     status: 200,
-    body: {
-      posts
-    }
+    body: posts
   };
 }
