@@ -1,0 +1,14 @@
+@use "./colors" as colors;
+
+* {
+  font-size: 20px;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+body {
+  background-color: colors.$light;
+}
+
+a {
+  color: colors.$highlight;
+}
