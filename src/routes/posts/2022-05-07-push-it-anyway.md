@@ -1,6 +1,6 @@
 ---
 title: "Push it anyway"
-date: 2022-05-08
+date: 2022-05-07
 ---
 
 When you walk into a car dealership, everything is spotless clean and polished-down, almost sterile. And that's how it should be, because the job of the dealership is to help create an environment in which you and your family feel comfortable purchasing a car. Being a clean, welcoming, and neutral place is part of the function of the dealership.
