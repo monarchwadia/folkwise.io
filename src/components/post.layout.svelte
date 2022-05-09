@@ -3,7 +3,6 @@
   export let title;
   export let date;
 
-
 </script>
 
 <div class="post">

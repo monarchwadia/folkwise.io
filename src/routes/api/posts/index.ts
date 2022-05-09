@@ -1,4 +1,4 @@
-import { getPosts } from "../services/posts";
+import { getPosts } from "../../../services/posts";
 
 // the endpoint
 export async function get() {
@@ -6,8 +6,6 @@ export async function get() {
 
   return {
     status: 200,
-    body: {
-      posts
-    }
+    body: posts
   };
 }
