@@ -1,6 +1,6 @@
 ---
 title: "Code that makes money stinks."
-date: 2022-05-08
+date: 2022-05-09
 ---
 
 Complaining about code quality is easy. Writing code that turns a profit is infinitely harder.
