@@ -1,3 +1,4 @@
+<a href="/" class="read-more">← Read more</a>
 {#await post}
   <div>Loading...</div>
 {:then} 
@@ -35,3 +36,8 @@
   export let post;
 </script>
 
+<style>
+  .read-more {
+    font-size: 24px;
+  }
+</style>

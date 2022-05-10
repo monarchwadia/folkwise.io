@@ -11,7 +11,7 @@
   @use "../styles/colors" as colors;
 
   .post {
-    border-bottom: 1px ridge colors.$dark;
+    border-bottom: 3px solid colors.$dark;
     padding: 20px 60px 60px 60px;
     background-color: colors.$light;
   }
