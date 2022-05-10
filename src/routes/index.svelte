@@ -42,6 +42,6 @@ import type { Load } from "@sveltejs/kit";
   .posts {
     display: flex;
     flex-direction: column;
-    gap: 60px;
+    gap: 0;
   }
 </style> 
