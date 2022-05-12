@@ -1,4 +1,5 @@
 import { join, basename, dirname } from "path";
+import { createPostPreview } from "./preview";
 
 export type Post = {
   id: string;
@@ -33,7 +34,12 @@ export const getPosts = () => {
   return posts;
 }
 
-export const getPostbyId = (id: string) => {
+export const getPostbyId = async (id: string) => {
   const posts = getPosts();
-  return posts.find(p => p.id === id);
+  const post = posts.find(p => p.id === id);
+  if (post) {
+    const previewUrl = await createPostPreview(post);
+    console.log("POST PREVIEW", previewUrl);
+  }
+  return post;
 }

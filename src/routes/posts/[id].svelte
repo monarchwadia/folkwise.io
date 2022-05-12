@@ -1,3 +1,6 @@
+<svelte:head>
+  <title></title>
+</svelte:head>
 <a href="/" class="read-more">← Read more</a>
 {#await post}
   <div>Loading...</div>
