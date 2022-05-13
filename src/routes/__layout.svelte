@@ -1,6 +1,6 @@
 <script>
-  import Navbar from "../components/navbar.svelte"
-  import GlobalStyles from "../components/global-styles.svelte"
+  import Navbar from "src/components/navbar.svelte"
+  import GlobalStyles from "src/components/global-styles.svelte"
 </script>
 
 <GlobalStyles>
@@ -15,7 +15,7 @@
 </GlobalStyles>
 
 <style lang="scss">
-  @use "../styles/colors" as colors;
+  @use "src/styles/colors" as colors;
 
   .navbar-wrapper {
     padding: 2vh 2vw;

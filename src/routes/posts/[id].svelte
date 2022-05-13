@@ -1,5 +1,5 @@
 <svelte:head>
-  <title></title>
+  <PostMetatags post={post} />
 </svelte:head>
 <a href="/" class="read-more">← Read more</a>
 {#await post}
@@ -34,9 +34,15 @@
   
   </script>
 
-<script>
-  import Post from "../../components/post.svelte"
-  export let post;
+<script lang='ts'>
+  import PostMetatags from "src/components/post.metatags.svelte";
+import { createHtmlMetadata } from "src/services/preview/create-html-metadata";
+import Post from "src/components/post.svelte";
+import type { Post as PostType} from "src/types";
+export let post: PostType;
+
+const metadata = createHtmlMetadata(post);
+
 </script>
 
 <style>

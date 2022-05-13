@@ -7,7 +7,7 @@
 </div>
 
 <style type="scss">
-  @use "../styles/colors" as colors;
+  @use "src/styles/colors" as colors;
 
   .navbar {
     background-color: colors.$dark;

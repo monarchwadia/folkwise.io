@@ -12,6 +12,7 @@
 
 <script context="module" lang="ts">
 import type { Load } from "@sveltejs/kit";
+import type { Post as PostType } from "src/types";
 
   export const load: Load = async ({ fetch }) => {
     // todo: error catching
@@ -33,9 +34,9 @@ import type { Load } from "@sveltejs/kit";
 
 </script>
 
-<script>
-  import Post from "../components/post.svelte";
-  export let posts;
+<script lang='ts'>
+  import Post from "src/components/post.svelte";
+  export let posts: PostType[];
 </script>
 
 <style lang="scss">

@@ -1,14 +1,14 @@
 import { fileURLToPath } from "url";
 import path, { dirname } from "path";
-import { getPosts, type Post } from "../posts";
-import { createPostPreview } from "./util";
+import { getPosts } from "../posts";
+import { createPostPreview } from "./create-post-preview";
 
 // creates social media previews
 export const generatePreviewsForAllPosts = async () =>  {
   const posts = getPosts();
 
   const postPromises = await Promise.allSettled(posts.map((post => createPostPreview(post, {
-      width: 100,
+      width: 200,
       height: 100
     })
   )));

@@ -1,16 +1,6 @@
 import { join, basename, dirname } from "path";
+import type { Post } from "src/types";
 import { generatePreviewsForAllPosts } from "./preview";
-
-export type Post = {
-  id: string;
-  slug: string;
-  html: string;
-  title: string;
-  excerpt: string;
-  isPublished: boolean;
-  publishedOn: string;
-  updatedOn: string;
-};
 
 export const getPosts = () => {
   const modules = import.meta.globEager("../posts/*.md");

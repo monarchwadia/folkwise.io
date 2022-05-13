@@ -1,8 +1,9 @@
 import { fileURLToPath } from "url";
 import path, { dirname } from "path";
-import type { Post } from "../posts";
+
 import gm from "gm";
 import { exec } from "child_process";
+import type { Post } from "src/types";
 
 type Format = {
   width: number;
@@ -20,14 +21,19 @@ const OUTPUT_DIR = [
 
 const ALLOWED_CHAR_REGEX = /^[a-zA-Z0-9\s\']$/;
 
+type Options = {
+  width: number;
+  height: number;
+}
+
 // creates social media previews
-export const createPostPreview = (post: Post, format: Format) =>  {
+export const createPostPreview = (post: Post, opts: Options) =>  {
   const filename = generateFilename(post.id)
   const sanitizedTitle = sanitizeTitle(post.title);
 
   return new Promise<string>((resolve, reject) => {
     exec(`convert \
-      -size 400x400 \
+      -size ${opts.width}x${opts.height} \
       -background white \
       -font Ubuntu \
       -pointsize 32 \
