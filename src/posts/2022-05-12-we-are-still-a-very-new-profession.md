@@ -26,11 +26,11 @@ Can we learn from other professions how to:
 |Teachers|Prehistoric|
 |Lawyers| 2,200 years|
 |Print Publishers|800 years|
-|Electrical engineers|200 years|
-|Automotive engineers|160 years|
-|Aerospace engineers|120 years|
-|***Software engineers***|***70 years***|
+|Electrical Engineers|200 years|
+|Automotive Engineers|160 years|
+|Aerospace Engineers|120 years|
+|***Software Engineers***|***70 years***|
 |Developer Relations|40 years|
-|Data scientists|20 years|
-|Coding bootcamp instructors|10 years|
+|Data Scientists|20 years|
+|Coding Bootcamp Instructors|10 years|
 
