@@ -1,5 +1,6 @@
 <div class="post">
   {@html post.html}
+  <br/>
   <a href={post.slug}>Link</a>
 </div>
 

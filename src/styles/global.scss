@@ -17,3 +17,14 @@ a {
 h2 {
   font-size: 24px;
 }
+
+table {
+  border-collapse: collapse;
+}
+table, th, td {
+  border: 2px solid black;
+}
+th, td {
+  text-align: left;
+  padding: 10px;
+}
