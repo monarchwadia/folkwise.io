@@ -1,4 +1,5 @@
 import type { Post } from "src/types";
+import { absoluteUrl } from "src/utils";
 import type { Metatag, MetatagGenerator } from "../types";
 
 const twitterMetatags: MetatagGenerator = {
@@ -12,7 +13,7 @@ const twitterMetatags: MetatagGenerator = {
     { name: "twitter:creator", content: "@monarchwadia" },
     { name: "twitter:title", content: post.title },
     { name: "twitter:description", content: post.excerpt },
-    { name: "twitter:image", content: "https://monarchwadia.com/" + post.slug },
+    { name: "twitter:image", content: absoluteUrl("socialpreviews", "twitter", post.id) + ".png" },
     { name: "twitter:image:alt", content: `A caption that says "${post.title}"` }
   ]
 }

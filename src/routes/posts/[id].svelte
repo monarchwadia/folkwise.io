@@ -36,14 +36,11 @@
 
 <script lang='ts'>
 import PostMetatags from "src/components/post.metatags.svelte";
-import { getMetatags } from "src/services/preview/get-metatags";
 import Post from "src/components/post.svelte";
 import type { Post as PostType} from "src/types";
 import MetatagGenerators from "src/services/preview/metatag-generators";
 
 export let post: PostType;
-
-const metadata = getMetatags(post);
 
 </script>
 
