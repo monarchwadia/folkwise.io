@@ -15,6 +15,6 @@
 
 <svelte:head>
   {#each metatags as props}
-    <metatag {...props} />
+    <meta {...props} />
   {/each}
 </svelte:head>
