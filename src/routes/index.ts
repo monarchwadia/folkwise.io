@@ -1,10 +1,10 @@
 
 import { getPosts } from "../services/posts";
-import { generatePreviewsForAllPosts } from "../services/preview";
+// import { generatePreviewsForAllPosts } from "../services/preview";
 
 // the endpoint
 export async function get() {
-  generatePreviewsForAllPosts();
+  // generatePreviewsForAllPosts();
 
   const posts = getPosts();
 
