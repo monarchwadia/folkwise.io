@@ -1,3 +1,6 @@
+<svelte:head>
+  <PostMetatags post={post} generators={MetatagGenerators} />
+</svelte:head>
 <a href="/" class="read-more">← Read more</a>
 {#await post}
   <div>Loading...</div>
@@ -31,9 +34,17 @@
   
   </script>
 
-<script>
-  import Post from "../../components/post.svelte"
-  export let post;
+<script lang='ts'>
+import PostMetatags from "src/components/post.metatags.svelte";
+import { getMetatags } from "src/services/preview/get-metatags";
+import Post from "src/components/post.svelte";
+import type { Post as PostType} from "src/types";
+import MetatagGenerators from "src/services/preview/metatag-generators";
+
+export let post: PostType;
+
+const metadata = getMetatags(post);
+
 </script>
 
 <style>

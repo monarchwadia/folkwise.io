@@ -1,7 +1,8 @@
+import type { RequestHandler } from "@sveltejs/kit";
 import { getPosts } from "../../../services/posts";
 
 // the endpoint
-export async function get() {
+export const get: RequestHandler = async () => {
   const posts = getPosts();
 
   return {
