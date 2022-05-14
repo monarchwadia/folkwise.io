@@ -1,8 +1,5 @@
-import { fileURLToPath } from "url";
-import path, { dirname } from "path";
-import { getPostbyId, getPosts } from "../posts";
+import { getPosts } from "../posts";
 import { createPostPreview } from "./create-post-preview";
-import type { Post } from "src/types";
 import metatagGenerators from "./metatag-generators";
 
 // creates social media previews
@@ -24,8 +21,4 @@ export const generatePreviewsForAllPosts = async () =>  {
         break;
     }
   })
-}
-
-export const getPreviewMetatagsForPost = (post: Post) => {
-  
 }
