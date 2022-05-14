@@ -1,4 +1,4 @@
-import { join, basename, dirname } from "path";
+import { urlJoin } from "src/utils";
 import type { Post } from "src/types";
 
 export const getPosts = () => {
@@ -6,7 +6,7 @@ export const getPosts = () => {
   
   const posts: Post[] = Object.entries(modules)
     .map(([filepath, module]): Post => {
-      const slug = join('/', filepath).replace(/(.*)(\.[^.]+$)/, "$1");
+      const slug = urlJoin('/', filepath).replace(/\/\.\.(.*)(\.[^.]+$)/, "$1");
       const id = slug.split('/')[2];
       const { metadata } = module;
       const { html } = module.default.render();

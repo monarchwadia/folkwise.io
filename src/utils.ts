@@ -57,7 +57,7 @@ function normalize (strArray: string[]) {
   return str;
 }
 
-export default function urlJoin(...urls: string[]) {
+export function urlJoin(...urls: string[]) {
   var input;
 
   if (typeof arguments[0] === 'object') {
