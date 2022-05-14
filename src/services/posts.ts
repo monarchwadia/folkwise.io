@@ -3,13 +3,14 @@ import type { Post } from "src/types";
 
 export const getPosts = () => {
   const modules = import.meta.globEager("../posts/*.md");
+  console.log("MODULES", modules);
   
   const posts: Post[] = Object.entries(modules)
     .map(([filepath, module]): Post => {
       const slug = urlJoin('/', filepath).replace(/\/\.\.(.*)(\.[^.]+$)/, "$1");
       const id = slug.split('/')[2];
       const { metadata } = module;
-      const { html } = module.default.render();
+      const { html } = module.default.render && module.default.render() || "";
 
       return {
         id,
