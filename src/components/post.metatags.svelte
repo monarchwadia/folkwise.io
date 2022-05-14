@@ -13,6 +13,6 @@ const metatags = generators.flatMap(generator => generator.metatags(post));
 <svelte:head>
 
   {#each metatags as props}
-    <metatag {...props}></metatag>
+    <metatag {...props} />
   {/each}
 </svelte:head>
