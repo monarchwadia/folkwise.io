@@ -1,17 +1,19 @@
 <script lang='ts'>
-import type { MetatagGenerator } from "src/services/preview/types";
+  import type { Metatag, MetatagGenerator } from "src/services/preview/types";
+  import { page } from '$app/stores';
+  import { getPostbyId } from "src/services/posts";
+  import generators from "src/services/preview/metatag-generators";
 
-import type { Post } from "src/types";
+  let metatags: Metatag[] = [];
+  const { postId } = $page.params;
+  const post = postId && getPostbyId(postId);
 
-export let post: Post;
-export let generators: MetatagGenerator[];
-
-const metatags = generators.flatMap(generator => generator.metatags(post));
-
+  if (post) {
+    metatags = generators.flatMap(generator => generator.metatags(post));
+  }
 </script>
 
 <svelte:head>
-
   {#each metatags as props}
     <metatag {...props} />
   {/each}

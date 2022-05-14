@@ -1,6 +1,4 @@
-<svelte:head>
-  <PostMetatags post={post} generators={MetatagGenerators} />
-</svelte:head>
+<PostMetatags post={post} generators={generators} />
 <a href="/" class="read-more">← Read more</a>
 {#await post}
   <div>Loading...</div>
@@ -12,17 +10,19 @@
 
 <script context="module" lang="ts">
   import type { Load } from "@sveltejs/kit";
+  import MetatagGenerators from "src/services/preview/metatag-generators";
   
     export const load: Load = async ({ fetch, params }) => {
       // todo: error catching
-      const { id } = params;
-      const response = await fetch("/api/posts/" + id)
+      const { postId } = params;
+      const response = await fetch("/api/posts/" + postId)
       
       if (response.ok) {
         const json = await response.json()
         return {
           props: {
-            post: json
+            post: json,
+            generators: MetatagGenerators
           }
         }
       } else {
@@ -38,8 +38,9 @@
 import PostMetatags from "src/components/post.metatags.svelte";
 import Post from "src/components/post.svelte";
 import type { Post as PostType} from "src/types";
-import MetatagGenerators from "src/services/preview/metatag-generators";
+import type { MetatagGenerator } from "src/services/preview/types";
 
+export let generators: MetatagGenerator[];
 export let post: PostType;
 
 </script>

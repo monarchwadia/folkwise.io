@@ -1,6 +1,7 @@
 <script>
   import Navbar from "src/components/navbar.svelte"
   import GlobalStyles from "src/components/global-styles.svelte"
+  import PostMetatags from "src/components/post.metatags.svelte"
 </script>
 
 <GlobalStyles>
@@ -13,6 +14,8 @@
     </div>
   </div>
 </GlobalStyles>
+<PostMetatags />
+
 
 <style lang="scss">
   @use "src/styles/colors" as colors;
