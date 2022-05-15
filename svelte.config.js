@@ -30,7 +30,6 @@ const config = {
 			}
 		}
 	},
-
 	extensions: [".svelte", ".md"],
 };
 

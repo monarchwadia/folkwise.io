@@ -1,4 +1,3 @@
-<PostMetatags post={post} generators={generators} />
 <a href="/" class="read-more">← Read more</a>
 {#await post}
   <div>Loading...</div>
