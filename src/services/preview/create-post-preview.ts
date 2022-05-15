@@ -24,7 +24,6 @@ const ALLOWED_CHAR_REGEX = /^[a-zA-Z0-9\s\']$/;
 
 // creates social media previews
 export const createPostPreview = (post: Post, opts: MetatagGenerator) =>  {
-  console.log(opts);
   const filename = generateFilename(opts.pathPrefix, post.id)
   const sanitizedTitle = sanitizeTitle(post.title);
   const {imageDimensions, metatags} = opts;
