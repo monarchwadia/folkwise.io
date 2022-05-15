@@ -1,6 +1,7 @@
 ---
 title: "We're still a very new profession."
 date: 2022-05-12
+excerpt: "Maybe it would be wise to consider that maybe, just maybe, we barely know what we're doing."
 ---
 
 Software engineers may have had an outsized impact on the world. But we forget how incredibly *new* software engineering is. 
