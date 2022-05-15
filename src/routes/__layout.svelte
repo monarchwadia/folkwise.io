@@ -2,6 +2,7 @@
   import Navbar from "src/components/navbar.svelte"
   import GlobalStyles from "src/components/global-styles.svelte"
   import PostMetatags from "src/components/post.metatags.svelte"
+  import GoogleAnalytics from "src/components/google-analytics.svelte"
 </script>
 
 <GlobalStyles>
@@ -15,6 +16,7 @@
   </div>
 </GlobalStyles>
 <PostMetatags />
+<GoogleAnalytics />
 
 
 <style lang="scss">
