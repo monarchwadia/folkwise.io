@@ -71,5 +71,5 @@ export function urlJoin(...urls: string[]) {
 
 
 export const absoluteUrl = (...parts: string[]) => {
-  return urlJoin("https://monarchwadia.com", ...parts);
+  return urlJoin("https://www.monarchwadia.com", ...parts);
 }
