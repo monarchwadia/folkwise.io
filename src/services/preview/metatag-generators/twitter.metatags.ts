@@ -9,12 +9,12 @@ const twitterMetatags: MetatagGenerator = {
     width: 1300
   },
   metatags: (post: Post): Metatag[] => [
-    { name: "twitter:card", content: "summary_large_image" },
-    { property: "twitter:creator", content: "@monarchwadia" },
-    { property: "twitter:title", content: post.title },
-    { property: "twitter:description", content: post.excerpt },
-    { property: "twitter:image", content: absoluteUrl("socialpreviews", "twitter", post.id) + ".png" },
-    { property: "twitter:image:alt", content: `A caption that says "${post.title}"` }
+    { type: "name", key: "twitter:card", content: "summary_large_image" },
+    { type: "property", key: "twitter:creator", content: "@monarchwadia" },
+    { type: "property", key: "twitter:title", content: post.title },
+    { type: "property", key: "twitter:description", content: post.excerpt },
+    { type: "property", key: "twitter:image", content: absoluteUrl("socialpreviews", "twitter", post.id) + ".png" },
+    { type: "property", key: "twitter:image:alt", content: `A caption that says "${post.title}"` }
   ]
 }
 

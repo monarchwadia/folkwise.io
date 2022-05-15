@@ -16,8 +16,7 @@
       "og:description": (val: string) => val?.length > 100 // LinkedIn needs 100+ length
     }
 
-    metatags.forEach(({name, property, content}) => {
-        const key = name || property;
+    metatags.forEach(({key, content}) => {
         if (checks[key] && !checks[key](content)) {
           console.warn(`WARNING! Frontmatter validation failed for post [${post.id}], metatag property [${key}]`)
         }
@@ -26,7 +25,11 @@
 </script>
 
 <svelte:head>
-  {#each metatags as props}
-    <meta {...props} />
+  {#each metatags as metatag}
+    <meta { ...({
+      /* we're just spreading the props here.. nothing special */
+      [metatag.type]: metatag.key,
+      content: metatag.content
+    })} />
   {/each}
 </svelte:head>

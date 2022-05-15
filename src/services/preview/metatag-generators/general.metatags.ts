@@ -9,14 +9,14 @@ const generalMetatags: MetatagGenerator = {
     width: 1200
   },
   metatags: (post: Post): Metatag[] => [
-    { name: "title", content: post.title  },
-    { name: "description", content: post.excerpt  },
-    { name: "author", content: "Monarch Wadia"  },
-    { property: "og:title", content: post.title },
-    { property: "og:type", content: "article" },
-    { property: "og:url", content: absoluteUrl(post.slug) },
-    { property: "og:image", content: absoluteUrl("socialpreviews", "general", post.id) + ".png" },
-    { property: "og:description", content: post.excerpt },
+    { type: "name", key: "title", content: post.title  },
+    { type: "name", key: "description", content: post.excerpt  },
+    { type: "name", key: "author", content: "Monarch Wadia"  },
+    { type: "property", key: "og:title", content: post.title },
+    { type: "property", key: "og:type", content: "article" },
+    { type: "property", key: "og:url", content: absoluteUrl(post.slug) },
+    { type: "property", key: "og:image", content: absoluteUrl("socialpreviews", "general", post.id) + ".png" },
+    { type: "property", key: "og:description", content: post.excerpt },
   ]
 }
 
