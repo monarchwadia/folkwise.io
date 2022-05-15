@@ -1,14 +1,14 @@
 ---
 title: "We're still a very new profession."
 date: 2022-05-12
-excerpt: "Maybe it would be wise to consider that maybe, just maybe, we barely know what we're doing. Maybe we should take a page out of other professionals' books."
+excerpt: "It would be wise to consider that we barely know what we're doing. Maybe we should take a page out of other professionals' books."
 ---
 
 Software engineers may have had an outsized impact on the world. But we forget how incredibly *new* software engineering is. 
 
 Lawyers have more than 2,000 years on us. Architects, doctors, accountants and teachers even more so.
 
-Maybe it would be wise to consider that maybe, just maybe, we barely know what we're doing. 
+It would be wise to consider that we barely know what we're doing. 
 
 Maybe we should take a page out of other professionals' books.
 
