@@ -1,16 +1,16 @@
 ---
 title: "We're still a very new profession."
 date: 2022-05-12
-excerpt: "It would be wise to consider that we barely know what we're doing. Maybe we should take a page out of other professionals' books."
+excerpt: "We often forget how incredibly *new* software engineering is, and that we would benefit greatly from learning from other fields."
 ---
 
-Software engineers may have had an outsized impact on the world. But we forget how incredibly *new* software engineering is. 
+We often forget how incredibly *new* software engineering is, and that we would benefit greatly from learning from other fields.
 
-Lawyers have more than 2,000 years on us. Architects, doctors, accountants and teachers even more so.
+I recently met an aspiring junior dev who had been in the US Army for 10 years. You better believe they'll be bringing ***very smart, transferable ideas*** to our industry. We're lucky they're interested in software engineering.
 
-It would be wise to consider that we barely know what we're doing. 
+This is one of the reasons why I'm excited about coding bootcamps and career-switching junior devs. 
 
-Maybe we should take a page out of other professionals' books.
+Lawyers have more than 2,000 years on us. Soldiers, architects, doctors, accountants and teachers even more so. It would be wise to consider that we barely know what we're doing. Maybe we should take a page out of other professionals' books.
 
 Can we learn from other professions how to:
 * explain what we do better?
@@ -21,6 +21,7 @@ Can we learn from other professions how to:
 
 |Trade/Profession|How old|
 |-----|---|
+|Soldiers|Prehistoric|
 |Architects|Prehistoric|
 |Doctors|Prehistoric|
 |Accountants|Prehistoric|
