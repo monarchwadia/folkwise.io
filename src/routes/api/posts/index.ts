@@ -3,10 +3,10 @@ import { getPosts } from '../../../services/posts';
 
 // the endpoint
 export const get: RequestHandler = async () => {
-	const posts = getPosts();
+  const posts = getPosts();
 
-	return {
-		status: 200,
-		body: posts
-	};
+  return {
+    status: 200,
+    body: posts
+  };
 };

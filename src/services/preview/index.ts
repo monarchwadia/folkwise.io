@@ -4,23 +4,23 @@ import metatagGenerators from './metatag-generators';
 
 // creates social media previews
 export const generatePreviewsForAllPosts = async () => {
-	const posts = getPosts();
+  const posts = getPosts();
 
-	const postPromises = await Promise.allSettled(
-		metatagGenerators.flatMap((generator) => {
-			return posts.flatMap((post) => {
-				return createPostPreview(post, generator);
-			});
-		})
-	);
+  const postPromises = await Promise.allSettled(
+    metatagGenerators.flatMap((generator) => {
+      return posts.flatMap((post) => {
+        return createPostPreview(post, generator);
+      });
+    })
+  );
 
-	postPromises.forEach((post) => {
-		switch (post.status) {
-			case 'fulfilled':
-				break;
-			case 'rejected':
-				console.error(post.reason);
-				break;
-		}
-	});
+  postPromises.forEach((post) => {
+    switch (post.status) {
+      case 'fulfilled':
+        break;
+      case 'rejected':
+        console.error(post.reason);
+        break;
+    }
+  });
 };

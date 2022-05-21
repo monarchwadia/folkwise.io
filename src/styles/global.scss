@@ -1,33 +1,33 @@
 @use './colors' as colors;
 
 * {
-	font-size: 20px;
-	font-family: 'Fira Sans', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-	color: colors.$dark;
+  font-size: 20px;
+  font-family: 'Fira Sans', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: colors.$dark;
 }
 
 body {
-	background-color: colors.$light;
+  background-color: colors.$light;
 }
 
 a {
-	color: colors.$highlight;
+  color: colors.$highlight;
 }
 
 h2 {
-	font-size: 24px;
+  font-size: 24px;
 }
 
 table {
-	border-collapse: collapse;
+  border-collapse: collapse;
 }
 table,
 th,
 td {
-	border: 2px solid black;
+  border: 2px solid black;
 }
 th,
 td {
-	text-align: left;
-	padding: 10px;
+  text-align: left;
+  padding: 10px;
 }

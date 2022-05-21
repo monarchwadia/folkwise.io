@@ -1,21 +1,21 @@
 <script lang="ts">
-	import type { Post } from 'src/types';
+  import type { Post } from 'src/types';
 
-	export let post: Post;
+  export let post: Post;
 </script>
 
 <div class="post">
-	{@html post.html}
-	<br />
-	<a href={post.slug}>Link</a>
+  {@html post.html}
+  <br />
+  <a href={post.slug}>Link</a>
 </div>
 
 <style lang="scss">
-	@use 'src/styles/colors' as colors;
+  @use 'src/styles/colors' as colors;
 
-	.post {
-		border-bottom: 3px solid colors.$dark;
-		padding: 20px 60px 60px 60px;
-		background-color: colors.$light;
-	}
+  .post {
+    border-bottom: 3px solid colors.$dark;
+    padding: 20px 60px 60px 60px;
+    background-color: colors.$light;
+  }
 </style>

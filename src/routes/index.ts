@@ -3,16 +3,16 @@ import { generatePreviewsForAllPosts } from '../services/preview';
 
 // the endpoint
 export async function get() {
-	if (process.env.NODE_ENV !== 'production') {
-		generatePreviewsForAllPosts();
-	}
+  if (process.env.NODE_ENV !== 'production') {
+    generatePreviewsForAllPosts();
+  }
 
-	const posts = getPosts();
+  const posts = getPosts();
 
-	return {
-		status: 200,
-		body: {
-			posts
-		}
-	};
+  return {
+    status: 200,
+    body: {
+      posts
+    }
+  };
 }

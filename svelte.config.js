@@ -10,27 +10,27 @@ const __dirname = dirname(__filename);
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	// Consult https://github.com/sveltejs/svelte-preprocess
-	// for more information about preprocessors
-	preprocess: [
-		preprocess(),
-		mdsvex({
-			extensions: ['.md'],
-			layout: './src/components/post.layout.svelte'
-		})
-	],
+  // Consult https://github.com/sveltejs/svelte-preprocess
+  // for more information about preprocessors
+  preprocess: [
+    preprocess(),
+    mdsvex({
+      extensions: ['.md'],
+      layout: './src/components/post.layout.svelte'
+    })
+  ],
 
-	kit: {
-		adapter: adapter(),
-		vite: {
-			resolve: {
-				alias: {
-					src: path.resolve(__dirname, './src')
-				}
-			}
-		}
-	},
-	extensions: ['.svelte', '.md']
+  kit: {
+    adapter: adapter(),
+    vite: {
+      resolve: {
+        alias: {
+          src: path.resolve(__dirname, './src')
+        }
+      }
+    }
+  },
+  extensions: ['.svelte', '.md']
 };
 
 export default config;
