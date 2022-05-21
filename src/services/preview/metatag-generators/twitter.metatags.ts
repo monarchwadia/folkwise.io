@@ -14,7 +14,9 @@ const twitterMetatags: MetatagGenerator = {
     { type: "property", key: "twitter:title", content: post.title },
     { type: "property", key: "twitter:description", content: post.excerpt },
     { type: "property", key: "twitter:image", content: absoluteUrl("socialpreviews", "twitter", post.id) + ".png" },
-    { type: "property", key: "twitter:image:alt", content: `A caption that says "${post.title}"` }
+    { type: "property", key: "og:image:height", content: "650"},
+    { type: "property", key: "og:image:width", content: "1300"},
+    { type: "property", key: "twitter:image:alt", content: `A caption that says "${post.title}"` },
   ]
 }
 

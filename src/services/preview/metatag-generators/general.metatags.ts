@@ -15,8 +15,10 @@ const generalMetatags: MetatagGenerator = {
     { type: "property", key: "og:title", content: post.title },
     { type: "property", key: "og:type", content: "article" },
     { type: "property", key: "og:url", content: absoluteUrl(post.slug) },
-    { type: "property", key: "og:image", content: absoluteUrl("socialpreviews", "general", post.id) + ".png" },
     { type: "property", key: "og:description", content: post.excerpt },
+    { type: "property", key: "og:image", content: absoluteUrl("socialpreviews", "general", post.id) + ".png" },
+    { type: "property", key: "og:image:height", content: "630"},
+    { type: "property", key: "og:image:width", content: "1200"},
   ]
 }
 
