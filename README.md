@@ -4,7 +4,6 @@ This app is built with SvelteKit and deployed on Vercel.
 
 ## Installation instructions
 
-
 ### Install ImageMagick and GraphicsMagick
 
 On ubuntu:

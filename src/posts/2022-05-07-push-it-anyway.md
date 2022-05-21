@@ -1,7 +1,7 @@
 ---
-title: "Push it anyway"
+title: 'Push it anyway'
 date: 2022-05-07
-excerpt: "Treat your LinkedIn like a dealership and your Github like a mechanic shop."
+excerpt: 'Treat your LinkedIn like a dealership and your Github like a mechanic shop.'
 ---
 
 When you walk into a car dealership, everything is spotless clean and polished-down, almost sterile. And that's how it should be, because the job of the dealership is to help create an environment in which you and your family feel comfortable purchasing a car. Being a clean, welcoming, and neutral place is part of the function of the dealership.
@@ -10,6 +10,6 @@ When you walk into a mechanic shop, it's very clear that you've entered a workro
 
 Github is a mechanic shop, not a dealership. I expect to see broken code, half-finished projects, and little fun experiments that you worked on and then abandoned. I want to see you working on your craft on your Github. A pretty Github is a nice-to-have, but an empty Github calendar can be a turn-off.
 
-If you want other software developers to take you seriously, treat your LinkedIn like a dealership and your Github like a mechanic shop. Never the other way around. 
+If you want other software developers to take you seriously, treat your LinkedIn like a dealership and your Github like a mechanic shop. Never the other way around.
 
 Is it broken? Push it anyway. If it's abandoned, leave it up there. [My Github](https://github.com/monarchwadia) is a graveyard of dead projects.

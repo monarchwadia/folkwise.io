@@ -1,8 +1,8 @@
 import adapter from '@sveltejs/adapter-auto';
 import preprocess from 'svelte-preprocess';
 import { mdsvex } from 'mdsvex';
-import path, { dirname } from "path";
-import { fileURLToPath } from "url";
+import path, { dirname } from 'path';
+import { fileURLToPath } from 'url';
 
 // need to do this since we're using modules
 const __filename = fileURLToPath(import.meta.url);
@@ -16,7 +16,7 @@ const config = {
 		preprocess(),
 		mdsvex({
 			extensions: ['.md'],
-			layout: "./src/components/post.layout.svelte"
+			layout: './src/components/post.layout.svelte'
 		})
 	],
 
@@ -25,12 +25,12 @@ const config = {
 		vite: {
 			resolve: {
 				alias: {
-					'src': path.resolve(__dirname, './src')
+					src: path.resolve(__dirname, './src')
 				}
 			}
 		}
 	},
-	extensions: [".svelte", ".md"],
+	extensions: ['.svelte', '.md']
 };
 
 export default config;

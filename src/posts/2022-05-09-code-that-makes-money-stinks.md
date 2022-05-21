@@ -1,14 +1,14 @@
 ---
-title: "Code that makes money stinks."
+title: 'Code that makes money stinks.'
 date: 2022-05-09
-excerpt: "Aesthetics, code quality, feature richness, even reliability are unimportant compared to the bottom line."
+excerpt: 'Aesthetics, code quality, feature richness, even reliability are unimportant compared to the bottom line.'
 ---
 
 Complaining about code quality is easy. Writing code that turns a profit is infinitely harder.
 
 Your instincts might tell you to clean up technical debt. Or you might want to write a feature, or fix a bug.
 
-But *should you do it?* Is it worth the expense in terms of dollars? Aesthetics, code quality, feature richness, even reliability are unimportant compared to the bottom line. 
+But _should you do it?_ Is it worth the expense in terms of dollars? Aesthetics, code quality, feature richness, even reliability are unimportant compared to the bottom line.
 
 Which is exactly why code that makes money stinks. Most of the time, it ain't worth fixing.
 

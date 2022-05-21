@@ -1,7 +1,7 @@
 ---
-title: "Hiring versus recruiting."
+title: 'Hiring versus recruiting.'
 date: 2022-05-20
-excerpt: "Trust when recruiting. Verify when hiring. Mistakes happen when you do the opposite."
+excerpt: 'Trust when recruiting. Verify when hiring. Mistakes happen when you do the opposite.'
 ---
 
 Some recent hard learnings for me around hiring & recruiting...

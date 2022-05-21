@@ -1,6 +1,6 @@
 ---
-date: "2021-08-30T18:27:58+01:00"
-title: "About Me"
+date: '2021-08-30T18:27:58+01:00'
+title: 'About Me'
 layout: false
 ---
 
@@ -14,6 +14,5 @@ I live with my wife in the suburbs of Toronto, Canada. I enjoy taking long walks
 
 The best way to reach me is via social media.
 
-* [LinkedIn](https://www.linkedin.com/in/monarchwadia/)
-* [Twitter](https://twitter.com/monarchwadia)
-
+- [LinkedIn](https://www.linkedin.com/in/monarchwadia/)
+- [Twitter](https://twitter.com/monarchwadia)
