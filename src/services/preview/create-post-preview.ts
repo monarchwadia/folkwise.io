@@ -11,20 +11,16 @@ type Format = {
   height: number;
 }
 
-// need to do this since we're using modules
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-const OUTPUT_DIR = [
-  __dirname,
-  "..", "..", "..", "static", "socialpreviews"
-]
-
 const ALLOWED_CHAR_REGEX = /^[a-zA-Z0-9\s\']$/;
 
 // creates social media previews
 export const createPostPreview = (post: Post, opts: MetatagGenerator) =>  {
-  const filename = generateFilename(opts.pathPrefix, post.id)
+  let filename: string = generateFilename(opts.pathPrefix, post.id);
+  if (!filename) {
+    // an error probably occurred inside the function.
+    return;
+  }
+
   const sanitizedTitle = sanitizeTitle(post.title);
   const {imageDimensions, metatags} = opts;
   const borderWidth = Math.max(imageDimensions.width, imageDimensions.height) * 0.10;
@@ -57,4 +53,21 @@ const sanitizeTitle = (title:string) => title
   .filter(char => ALLOWED_CHAR_REGEX.test(char))
   .join('');
 
-const generateFilename = (pathPrefix: string, filename: string) => path.join(...OUTPUT_DIR, pathPrefix, filename) + ".png";
+const generateFilename = (pathPrefix: string, filename: string) => {
+  try {
+    // need to do this since we're using modules
+    const __filename = fileURLToPath(import.meta.url);
+    const __dirname = dirname(__filename);
+    const OUTPUT_DIR = [
+      __dirname,
+      "..", "..", "..", "static", "socialpreviews"
+    ]
+    return path.join(...OUTPUT_DIR, pathPrefix, filename) + ".png";
+  } catch (e) {
+    // hypothetical fix
+    // vercel doesn't actually populate import.meta.url sometimes.. mainly on first loads of the function
+    // this catches that error and returns null in an attempt to save the site.
+    console.error(e);
+    return null;
+  }
+}
