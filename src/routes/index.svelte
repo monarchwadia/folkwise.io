@@ -1,47 +1,80 @@
-<script context="module" lang="ts">
-  import type { Load } from '@sveltejs/kit';
-  import type { Post as PostType } from 'src/types';
-
-  export const load: Load = async ({ fetch }) => {
-    // todo: error catching
-    const response = await fetch('/api/posts');
-
-    if (response.ok) {
-      const json = await response.json();
-      return {
-        props: {
-          posts: json
-        }
-      };
-    } else {
-      return {
-        status: 404
-      };
-    }
-  };
+<script>
+  let blogSnippets = [
+    { title: 'Some Title', text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.' },
+    { title: 'Some Title', text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.' },
+    { title: 'Some Title', text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.' }
+  ];
 </script>
 
-<script lang="ts">
-  import Post from 'src/components/post.svelte';
-  export let posts: PostType[];
-</script>
+<div class="home">
+  <section class="hero">
+    <h1 class="hero-title">Established approaches with fresh perspectives</h1>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur deserunt molestias
+      blanditiis delectus provident necessitatibus cupiditate facere tenetur perferendis autem culpa
+      in illum quibusdam, soluta possimus. Aspernatur explicabo saepe minima.
+    </p>
+  </section>
+  <section class="blog-snippets-section">
+    <h1 class="title">Wisdom Bites</h1>
+    <div class="blog-snippets-container">
+      {#each blogSnippets as blogSnippet}
+        <div class="blog-snippet">
+          <h3>{blogSnippet.title}</h3>
+          <p>{blogSnippet.text}</p>
+        </div>
+      {/each}
+    </div>
+  </section>
+  <section class="services-section">
+    <h1 class="title">What we do</h1>
+    <div class="services-container">
+      {#each blogSnippets as blogSnippet}
+        <div class="service-item">
+          <h3>{blogSnippet.title}</h3>
+          <p>{blogSnippet.text}</p>
+        </div>
+      {/each}
+    </div>
+  </section>
+</div>
 
-{#await posts}
-  <div>Loading...</div>
-{:then data}
-  <div class="posts">
-    {#each data as post}
-      <Post {post} />
-    {/each}
-  </div>
-{:catch error}
-  <div>Oops! An error occurred while loading the posts.</div>
-{/await}
+<style type="scss">
+  @use 'src/styles/colors' as colors;
 
-<style lang="scss">
-  .posts {
+  .hero {
+    padding: 2rem;
+    max-width: 100%;
+    height: 20vh;
+    background-color: colors.$highlight;
+  }
+
+  .blog-snippets-section {
+    padding: 1rem 2rem;
+    background-color: colors.$light;
+  }
+
+  .blog-snippets-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 100%;
+    padding: 2rem 0;
+  }
+
+  .blog-snippet,
+  .service-item {
+    padding: 1rem;
+  }
+
+  .services-section {
     display: flex;
     flex-direction: column;
-    gap: 0;
+    align-items: center;
+    padding: 2rem;
+    background-color: colors.$highlight-red;
+  }
+
+  .service-item {
+    text-align: center;
   }
 </style>
