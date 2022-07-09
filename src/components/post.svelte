@@ -15,7 +15,8 @@
 
   .post {
     border-bottom: 3px solid colors.$dark;
-    padding: 20px 60px 60px 60px;
+    margin-bottom: 1rem;
+    padding: 2rem;
     background-color: colors.$light;
 
     a {

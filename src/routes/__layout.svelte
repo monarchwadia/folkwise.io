@@ -24,7 +24,6 @@
   @use 'src/styles/colors' as colors;
 
   .wrapper {
-    flex: 1 1 auto;
     display: flex;
     flex-direction: column;
     min-height: 100%;
@@ -32,15 +31,23 @@
   }
 
   .navbar-wrapper {
-    padding: 2vh 2vw;
+    flex-shrink: 0;
+    padding: 1rem;
     background-color: colors.$dark;
   }
 
   .content-wrapper {
-    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
+    height: 100%;
     min-height: 100%;
     padding: 0;
     max-width: 100%;
-    margin: auto;
+    margin: 0 auto;
+  }
+
+  footer {
+    flex-shrink: 0;
   }
 </style>
