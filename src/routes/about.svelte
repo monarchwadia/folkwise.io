@@ -1,60 +1,33 @@
 <script>
   let team = [
     {
-      name: 'Jean Luc Picard',
+      name: 'Monarch Wadia',
       role: 'Captain',
       imgURL:
-        'https://i.guim.co.uk/img/media/0d394c339052c8a4e2a67db414464c5b46fd047c/0_303_3196_1917/master/3196.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=8ee3579511571292440ab7b5afbfcb92'
+        'https://i.guim.co.uk/img/media/0d394c339052c8a4e2a67db414464c5b46fd047c/0_303_3196_1917/master/3196.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=8ee3579511571292440ab7b5afbfcb92',
+      bio: 'Monarch bio text'
     },
     {
-      name: 'Jean Luc Picard',
-      role: 'Captain',
+      name: 'David Marshall',
+      role: 'Engineering Officer',
       imgURL:
-        'https://i.guim.co.uk/img/media/0d394c339052c8a4e2a67db414464c5b46fd047c/0_303_3196_1917/master/3196.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=8ee3579511571292440ab7b5afbfcb92'
+        'https://i.guim.co.uk/img/media/0d394c339052c8a4e2a67db414464c5b46fd047c/0_303_3196_1917/master/3196.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=8ee3579511571292440ab7b5afbfcb92',
+      bio: 'David bio text'
     },
     {
-      name: 'Jean Luc Picard',
-      role: 'Captain',
+      name: 'Josh White',
+      role: 'Engineering Officer',
       imgURL:
-        'https://i.guim.co.uk/img/media/0d394c339052c8a4e2a67db414464c5b46fd047c/0_303_3196_1917/master/3196.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=8ee3579511571292440ab7b5afbfcb92'
-    },
-    {
-      name: 'Jean Luc Picard',
-      role: 'Captain',
-      imgURL:
-        'https://i.guim.co.uk/img/media/0d394c339052c8a4e2a67db414464c5b46fd047c/0_303_3196_1917/master/3196.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=8ee3579511571292440ab7b5afbfcb92'
-    },
-    {
-      name: 'Jean Luc Picard',
-      role: 'Captain',
-      imgURL:
-        'https://i.guim.co.uk/img/media/0d394c339052c8a4e2a67db414464c5b46fd047c/0_303_3196_1917/master/3196.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=8ee3579511571292440ab7b5afbfcb92'
-    },
-    {
-      name: 'Jean Luc Picard',
-      role: 'Captain',
-      imgURL:
-        'https://i.guim.co.uk/img/media/0d394c339052c8a4e2a67db414464c5b46fd047c/0_303_3196_1917/master/3196.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=8ee3579511571292440ab7b5afbfcb92'
-    },
-    {
-      name: 'Jean Luc Picard',
-      role: 'Captain',
-      imgURL:
-        'https://i.guim.co.uk/img/media/0d394c339052c8a4e2a67db414464c5b46fd047c/0_303_3196_1917/master/3196.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=8ee3579511571292440ab7b5afbfcb92'
-    },
-    {
-      name: 'Jean Luc Picard',
-      role: 'Captain',
-      imgURL:
-        'https://i.guim.co.uk/img/media/0d394c339052c8a4e2a67db414464c5b46fd047c/0_303_3196_1917/master/3196.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=8ee3579511571292440ab7b5afbfcb92'
-    },
-    {
-      name: 'Jean Luc Picard',
-      role: 'Captain',
-      imgURL:
-        'https://i.guim.co.uk/img/media/0d394c339052c8a4e2a67db414464c5b46fd047c/0_303_3196_1917/master/3196.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=8ee3579511571292440ab7b5afbfcb92'
+        'https://i.guim.co.uk/img/media/0d394c339052c8a4e2a67db414464c5b46fd047c/0_303_3196_1917/master/3196.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=8ee3579511571292440ab7b5afbfcb92',
+      bio: 'Josh bio text'
     }
   ];
+
+  export let showBio = false;
+
+  const toggleBio = () => {
+    showBio = !showBio;
+  };
 </script>
 
 <div class="about-container">
@@ -85,10 +58,17 @@
     <h1>Who we are</h1>
     <div class="team-container">
       {#each team as member}
-        <div class="team-member-container">
-          <img class="team-img" src={member.imgURL} alt="team member" />
-          <p>{member.name}</p>
-          <p>{member.role}</p>
+        <div class="team-member-container" on:click|stopPropagation={toggleBio}>
+          <img class="team-member-img" src={member.imgURL} alt="team member" />
+          <div class="team-member-info hidden">
+            <p>{member.name}</p>
+            <p>{member.role}</p>
+          </div>
+          {#if showBio}
+            <div class="team-member-bio">
+              <p>{member.bio}</p>
+            </div>
+          {/if}
         </div>
       {/each}
     </div>
@@ -96,6 +76,8 @@
 </div>
 
 <style type="scss">
+  @use 'src/styles/colors' as colors;
+
   .about-container {
     min-height: 100%;
     padding: 2rem;
@@ -109,7 +91,33 @@
     text-align: center;
   }
 
-  .team-img {
-    max-width: 80%;
+  .team-member-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: colors.$light;
+
+    &:hover {
+      .team-member-info {
+        display: block;
+      }
+    }
+  }
+
+  .team-member-img {
+    max-width: 100%;
+  }
+
+  .team-member-info {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+    transition: all 300ms;
+  }
+
+  .hidden {
+    display: none;
+    transition: all 300ms;
   }
 </style>

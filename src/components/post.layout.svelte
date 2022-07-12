@@ -1,7 +1,7 @@
-<script lang="ts">
+<script>
   // This file is specified in svelte.config.js
-  export let title: string;
-  export let date: string | number | Date;
+  export let title;
+  export let date;
 </script>
 
 <div class="post">
