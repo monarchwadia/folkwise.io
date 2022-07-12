@@ -11,9 +11,10 @@
   @use 'src/styles/colors' as colors;
 
   .navbar {
-    background-color: colors.$dark;
+    background-color: transparent;
     display: flex;
-    justify-content: space-between;
+    gap: 2rem;
+    justify-content: left;
     align-items: baseline;
 
     .blog-name {

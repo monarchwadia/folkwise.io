@@ -28,12 +28,20 @@
     flex-direction: column;
     min-height: 100%;
     background-color: colors.$medium;
+    background-image: linear-gradient(to right, colors.$light, colors.$dark);
+    background-size: cover;
+    background-position: center;
   }
 
   .navbar-wrapper {
     flex-shrink: 0;
     padding: 1rem 2rem;
     background-color: colors.$dark;
+    background-image: url('./kikko.svg'),
+      linear-gradient(to left, colors.$light, colors.$dark, colors.$dark);
+    background-repeat: no-repeat;
+    background-size: 60%, 100%;
+    background-position: 108% 7%, 0 0;
   }
 
   .content-wrapper {

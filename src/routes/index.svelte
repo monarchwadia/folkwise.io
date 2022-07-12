@@ -1,4 +1,27 @@
-<script>
+<script context="module" lang="ts">
+  import type { Load } from '@sveltejs/kit';
+  import type { Post as PostType } from 'src/types';
+
+  export const load: Load = async ({ fetch }) => {
+    // todo: error catching
+    const response = await fetch('/api/posts');
+
+    if (response.ok) {
+      const json = await response.json();
+      return {
+        props: {
+          posts: json
+        }
+      };
+    } else {
+      return {
+        status: 404
+      };
+    }
+  };
+</script>
+
+<script lang="ts">
   let blogSnippets = [
     {
       title: 'Some Title',
@@ -46,6 +69,7 @@
       text: `Travel time to the nearest starbase? Earl Grey tea, watercress sandwiches... and Bularian canapés? Are you up for promotion? Why don't we just give everybody a promotion and call it a night - 'Commander'?`
     }
   ];
+  export let posts: PostType[];
 </script>
 
 <div class="home">
@@ -62,11 +86,11 @@
   </section>
   <section class="blog-snippets-section">
     <div class="blog-snippets-container">
-      {#each blogSnippets as blogSnippet}
+      {#each posts as post}
         <div class="blog-snippet">
-          <h3>{blogSnippet.title}</h3>
-          <p>{blogSnippet.text}</p>
-          <a href={blogSnippet.path}>Read more -></a>
+          <h3>{post.title}</h3>
+          <p>Test text</p>
+          <a href={post.slug}>Read more -></a>
         </div>
       {/each}
     </div>
@@ -89,10 +113,9 @@
 
   .hero {
     display: grid;
-    grid-template-columns: 70% 30%;
+    grid-template-columns: 60% 40%;
     max-width: 100%;
-    background-color: colors.$highlight;
-    // background-image: url('https://media.istockphoto.com/vectors/oriental-clouds-pattern-vector-id957116264?k=20&m=957116264&s=612x612&w=0&h=dnDU0u2-MY_HAne5e5UZo0WVjpKOAV3ijEJewnZ6q1U=');
+    background-color: colors.$medium;
   }
 
   .hero-text-container {
@@ -106,15 +129,25 @@
     }
   }
 
+  .hero-cta-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   .hero-cta {
-    padding: 1rem;
+    padding: 1rem 1.5rem;
+
     color: colors.$highlight;
     background-color: colors.$dark;
+    font-weight: 700;
     text-decoration: none;
-    border-radius: 8px;
+    border-radius: 6px;
+    transition: all 300ms;
 
     &:hover {
-      color: colors.$light;
+      color: colors.$dark;
+      background-color: colors.$highlight;
     }
   }
 
@@ -145,12 +178,12 @@
   }
 
   .blog-snippet {
-    box-shadow: 0 0 4px 0 colors.$dark;
+    box-shadow: 0 0 3px 0 colors.$dark;
     transition: all 300ms;
 
     &:hover {
       transform: scale(1.025);
-      box-shadow: 0 0 8px 0 colors.$dark;
+      box-shadow: 0 0 6px 0 colors.$dark;
     }
   }
 
@@ -159,7 +192,7 @@
     flex-direction: column;
     align-items: center;
     padding: 2rem;
-    background-color: colors.$medium;
+    background-color: transparent;
   }
 
   .services-container {

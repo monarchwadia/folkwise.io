@@ -14,8 +14,9 @@
   @use 'src/styles/colors' as colors;
 
   .post {
+    max-width: 80%;
     border-bottom: 3px solid colors.$dark;
-    margin-bottom: 1rem;
+    margin: 1rem auto;
     padding: 2rem;
     background-color: colors.$light;
 
