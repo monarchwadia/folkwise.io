@@ -89,7 +89,7 @@
       {#each posts as post}
         <div class="blog-snippet">
           <h3>{post.title}</h3>
-          <p>Test text</p>
+          <p>{post.excerpt} ...</p>
           <a href={post.slug}>Read more -></a>
         </div>
       {/each}
