@@ -17,7 +17,7 @@
     align-items: baseline;
 
     .blog-name {
-      color: white;
+      color: colors.$light;
       font-size: 2rem;
       font-weight: bolder;
       margin: 0;
@@ -34,11 +34,29 @@
 
       li {
         a {
+          position: relative;
           text-decoration: none;
           color: colors.$highlight;
+          transition: all 300ms;
 
           &:hover {
-            color: colors.$highlight-red;
+            color: colors.$light;
+
+            &::after {
+              opacity: 1;
+            }
+          }
+
+          &::after {
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            content: '';
+            width: 100%;
+            height: 2px;
+            background-color: colors.$light;
+            opacity: 0;
+            transition: all 300ms;
           }
         }
       }

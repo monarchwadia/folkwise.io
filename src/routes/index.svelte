@@ -52,14 +52,12 @@
   <section class="hero">
     <div class="hero-text-container">
       <h1 class="hero-title">Established approaches with fresh perspectives</h1>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur deserunt molestias
-        blanditiis delectus provident necessitatibus cupiditate facere tenetur perferendis autem
-        culpa in illum quibusdam, soluta possimus. Aspernatur explicabo saepe minima.
-      </p>
+      <p>We make apps and websites.</p>
+      <p>We hire developers with cross-disciplinary experience.</p>
+      <p>Our developers share their skills and knowledge to help our industry grow.</p>
     </div>
     <div class="hero-cta-container">
-      <a class="hero-cta" href="/">Create with us</a>
+      <a class="hero-cta" href="/">Create and learn with us</a>
     </div>
   </section>
   <section class="blog-snippets-section">
@@ -94,6 +92,7 @@
     grid-template-columns: 70% 30%;
     max-width: 100%;
     background-color: colors.$highlight;
+    // background-image: url('https://media.istockphoto.com/vectors/oriental-clouds-pattern-vector-id957116264?k=20&m=957116264&s=612x612&w=0&h=dnDU0u2-MY_HAne5e5UZo0WVjpKOAV3ijEJewnZ6q1U=');
   }
 
   .hero-text-container {
@@ -101,9 +100,21 @@
     flex-direction: column;
     gap: 1rem;
     padding: 2rem;
-
+    background-color: rbga(0 0 0 0.5);
     p {
       margin: 0;
+    }
+  }
+
+  .hero-cta {
+    padding: 1rem;
+    color: colors.$highlight;
+    background-color: colors.$dark;
+    text-decoration: none;
+    border-radius: 8px;
+
+    &:hover {
+      color: colors.$light;
     }
   }
 
@@ -117,12 +128,12 @@
 
   .blog-snippets-section {
     padding: 1rem 2rem;
-    background-color: colors.$light;
   }
 
   .blog-snippets-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
     max-width: 100%;
     padding: 2rem 0;
   }
@@ -130,6 +141,17 @@
   .blog-snippet,
   .service-item {
     padding: 1rem;
+    background-color: colors.$light;
+  }
+
+  .blog-snippet {
+    box-shadow: 0 0 4px 0 colors.$dark;
+    transition: all 300ms;
+
+    &:hover {
+      transform: scale(1.025);
+      box-shadow: 0 0 8px 0 colors.$dark;
+    }
   }
 
   .services-section {
@@ -137,7 +159,13 @@
     flex-direction: column;
     align-items: center;
     padding: 2rem;
-    background-color: colors.$highlight-red;
+    background-color: colors.$medium;
+  }
+
+  .services-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
   }
 
   .service-item {

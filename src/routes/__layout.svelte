@@ -27,12 +27,12 @@
     display: flex;
     flex-direction: column;
     min-height: 100%;
-    background-color: colors.$light;
+    background-color: colors.$medium;
   }
 
   .navbar-wrapper {
     flex-shrink: 0;
-    padding: 1rem;
+    padding: 1rem 2rem;
     background-color: colors.$dark;
   }
 
@@ -45,9 +45,5 @@
     padding: 0;
     max-width: 100%;
     margin: 0 auto;
-  }
-
-  footer {
-    flex-shrink: 0;
   }
 </style>
