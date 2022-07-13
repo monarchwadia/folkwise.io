@@ -14,8 +14,14 @@
   @use 'src/styles/colors' as colors;
 
   .post {
+    max-width: 80%;
     border-bottom: 3px solid colors.$dark;
-    padding: 20px 60px 60px 60px;
+    margin: 1rem auto;
+    padding: 2rem;
     background-color: colors.$light;
+
+    a {
+      color: colors.$highlight-red;
+    }
   }
 </style>

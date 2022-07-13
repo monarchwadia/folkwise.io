@@ -1,7 +1,8 @@
 <div class="navbar">
+  <h2 class="blog-name">Folkwise</h2>
   <ul>
-    <li class="blog-name">Monarch Wadia</li>
     <li><a href="/">Home</a></li>
+    <li><a href="/blog">Blog</a></li>
     <li><a href="/about">About</a></li>
   </ul>
 </div>
@@ -10,20 +11,54 @@
   @use 'src/styles/colors' as colors;
 
   .navbar {
-    background-color: colors.$dark;
+    background-color: transparent;
+    display: flex;
+    gap: 2rem;
+    justify-content: left;
+    align-items: baseline;
+
+    .blog-name {
+      color: colors.$light;
+      font-size: 2rem;
+      font-weight: bolder;
+      margin: 0;
+      padding-top: 1rem;
+    }
 
     ul {
       padding: 0;
       margin: 0;
       display: flex;
-      flex-direction: row;
+      align-items: baseline;
       list-style: none;
-      gap: 10px;
+      gap: 1.25rem;
 
       li {
-        &.blog-name {
-          color: white;
-          font-weight: bolder;
+        a {
+          position: relative;
+          text-decoration: none;
+          color: colors.$highlight;
+          transition: all 300ms;
+
+          &:hover {
+            color: colors.$light;
+
+            &::after {
+              opacity: 1;
+            }
+          }
+
+          &::after {
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            content: '';
+            width: 100%;
+            height: 2px;
+            background-color: colors.$light;
+            opacity: 0;
+            transition: all 300ms;
+          }
         }
       }
     }
