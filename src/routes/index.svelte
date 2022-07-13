@@ -50,7 +50,7 @@
         <p>We're custom software developers who understand revenue growth and marketing.</p>
       </div>
       <div class="hero-cta-container">
-        <a class="hero-cta" href="/">Let's grow.</a>
+        <a class="hero-cta" href="/contact">Let's grow.</a>
       </div>
     </div>
   </section>
@@ -97,7 +97,7 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    padding: 2rem;
+    padding: 2rem 0;
     background-color: rbga(0 0 0 0.5);
     p {
       margin: 0;
@@ -156,10 +156,10 @@
     box-shadow: 0 0 3px 0 colors.$dark;
     transition: all 300ms;
 
-    &:hover {
-      transform: scale(1.025);
-      box-shadow: 0 0 6px 0 colors.$dark;
-    }
+    // &:hover {
+    //   transform: scale(1.025);
+    //   box-shadow: 0 0 6px 0 colors.$dark;
+    // }
   }
 
   .snippet-read-more {

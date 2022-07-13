@@ -7,7 +7,7 @@
 <div class="post">
   {@html post.html}
   <br />
-  <a href={post.slug}>Link</a>
+  <a class="post-link" href={post.slug}>Link</a>
 </div>
 
 <style lang="scss">
@@ -22,6 +22,33 @@
 
     a {
       color: colors.$highlight-red;
+    }
+  }
+
+  .post-link {
+    position: relative;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 300ms;
+
+    &:hover {
+      color: colors.$dark;
+
+      &::after {
+        opacity: 1;
+      }
+    }
+
+    &::after {
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      content: '';
+      width: 100%;
+      height: 2px;
+      background-color: colors.$dark;
+      opacity: 0;
+      transition: all 300ms;
     }
   }
 </style>

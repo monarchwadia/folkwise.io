@@ -18,8 +18,5 @@
 </div>
 
 <style lang="scss">
-  .post-content-container {
-    max-width: 1000px;
-  }
   /* For some reason, SCSS doesn't work in this file. */
 </style>
