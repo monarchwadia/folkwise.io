@@ -53,8 +53,8 @@
     display: flex;
     flex-direction: column;
     min-height: 100%;
-    background-color: colors.$medium;
-    background-image: linear-gradient(to right, colors.$light, colors.$medium, colors.$dark);
+    background-color: colors.$light;
+    background-image: linear-gradient(to bottom, colors.$white, colors.$light);
     background-size: cover;
     background-position: center;
   }
@@ -78,6 +78,5 @@
     min-height: 100%;
     padding: 0;
     max-width: 100%;
-    margin: 0 auto;
   }
 </style>

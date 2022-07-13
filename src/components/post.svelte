@@ -14,11 +14,11 @@
   @use 'src/styles/colors' as colors;
 
   .post {
-    max-width: 80%;
+    max-width: 1000px;
     border-bottom: 3px solid colors.$dark;
-    margin: 1rem auto;
+    margin: 1rem 0;
     padding: 2rem;
-    background-color: colors.$light;
+    background-color: colors.$white;
 
     a {
       color: colors.$highlight-red;

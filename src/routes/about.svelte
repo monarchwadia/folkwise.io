@@ -1,6 +1,4 @@
 <script lang="ts">
-  import { bind } from 'svelte/internal';
-
   interface TeamMember {
     name: string;
     role: string;
@@ -28,17 +26,13 @@
     },
     {
       name: 'Josh White',
-      role: 'Engineering Officer',
+      role: 'Engineering Crewman',
       imgURL:
         'https://i.guim.co.uk/img/media/0d394c339052c8a4e2a67db414464c5b46fd047c/0_303_3196_1917/master/3196.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=8ee3579511571292440ab7b5afbfcb92',
       bio: 'Josh bio text',
       showBio: false
     }
   ];
-
-  const handleClick = (event: MouseEvent) => {
-    console.log(event.target);
-  };
 </script>
 
 <div class="about-container">
@@ -65,7 +59,7 @@
       as we drive towards them. There is no daily schedule.
     </p>
   </section>
-  <section class="mission-section">
+  <section class="team-section">
     <h1>Who we are</h1>
     <div class="team-container">
       {#each team as member}
@@ -94,6 +88,8 @@
 
   .about-container {
     min-height: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
     padding: 2rem;
   }
 
@@ -101,8 +97,8 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 3rem;
-    padding: 1rem;
     text-align: center;
+    // background-color: colors.$white;
   }
 
   .team-member-container {
@@ -151,7 +147,7 @@
   }
 
   .team-member-bio {
-    background-color: colors.$light;
+    background-color: colors.$white;
   }
 
   .hidden {

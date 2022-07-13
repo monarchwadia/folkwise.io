@@ -29,7 +29,7 @@
 {#await posts}
   <div>Loading...</div>
 {:then data}
-  <div class="posts">
+  <div class="blog-posts">
     {#each data as post}
       <Post {post} />
     {/each}
@@ -39,12 +39,14 @@
 {/await}
 
 <style lang="scss">
-  .posts {
+  @use 'src/styles/colors' as colors;
+
+  .blog-posts {
     display: flex;
     flex-direction: column;
     gap: 0;
-    width: 80vw;
-    max-width: 700px;
+    width: 100%;
+    max-width: 1000px;
     margin: 0 auto;
     padding-bottom: 1rem;
   }

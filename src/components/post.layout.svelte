@@ -4,7 +4,7 @@
   export let date;
 </script>
 
-<div class="post">
+<div class="post-content-container">
   <h1>{title}</h1>
   <em class="date">
     {new Date(date).toLocaleDateString('en-US', {
@@ -18,5 +18,8 @@
 </div>
 
 <style lang="scss">
+  .post-content-container {
+    max-width: 1000px;
+  }
   /* For some reason, SCSS doesn't work in this file. */
 </style>
