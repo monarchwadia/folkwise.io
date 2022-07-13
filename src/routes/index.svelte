@@ -75,13 +75,11 @@
 <div class="home">
   <section class="hero">
     <div class="hero-text-container">
-      <h1 class="hero-title">Established approaches with fresh perspectives</h1>
-      <p>We make apps and websites.</p>
-      <p>We hire developers with cross-disciplinary experience.</p>
-      <p>Our developers share their skills and knowledge to help our industry grow.</p>
+      <h1 class="hero-title">We build software that grows your tribe.</h1>
+      <p>We're custom software developers who understand revenue growth and marketing.</p>
     </div>
     <div class="hero-cta-container">
-      <a class="hero-cta" href="/">Create and learn with us</a>
+      <a class="hero-cta" href="/">Let's grow.</a>
     </div>
   </section>
   <section class="blog-snippets-section">
