@@ -39,22 +39,24 @@
   <section class="values-section">
     <h1>What we value</h1>
     <h2>Above All: To Care for Others</h2>
-    <p>First, the users of the product. Second, our respected clients. Third, the Folkwise team.</p>
+    <p class="base-text">
+      First, the users of the product. Second, our respected clients. Third, the Folkwise team.
+    </p>
     <h3>To Teach</h3>
-    <p>
+    <p class="base-text">
       For all developers on the team, 10 hours per week are dedicated to teaching others. This can
       take the form of classes, articles, social media posts, group mentorship, or anything else.
     </p>
     <h3>To Be Uncontrived</h3>
-    <p>
+    <p class="base-text">
       We use the easiest words that convey the meaning and the simplest tools that fit the project.
     </p>
     <h3>To Be Ourselves</h3>
-    <p>We put our names next to the work we do.</p>
+    <p class="base-text">We put our names next to the work we do.</p>
   </section>
   <section class="mission-section">
     <h1>How We Work</h1>
-    <p>
+    <p class="base-text">
       Everyone codes. Everyone is a decision maker. We agree on goals, and then we over-communicate
       as we drive towards them. There is no daily schedule.
     </p>
@@ -68,13 +70,13 @@
             <img class="team-member-img" src={member.imgURL} alt="team member" />
             <div class="team-member-info hidden">
               <h3>{member.name}</h3>
-              <p>{member.role}</p>
+              <p class="base-text">{member.role}</p>
             </div>
           </div>
 
           {#if member.showBio}
             <div class="team-member-bio">
-              <p>{member.bio}</p>
+              <p class="base-text">{member.bio}</p>
             </div>
           {/if}
         </div>
@@ -111,7 +113,7 @@
 
     &:hover {
       box-shadow: 0 0 6px 0 colors.$dark;
-      transform: scale(1.0125);
+
       .team-member-info {
         display: flex;
       }

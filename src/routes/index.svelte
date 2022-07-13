@@ -46,8 +46,10 @@
   <section class="hero">
     <div class="hero-container">
       <div class="hero-text-container">
-        <h1 class="hero-title">We build software that grows your tribe.</h1>
-        <p>We're custom software developers who understand revenue growth and marketing.</p>
+        <h1 class="large-header">We build software that grows your tribe.</h1>
+        <p class="bold-text">
+          We're custom software developers who understand revenue growth and marketing.
+        </p>
       </div>
       <div class="hero-cta-container">
         <a class="hero-cta" href="/contact">Let's grow.</a>
@@ -58,8 +60,11 @@
     <div class="blog-snippets-container">
       {#each posts as post}
         <div class="blog-snippet">
-          <h3>{post.title}</h3>
-          <p>{post.excerpt} ...</p>
+          <div class="text-container">
+            <h3>{post.title}</h3>
+            <p class="base-text">{post.excerpt} ...</p>
+          </div>
+
           <a class="snippet-read-more" href={post.slug}>Read more →</a>
         </div>
       {/each}
@@ -71,7 +76,7 @@
       {#each blogSnippets as blogSnippet}
         <div class="service-item">
           <h3>{blogSnippet.title}</h3>
-          <p>{blogSnippet.text}</p>
+          <p class="base-text">{blogSnippet.text}</p>
         </div>
       {/each}
     </div>
@@ -84,6 +89,11 @@
   .hero {
     width: 100%;
     background-color: colors.$medium;
+    background-image: url('./kikko-light.svg'),
+      linear-gradient(to left, colors.$white, colors.$white, colors.$light);
+    background-size: 90%, 100%;
+    background-position: -50% 50%, 100% 100%;
+    background-repeat: no-repeat;
   }
 
   .hero-container {
@@ -129,6 +139,10 @@
     margin: 0;
   }
 
+  .hero-text {
+    font-weight: 600;
+  }
+
   .hero-cta-container {
     padding: 2rem;
   }
@@ -153,9 +167,17 @@
   }
 
   .blog-snippet {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    align-items: left;
     box-shadow: 0 0 3px 0 colors.$dark;
     transition: all 300ms;
 
+    h3,
+    p {
+      margin: 0 0 1rem 0;
+    }
     // &:hover {
     //   transform: scale(1.025);
     //   box-shadow: 0 0 6px 0 colors.$dark;
@@ -164,9 +186,11 @@
 
   .snippet-read-more {
     position: relative;
+    width: fit-content;
     font-weight: 600;
     text-decoration: none;
     transition: all 300ms;
+    justify-self: flex-end;
 
     &:hover {
       color: colors.$dark;
