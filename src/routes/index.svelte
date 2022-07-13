@@ -83,7 +83,7 @@
 
   .hero {
     width: 100%;
-    background-color: colors.$light;
+    background-color: colors.$medium;
   }
 
   .hero-container {
@@ -134,7 +134,8 @@
   }
 
   .blog-snippets-section {
-    padding: 1rem 2rem;
+    margin: 0 auto;
+    padding: 1rem 0;
   }
 
   .blog-snippets-container {
@@ -143,7 +144,6 @@
     gap: 1rem;
     max-width: 1000px;
     margin: 0 auto;
-    padding: 2rem 0;
   }
 
   .blog-snippet,

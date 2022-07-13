@@ -61,7 +61,7 @@
 
   .navbar-wrapper {
     flex-shrink: 0;
-    padding: 1rem 2rem;
+    padding: 1rem 0;
     background-color: colors.$dark;
     background-image: url('./kikko.svg'),
       linear-gradient(to left, colors.$medium, colors.$dark, colors.$dark);
