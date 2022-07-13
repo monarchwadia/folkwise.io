@@ -90,7 +90,7 @@
         <div class="blog-snippet">
           <h3>{post.title}</h3>
           <p>{post.excerpt} ...</p>
-          <a href={post.slug}>Read more -></a>
+          <a href={post.slug}>Read more →</a>
         </div>
       {/each}
     </div>

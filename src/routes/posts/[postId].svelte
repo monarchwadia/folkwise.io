@@ -39,5 +39,6 @@
 <style>
   .read-more {
     font-size: 24px;
+    margin: 2rem 0 1rem 2.5rem;
   }
 </style>
