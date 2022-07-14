@@ -32,11 +32,6 @@
       title: 'Some Title',
       path: '/',
       text: `Travel time to the nearest starbase? Earl Grey tea, watercress sandwiches... and Bularian canapés? Are you up for promotion? Why don't we just give everybody a promotion and call it a night - 'Commander'?`
-    },
-    {
-      title: 'Some Title',
-      path: '/',
-      text: `Travel time to the nearest starbase? Earl Grey tea, watercress sandwiches... and Bularian canapés? Are you up for promotion? Why don't we just give everybody a promotion and call it a night - 'Commander'?`
     }
   ];
   export let posts: PostType[];
@@ -46,9 +41,9 @@
   <section class="hero">
     <div class="hero-container">
       <div class="hero-text-container">
-        <h1 class="large-header">We build software that grows your tribe.</h1>
+        <h1 class="large-header">We're a community of software developers.</h1>
         <p class="bold-text">
-          We're custom software developers who understand revenue growth and marketing.
+          We're custom software developers with deep expertise in a variety of industries.
         </p>
       </div>
       <div class="hero-cta-container">
