@@ -37,3 +37,25 @@ td {
   text-align: left;
   padding: 10px;
 }
+
+.base-text {
+  font-size: 1rem;
+  line-height: 1rem;
+}
+
+.bold-text {
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1.1rem;
+}
+
+.small-header {
+  font-size: 2rem;
+  line-height: 2rem;
+}
+
+.large-header {
+  font-size: 2.5rem;
+  line-height: 2.5rem;
+  margin: 0;
+}

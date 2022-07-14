@@ -1,9 +1,10 @@
 <div class="navbar">
-  <h2 class="blog-name">Folkwise</h2>
+  <a href="/" class="logo-link"><h2 class="blog-name">Folkwise</h2></a>
   <ul>
     <li><a href="/">Home</a></li>
     <li><a href="/blog">Blog</a></li>
     <li><a href="/about">About</a></li>
+    <li><a href="/contact">Contact</a></li>
   </ul>
 </div>
 
@@ -16,6 +17,12 @@
     gap: 2rem;
     justify-content: left;
     align-items: baseline;
+    max-width: 1000px;
+    margin: 0 auto;
+
+    .logo-link {
+      text-decoration: none;
+    }
 
     .blog-name {
       color: colors.$light;

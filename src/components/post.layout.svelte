@@ -4,7 +4,7 @@
   export let date;
 </script>
 
-<div class="post">
+<div class="post-content-container">
   <h1>{title}</h1>
   <em class="date">
     {new Date(date).toLocaleDateString('en-US', {

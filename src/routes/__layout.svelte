@@ -53,15 +53,15 @@
     display: flex;
     flex-direction: column;
     min-height: 100%;
-    background-color: colors.$medium;
-    background-image: linear-gradient(to right, colors.$light, colors.$medium, colors.$dark);
+    background-color: colors.$light;
+    // background-image: linear-gradient(to top, colors.$white, colors.$light);
     background-size: cover;
     background-position: center;
   }
 
   .navbar-wrapper {
     flex-shrink: 0;
-    padding: 1rem 2rem;
+    padding: 1rem 0;
     background-color: colors.$dark;
     background-image: url('./kikko.svg'),
       linear-gradient(to left, colors.$medium, colors.$dark, colors.$dark);
@@ -78,6 +78,5 @@
     min-height: 100%;
     padding: 0;
     max-width: 100%;
-    margin: 0 auto;
   }
 </style>
