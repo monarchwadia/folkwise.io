@@ -84,7 +84,4 @@
       padding: 0;
     }
   }
-
-  @media screen and (min-width: 768px) {
-  }
 </style>

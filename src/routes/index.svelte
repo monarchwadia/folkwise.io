@@ -101,10 +101,6 @@
     p {
       margin: 0 0 1rem 0;
     }
-    // &:hover {
-    //   transform: scale(1.025);
-    //   box-shadow: 0 0 6px 0 colors.$dark;
-    // }
   }
 
   .snippet-read-more {
@@ -140,7 +136,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 2rem;
     background-color: transparent;
   }
 
@@ -154,5 +149,17 @@
 
   .service-item {
     text-align: center;
+  }
+
+  @media screen and (max-width: 768px) {
+    .blog-snippets-container {
+      display: flex;
+      flex-direction: column;
+      padding: 1rem;
+    }
+
+    .services-container {
+      padding: 1rem;
+    }
   }
 </style>
