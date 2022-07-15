@@ -1,4 +1,4 @@
-<footer>
+<footer class="footer">
   <div class="footer-content-container">
     <div class="company-container">
       <h3>Folkwise</h3>
@@ -23,7 +23,7 @@
 <style type="scss">
   @use 'src/styles/colors' as colors;
 
-  footer {
+  .footer {
     padding: 2rem;
     background-color: colors.$dark;
     background-image: url('/kikko.svg'),
@@ -78,6 +78,15 @@
         opacity: 0;
         transition: all 300ms;
       }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .footer {
+      background-image: url('/kikko.svg'),
+        linear-gradient(to left, colors.$medium, colors.$dark, colors.$dark, colors.$dark);
+      background-size: 150%, 100%;
+      background-position: 70% 30%, 0 0;
     }
   }
 </style>
