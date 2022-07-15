@@ -1,7 +1,7 @@
 <section class="hero">
   <div class="hero-container">
     <div class="hero-text-container">
-      <h1 class="large-header">We're a community of software developers.</h1>
+      <h1>We're a community of software developers.</h1>
       <p class="bold-text">
         We're custom software developers with deep expertise in a variety of industries.
       </p>
@@ -66,5 +66,25 @@
 
   .hero-cta-container {
     padding: 2rem;
+  }
+
+  @media screen and (max-width: 768px) {
+    .hero {
+      background-image: linear-gradient(to top, colors.$white, colors.$white, colors.$light);
+      background-size: 100%;
+    }
+
+    .hero-container {
+      display: flex;
+      flex-direction: column;
+      padding: 1rem;
+    }
+
+    .hero-text-container {
+      padding: 0;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
   }
 </style>

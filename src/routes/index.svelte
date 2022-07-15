@@ -55,7 +55,6 @@
     </div>
   </section>
   <section class="services-section">
-    <h1 class="title">What we do</h1>
     <div class="services-container">
       {#each blogSnippets as blogSnippet}
         <div class="service-item">
