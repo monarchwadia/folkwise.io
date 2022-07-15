@@ -9,13 +9,16 @@
   <br />
   <div>
     <h2>Josh White</h2>
-    <div style="width: 200px; height: 200px; background-color: black"></div>
-    <div>Josh White is a software engineer who works at Folkwise. His cross-disciplinary expertise includes the education industry, linguistics, and English as an Additional Language (EAL). </div>
+    <div style="width: 200px; height: 200px; background-color: black" />
+    <div>
+      Josh White is a software engineer who works at Folkwise. His cross-disciplinary expertise
+      includes the education industry, linguistics, and English as an Additional Language (EAL).
+    </div>
     <b>Josh is currently accepting new projects.</b>
-    <br>
-    <a href="#">Click here to contact Josh.</a>
+    <br />
+    <a href="/">Click here to contact Josh.</a>
   </div>
-  <br>
+  <br />
   <a class="post-link" href={post.slug}>Link</a>
 </div>
 
