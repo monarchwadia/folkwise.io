@@ -1,5 +1,5 @@
 <div class="navbar">
-  <a href="/" class="logo-link"><h2 class="blog-name">Folkwise</h2></a>
+  <a href="/" class="logo-link"><img class="logo-img" src="/wordmark.png" alt="logo" /></a>
   <ul>
     <li><a href="/">Home</a></li>
     <li><a href="/blog">Blog</a></li>
@@ -20,18 +20,8 @@
     max-width: 1000px;
     margin: 0 auto;
 
-    .logo-link {
-      text-decoration: none;
-      -webkit-user-select: none; /* Chrome all / Safari all */
-      -moz-user-select: none; /* Firefox all */
-      -ms-user-select: none; /* IE 10+ */
-      user-select: none;
-    }
-
-    .blog-name {
-      color: colors.$light;
-      font-size: 2rem;
-      font-weight: bolder;
+    .logo-img {
+      max-width: 8rem;
       margin: 0;
       padding-top: 1rem;
     }
