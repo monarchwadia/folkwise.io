@@ -135,7 +135,7 @@
 
   .blog-snippets-section {
     margin: 0 auto;
-    padding: 1rem 0;
+    padding: 2rem 0;
   }
 
   .blog-snippets-container {
@@ -157,6 +157,7 @@
     flex-direction: column;
     gap: 0;
     align-items: left;
+    justify-content: space-between;
     box-shadow: 0 0 3px 0 colors.$dark;
     transition: all 300ms;
 
