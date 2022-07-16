@@ -1,24 +1,40 @@
+<script lang="ts">
+  import Hamburger from './hamburger.svelte';
+
+  let isOpen = false;
+
+  let vwidth: number;
+</script>
+
+<svelte:window bind:innerWidth={vwidth} />
+
 <div class="navbar">
   <a href="/" class="logo-link"><img class="logo-img" src="/wordmark.png" alt="logo" /></a>
-  <ul>
-    <li><a href="/">Home</a></li>
-    <li><a href="/blog">Blog</a></li>
-    <li><a href="/about">About</a></li>
-    <li><a href="/contact">Contact</a></li>
-  </ul>
+  {#if isOpen || vwidth >= 768}
+    <div class={isOpen === true ? 'navlink-container' : 'navlink-container hidden-nav'}>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </div>
+  {/if}
+  <Hamburger {isOpen} onClick={() => (isOpen = !isOpen)} />
 </div>
 
 <style type="scss">
   @use 'src/styles/colors' as colors;
 
   .navbar {
-    background-color: transparent;
+    position: relative;
+    gap: 1rem;
     display: flex;
-    gap: 2rem;
     justify-content: left;
     align-items: baseline;
     max-width: 1000px;
     margin: 0 auto;
+    padding: 0 1rem;
 
     .logo-img {
       max-width: 8rem;
@@ -33,6 +49,7 @@
       align-items: baseline;
       list-style: none;
       gap: 1.25rem;
+      background-color: colors.$dark;
 
       li {
         a {
@@ -62,6 +79,33 @@
           }
         }
       }
+    }
+  }
+
+  .hidden-nav {
+    display: none;
+  }
+
+  @media screen and (max-width: 767px) {
+    .navbar {
+      justify-content: space-between;
+    }
+
+    .navlink-container {
+      position: absolute;
+      right: 0;
+      top: 100%;
+
+      ul {
+        flex-direction: column;
+        padding: 1rem 2rem 1rem 2rem;
+      }
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    .hidden-nav {
+      display: flex;
     }
   }
 </style>
