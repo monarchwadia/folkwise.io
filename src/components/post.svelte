@@ -13,7 +13,6 @@
   {@html post.html}
   <br />
   <div>
-    <!-- Author component should go here -->
     <Author {author} />
   </div>
   <br />

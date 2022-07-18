@@ -1,5 +1,5 @@
 ---
-title: 'Push it anyway'
+title: 'Push it anyway.'
 date: 2022-05-07
 excerpt: 'Treat your LinkedIn like a dealership and your Github like a mechanic shop.'
 authorName: 'Monarch Wadia'

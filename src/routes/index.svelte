@@ -24,18 +24,6 @@
 <script lang="ts">
   import Hero from '../components/hero.svelte';
 
-  let blogSnippets = [
-    {
-      title: 'Some Title',
-      path: '/',
-      text: `Travel time to the nearest starbase? Earl Grey tea, watercress sandwiches... and Bularian canapés? Are you up for promotion? Why don't we just give everybody a promotion and call it a night - 'Commander'?`
-    },
-    {
-      title: 'Some Title',
-      path: '/',
-      text: `Travel time to the nearest starbase? Earl Grey tea, watercress sandwiches... and Bularian canapés? Are you up for promotion? Why don't we just give everybody a promotion and call it a night - 'Commander'?`
-    }
-  ];
   export let posts: PostType[];
 </script>
 
@@ -54,16 +42,11 @@
       {/each}
     </div>
   </section>
-  <section class="services-section">
-    <div class="services-container">
-      {#each blogSnippets as blogSnippet}
-        <div class="service-item">
-          <h3>{blogSnippet.title}</h3>
-          <p class="base-text">{blogSnippet.text}</p>
-        </div>
-      {/each}
+  <!-- <section class="podcast-section">
+    <div class="carousel-container">
+      <h1>Podcast Section</h1>
     </div>
-  </section>
+  </section> -->
 </div>
 
 <style type="scss">
@@ -82,8 +65,7 @@
     margin: 0 auto;
   }
 
-  .blog-snippet,
-  .service-item {
+  .blog-snippet {
     padding: 1rem;
     background-color: colors.$white;
   }
@@ -132,34 +114,15 @@
     }
   }
 
-  .services-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 1rem;
-    background-color: transparent;
-  }
-
-  .services-container {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-
-  .service-item {
-    text-align: center;
-  }
+  // .carousel-container {
+  //   padding: 2rem;
+  //   background-color: colors.$medium;
+  // }
 
   @media screen and (max-width: 768px) {
     .blog-snippets-container {
       display: flex;
       flex-direction: column;
-      padding: 1rem;
-    }
-
-    .services-container {
       padding: 1rem;
     }
   }
