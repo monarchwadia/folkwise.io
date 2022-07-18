@@ -5,10 +5,8 @@
   import type { Author as AuthorType } from 'src/types';
   import Author from './author.svelte';
   import { authors } from 'src/authors';
-  export let postAuthor: AuthorType[] = authors.filter((author) => author.name === post.authorName);
-  console.log(
-    `Authors: ${authors}; Post Author: ${post.authorName}; Author: ${postAuthor[0].name}`
-  );
+  let postAuthor: AuthorType[] = authors.filter((author) => author.name === post.authorName);
+  export let author = postAuthor[0];
 </script>
 
 <div class="post">
@@ -16,7 +14,7 @@
   <br />
   <div>
     <!-- Author component should go here -->
-    <Author author={postAuthor[0]} />
+    <Author {author} />
   </div>
   <br />
   <a class="post-link" href={post.slug}>Link</a>
