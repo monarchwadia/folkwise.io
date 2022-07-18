@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   // This file is specified in svelte.config.js
   export let title;
   export let date;

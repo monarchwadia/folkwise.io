@@ -6,6 +6,7 @@
   let vwidth: number;
 </script>
 
+<!-- Svelte's method for getting window properties: https://svelte.dev/tutorial/svelte-window-bindings -->
 <svelte:window bind:innerWidth={vwidth} />
 
 <div class="navbar">

@@ -1,22 +1,22 @@
 <script lang="ts">
   import type { Post } from 'src/types';
-
   export let post: Post;
+
+  import type { Author as AuthorType } from 'src/types';
+  import Author from './author.svelte';
+  import { authors } from 'src/authors';
+  export let postAuthor: AuthorType[] = authors.filter((author) => author.name === post.authorName);
+  console.log(
+    `Authors: ${authors}; Post Author: ${post.authorName}; Author: ${postAuthor[0].name}`
+  );
 </script>
 
 <div class="post">
   {@html post.html}
   <br />
   <div>
-    <h2>Josh White</h2>
-    <div style="width: 200px; height: 200px; background-color: black" />
-    <div>
-      Josh White is a software engineer who works at Folkwise. His cross-disciplinary expertise
-      includes the education industry, linguistics, and English as an Additional Language (EAL).
-    </div>
-    <b>Josh is currently accepting new projects.</b>
-    <br />
-    <a href="/">Click here to contact Josh.</a>
+    <!-- Author component should go here -->
+    <Author author={postAuthor[0]} />
   </div>
   <br />
   <a class="post-link" href={post.slug}>Link</a>

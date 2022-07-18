@@ -2,6 +2,7 @@
 title: "We're still a very new profession."
 date: 2022-05-12
 excerpt: 'We often forget how incredibly *new* software engineering is, and that we would benefit greatly from learning from other fields.'
+authorName: 'Monarch Wadia'
 ---
 
 We often forget how incredibly _new_ software engineering is, and that we would benefit greatly from learning from other fields.

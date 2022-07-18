@@ -28,7 +28,7 @@
 </script>
 
 <div class="single-post-container">
-  <a href="/" class="read-more">← Read more</a>
+  <a href="/blog" class="read-more">← Back to Blog</a>
   {#await post}
     <div>Loading...</div>
   {:then}
