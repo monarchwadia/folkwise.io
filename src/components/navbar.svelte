@@ -14,10 +14,10 @@
   {#if isOpen || vwidth >= 768}
     <div class={isOpen === true ? 'navlink-container' : 'navlink-container hidden-nav'}>
       <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/blog">Blog</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/contact">Contact</a></li>
+        <li><a href="/" on:click={() => (isOpen = false)}>Home</a></li>
+        <li><a href="/blog" on:click={() => (isOpen = false)}>Blog</a></li>
+        <li><a href="/about" on:click={() => (isOpen = false)}>About</a></li>
+        <li><a href="/contact" on:click={() => (isOpen = false)}>Contact</a></li>
       </ul>
     </div>
   {/if}
