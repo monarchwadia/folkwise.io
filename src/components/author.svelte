@@ -1,7 +1,7 @@
 <script lang="ts">
-  import type { Author } from 'src/types';
+  import type { StaffMember } from 'src/types';
 
-  export let author: Author;
+  export let author: StaffMember;
 </script>
 
 <div class="author-container">
@@ -16,6 +16,7 @@
   <div class="cta-container">
     <b>{author.projectStatus}</b>
     <a href={author.contactEmail}>Click here to contact {author.name}.</a>
+    <!-- Social icons here -->
   </div>
 </div>
 

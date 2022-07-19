@@ -10,7 +10,8 @@ export type Post = {
   updatedOn: string;
 };
 
-export type Author = {
+export type StaffMember = {
+  uuid: string;
   name: string;
   imgURL: string;
   miniBio: string;

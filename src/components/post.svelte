@@ -2,10 +2,12 @@
   import type { Post } from 'src/types';
   export let post: Post;
 
-  import type { Author as AuthorType } from 'src/types';
+  import type { StaffMember as AuthorType } from 'src/types';
   import Author from './author.svelte';
-  import { authors } from 'src/authors';
-  let postAuthor: AuthorType[] = authors.filter((author) => author.name === post.authorName);
+  import { staffMembers } from 'src/staff';
+  let postAuthor: AuthorType[] = staffMembers.filter(
+    (staffMember) => staffMember.name === post.authorName
+  );
   export let author = postAuthor[0];
 </script>
 

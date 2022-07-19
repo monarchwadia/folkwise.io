@@ -1,7 +1,8 @@
-import type { Author } from './types';
+import type { StaffMember } from './types';
 
-export const authors: Author[] = [
+export const staffMembers: StaffMember[] = [
   {
+    uuid: '9bc0c49c-2ffa-4b90-a379-bcfddf27badc',
     name: 'Monarch Wadia',
     imgURL: '/monarch.jpg',
     miniBio:
@@ -10,14 +11,16 @@ export const authors: Author[] = [
     contactEmail: 'mailto:monarch@zeroprojects.ca'
   },
   {
+    uuid: '208a1658-e940-4bd1-bad7-10f0d090243e',
     name: 'Josh White',
-    imgURL: '/logo.png',
+    imgURL: '/josh.jpg',
     miniBio:
       'Josh is a software engineer who works at Folkwise. His cross-disciplinary expertise includes the education industry, linguistics, and English as an Additional Language (EAL).',
     projectStatus: 'Josh is currently accepting new projects.',
     contactEmail: 'mailto:jojawhi@gmail.com'
   },
   {
+    uuid: '6a409855-e835-4ddf-b7ff-93cbc17ef453',
     name: 'David Marshall',
     imgURL: '/logo.png',
     miniBio:
