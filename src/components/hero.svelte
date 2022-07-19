@@ -18,7 +18,7 @@
   .hero {
     width: 100%;
     background-color: colors.$medium;
-    background-image: url('/kikko-light.svg'),
+    background-image: url('/kikko-light-optimized.svg'),
       linear-gradient(to left, colors.$white, colors.$white, colors.$light);
     background-size: 90%, 100%;
     background-position: -50% 50%, 100% 100%;

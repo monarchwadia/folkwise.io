@@ -35,7 +35,7 @@
         <div class="blog-snippet">
           <div class="text-container">
             <h3>{post.title}</h3>
-            <p class="base-text">{post.excerpt} ...</p>
+            <p class="base-text">{post.excerpt}</p>
             <b>{post.authorName}</b>
           </div>
           <a class="snippet-read-more" href={post.slug}>Read more →</a>
@@ -93,6 +93,7 @@
     text-decoration: none;
     transition: all 300ms;
     justify-self: flex-end;
+    padding-top: 1rem;
 
     &:hover {
       color: colors.$dark;
