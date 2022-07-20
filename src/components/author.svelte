@@ -1,6 +1,9 @@
 <script lang="ts">
-  import type { StaffMember } from 'src/types';
+  import LinkedinSquare from './icons/linkedin-square.svelte';
+  import TwitterSquare from './icons/twitter-square.svelte';
+  import Email2 from './icons/email2.svelte';
 
+  import type { StaffMember } from 'src/types';
   export let author: StaffMember;
 </script>
 
@@ -15,8 +18,12 @@
   </div>
   <div class="cta-container">
     <b>{author.projectStatus}</b>
-    <a href={author.contactEmail}>Click here to contact {author.name}.</a>
-    <!-- Social icons here -->
+    <div class="social-container">
+      <p class="base-text">Contact {author.name}:</p>
+      <LinkedinSquare size="1.25rem" fillColor="#0b2647" hoverColor="#ffce5c" />
+      <TwitterSquare size="1.25rem" fillColor="#0b2647" hoverColor="#ffce5c" />
+      <Email2 size="1.25rem" fillColor="#0b2647" hoverColor="#ffce5c" />
+    </div>
   </div>
 </div>
 
@@ -47,6 +54,12 @@
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+  }
+
+  .social-container {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
   }
 
   .author-image {
