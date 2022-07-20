@@ -23,8 +23,8 @@ export const getAllStaff = () => {
   return staffArray;
 };
 
-export const getStaffMemberByID = (uuid: string) => {
-  const staff = getAllStaff();
+export const getStaffMemberByID = (uuid: string): StaffMember => {
+  const staff: StaffMember[] = getAllStaff();
   const staffMember = staff.find((s) => s.uuid === uuid);
-  return staffMember;
+  return staffMember as StaffMember;
 };
