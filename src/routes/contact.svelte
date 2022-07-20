@@ -12,13 +12,13 @@
 
 <style>
   .contact-container {
-    width: 100%;
     max-width: 1000px;
-    margin: 1rem auto;
+    padding: 1rem;
   }
 
   .contact-form-container {
     display: flex;
     flex-direction: column;
+    width: 80%;
   }
 </style>

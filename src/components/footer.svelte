@@ -24,7 +24,7 @@
   @use 'src/styles/colors' as colors;
 
   .footer {
-    padding: 2rem;
+    padding: 2rem 1rem;
     background-color: colors.$dark;
     background-image: url('/kikko-optimized.svg'),
       linear-gradient(to left, colors.$medium, colors.$dark, colors.$dark, colors.$dark);

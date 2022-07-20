@@ -30,6 +30,7 @@
     grid-template-columns: 60% 40%;
     max-width: 1000px;
     margin: 0 auto;
+    padding: 0 1rem;
   }
 
   .hero-text-container {

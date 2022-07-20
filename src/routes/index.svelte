@@ -36,7 +36,6 @@
           <div class="text-container">
             <h3>{post.title}</h3>
             <p class="base-text">{post.excerpt}</p>
-            <b>{post.authorName}</b>
           </div>
           <a class="snippet-read-more" href={post.slug}>Read more →</a>
         </div>
@@ -64,6 +63,7 @@
     gap: 1rem;
     max-width: 1000px;
     margin: 0 auto;
+    padding: 0 1rem;
   }
 
   .blog-snippet {
