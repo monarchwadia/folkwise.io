@@ -34,5 +34,6 @@
     display: block;
     align-items: center;
     padding: 0 0.5rem;
+    cursor: pointer;
   }
 </style>

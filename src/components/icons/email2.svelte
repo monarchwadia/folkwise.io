@@ -1,4 +1,5 @@
 <script lang="ts">
+  //Code inspired by: https://svelte.dev/repl/170a4929993247aba2b16f18621729ab?version=3.23.2
   export let fillColor: string;
   export let hoverColor: string;
   let color: string = fillColor;
@@ -34,5 +35,6 @@
     display: block;
     align-items: center;
     padding: 0 0.5rem;
+    cursor: pointer;
   }
 </style>

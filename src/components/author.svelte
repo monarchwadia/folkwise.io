@@ -21,7 +21,9 @@
     <div class="social-container">
       <p class="base-text">Contact {author.name}:</p>
       <LinkedinSquare size="1.25rem" fillColor="#0b2647" hoverColor="#ffce5c" />
-      <TwitterSquare size="1.25rem" fillColor="#0b2647" hoverColor="#ffce5c" />
+      {#if author.twitterURL}
+        <TwitterSquare size="1.25rem" fillColor="#0b2647" hoverColor="#ffce5c" />
+      {/if}
       <Email2 size="1.25rem" fillColor="#0b2647" hoverColor="#ffce5c" />
     </div>
   </div>

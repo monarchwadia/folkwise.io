@@ -10,6 +10,8 @@ export const staffMembers: StaffMember[] = [
     miniBio:
       'Monarch is a senior software developer and startup CEO, and his work centers around the intersection of software engineering and online community building.',
     projectStatus: 'Monarch is currently accepting new projects.',
+    linkedInURL: 'https://www.linkedin.com/in/monarchwadia/',
+    twitterURL: 'https://twitter.com/monarchwadia?s=20&t=4RbdZOP3xW64QcN3zwViwg',
     contactEmail: 'test@test.ca'
   },
   {
@@ -19,6 +21,7 @@ export const staffMembers: StaffMember[] = [
     miniBio:
       'Josh is a software engineer who works at Folkwise. His cross-disciplinary expertise includes the education industry, linguistics, and English as an Additional Language (EAL).',
     projectStatus: 'Josh is currently accepting new projects.',
+    linkedInURL: 'https://www.linkedin.com/in/jojawhi/',
     contactEmail: 'test@test.ca'
   },
   {
@@ -28,6 +31,7 @@ export const staffMembers: StaffMember[] = [
     miniBio:
       'David is a software engineer who works at Folkwise. His cross-disciplinary expertise includes the automotive industry, sales, and rocking out as a touring musician.',
     projectStatus: 'David is currently accepting new projects.',
+    linkedInURL: 'https://www.linkedin.com/in/thehenshincoder/',
     contactEmail: 'test@test.ca'
   }
 ];

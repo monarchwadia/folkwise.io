@@ -16,5 +16,7 @@ export type StaffMember = {
   imgURL: string;
   miniBio: string;
   projectStatus: string;
+  linkedInURL?: string;
+  twitterURL?: string;
   contactEmail: string;
 };

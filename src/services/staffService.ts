@@ -8,6 +8,7 @@ export const getAllStaff = () => {
     const imgURL = staffMember.imgURL;
     const miniBio = staffMember.miniBio;
     const projectStatus = staffMember.projectStatus;
+    const twitterURL = staffMember.twitterURL;
     const contactEmail = staffMember.contactEmail;
 
     return {
@@ -16,6 +17,7 @@ export const getAllStaff = () => {
       imgURL,
       miniBio,
       projectStatus,
+      twitterURL,
       contactEmail
     };
   });
