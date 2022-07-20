@@ -45,9 +45,16 @@
     display: flex;
     flex-direction: column;
     gap: 0;
+
     max-width: 1000px;
     margin: 0 auto;
     padding-bottom: 1rem;
     padding-inline: 1rem;
+  }
+
+  @media screen and (max-width: 440px) {
+    .blog-posts {
+      padding-inline: 0;
+    }
   }
 </style>

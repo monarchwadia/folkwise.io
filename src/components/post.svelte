@@ -16,7 +16,7 @@
     <Author {author} />
   </div>
   <br />
-  <a class="post-link" href={post.slug}>Link</a>
+  <a class="post-link" href={post.slug}>Link to this post</a>
 </div>
 
 <style lang="scss">
@@ -58,6 +58,12 @@
       background-color: colors.$dark;
       opacity: 0;
       transition: all 300ms;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .post {
+      padding: 1rem;
     }
   }
 </style>

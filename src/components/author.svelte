@@ -64,5 +64,22 @@
 
   .author-image {
     width: 100%;
+    box-shadow: 0 0 3px 1px colors.$dark;
+  }
+
+  @media screen and (max-width: 768px) {
+    .author-container {
+      width: 100%;
+    }
+  }
+
+  @media screen and (max-width: 440px) {
+    .bio {
+      justify-content: flex-end;
+
+      p {
+        display: none;
+      }
+    }
   }
 </style>
