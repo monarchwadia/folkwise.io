@@ -1,5 +1,5 @@
 import type { StaffMember } from 'src/types';
-import { staffMembers } from 'src/staff';
+import { staffMembers } from 'src/data/staffData';
 
 export const getAllStaff = () => {
   const staffArray: StaffMember[] = staffMembers.map((staffMember) => {
@@ -8,7 +8,8 @@ export const getAllStaff = () => {
     const imgURL = staffMember.imgURL;
     const miniBio = staffMember.miniBio;
     const projectStatus = staffMember.projectStatus;
-    const contactEmail = staffMember.contactEmail;
+    const twitterURL = staffMember.twitterURL;
+    const hasEmail = staffMember.contactEmail ? true : false;
 
     return {
       uuid,
@@ -16,7 +17,8 @@ export const getAllStaff = () => {
       imgURL,
       miniBio,
       projectStatus,
-      contactEmail
+      twitterURL,
+      hasEmail
     };
   });
 
