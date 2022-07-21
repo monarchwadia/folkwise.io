@@ -2,6 +2,7 @@
   import LinkedinSquare from './icons/linkedin-square.svelte';
   import TwitterSquare from './icons/twitter-square.svelte';
   import Email2 from './icons/email2.svelte';
+  import Icon from './icon.svelte';
 
   import type { StaffMember } from 'src/types';
   export let author: StaffMember;
@@ -20,9 +21,16 @@
     <b>{author.projectStatus}</b>
     <div class="social-container">
       <p class="base-text">Contact {author.name}:</p>
-      <LinkedinSquare size="1.25rem" fillColor="#0b2647" hoverColor="#ffce5c" />
-      <TwitterSquare size="1.25rem" fillColor="#0b2647" hoverColor="#ffce5c" />
-      <Email2 size="1.25rem" fillColor="#0b2647" hoverColor="#ffce5c" />
+
+      <Icon>
+        <LinkedinSquare />
+      </Icon>
+      <Icon>
+        <TwitterSquare />
+      </Icon>
+      <Icon>
+        <Email2 />
+      </Icon>
     </div>
   </div>
 </div>

@@ -1,11 +1,10 @@
 <script lang="ts">
   import type { Post } from 'src/types';
-  export let post: Post;
-
   import { getStaffMemberByID } from 'src/services/staffService';
   import type { StaffMember } from 'src/types';
   import Author from './author.svelte';
 
+  export let post: Post;
   export let author: StaffMember = getStaffMemberByID(post.uuid);
 </script>
 

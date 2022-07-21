@@ -91,8 +91,9 @@
   .about-container {
     min-height: 100%;
     max-width: 1000px;
-    margin: 0 auto;
+    margin: 1rem auto;
     padding: 1rem;
+    background-color: colors.$white;
   }
 
   .team-container {
