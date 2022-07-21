@@ -8,11 +8,18 @@
 
   export let author: StaffMember;
 
-  let contactDefs = [
+  let iconOptions = [
     {
-      hasLinkedIn: LinkedinSquare,
-      hasTwitter: TwitterSquare,
-      hasEmail: Email2
+      type: 'linkedin',
+      hasProperty: author.linkedInURL
+    },
+    {
+      type: 'twitter',
+      hasProperty: author.twitterURL
+    },
+    {
+      type: 'email',
+      hasProperty: author.hasEmail
     }
   ];
 </script>
@@ -31,21 +38,29 @@
     <div class="social-container">
       <p class="base-text">Contact {author.name}:</p>
 
-      <Icon>
-        <LinkedinSquare />
-      </Icon>
-      <Icon>
-        <TwitterSquare />
-      </Icon>
-      <Icon>
-        <Email2 />
-      </Icon>
-
-      <!-- <LinkedinSquare size="1.25rem" fillColor="#0b2647" hoverColor="#ffce5c" />
-      {#if author.twitterURL}
-        <TwitterSquare size="1.25rem" fillColor="#0b2647" hoverColor="#ffce5c" />
-      {/if}
-      <Email2 size="1.25rem" fillColor="#0b2647" hoverColor="#ffce5c" /> -->
+      {#each iconOptions as option}
+        {#if option.hasProperty}
+          {#if option.type === 'linkedin'}
+            <a href={author.linkedInURL} target="_blank" rel="noopener noreferrer">
+              <Icon>
+                <LinkedinSquare />
+              </Icon>
+            </a>
+          {:else if option.type === 'twitter'}
+            <a href={author.twitterURL} target="_blank" rel="noopener noreferrer">
+              <Icon>
+                <TwitterSquare />
+              </Icon>
+            </a>
+          {:else if option.type === 'email'}
+            <a href="/contact">
+              <Icon>
+                <Email2 />
+              </Icon>
+            </a>
+          {/if}
+        {/if}
+      {/each}
     </div>
   </div>
 </div>
