@@ -4,7 +4,7 @@
 
 <!-- Svelte docs for :global() selector: https://svelte.dev/docs#component-format-style -->
 
-<!-- add class="icon" to the path of an SVG you want to use in this component -->
+<!-- add class="icon" to the path element of an SVG you want to use in this component -->
 <style type="scss">
   @use 'src/styles/colors' as colors;
 

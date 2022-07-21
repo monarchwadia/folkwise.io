@@ -1,11 +1,20 @@
 <script lang="ts">
+  import Icon from './icon.svelte';
   import LinkedinSquare from './icons/linkedin-square.svelte';
   import TwitterSquare from './icons/twitter-square.svelte';
   import Email2 from './icons/email2.svelte';
-  import Icon from './icon.svelte';
 
   import type { StaffMember } from 'src/types';
+
   export let author: StaffMember;
+
+  let contactDefs = [
+    {
+      hasLinkedIn: LinkedinSquare,
+      hasTwitter: TwitterSquare,
+      hasEmail: Email2
+    }
+  ];
 </script>
 
 <div class="author-container">
