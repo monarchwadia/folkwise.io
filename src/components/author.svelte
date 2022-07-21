@@ -40,6 +40,12 @@
       <Icon>
         <Email2 />
       </Icon>
+
+      <!-- <LinkedinSquare size="1.25rem" fillColor="#0b2647" hoverColor="#ffce5c" />
+      {#if author.twitterURL}
+        <TwitterSquare size="1.25rem" fillColor="#0b2647" hoverColor="#ffce5c" />
+      {/if}
+      <Email2 size="1.25rem" fillColor="#0b2647" hoverColor="#ffce5c" /> -->
     </div>
   </div>
 </div>
