@@ -1,16 +1,25 @@
 <script context="module" lang="ts">
   import type { Load } from '@sveltejs/kit';
+  import type { Post as PostType, StaffMember as StaffType } from 'src/types';
 
+  // Double fetch structure from here: https://scottspence.com/posts/fetch-data-from-two-or-more-endpoints-in-svelte
+  // Note: this did not work when destructuring the response.json() variables
   export const load: Load = async ({ fetch, params }) => {
     // todo: error catching
     const { postId } = params;
-    const response = await fetch('/api/posts/' + postId);
+    const [postResponse, staffResponse] = await Promise.all([
+      fetch('/api/posts/' + postId),
+      fetch('/api/allStaffController')
+    ]);
 
-    if (response.ok) {
-      const json = await response.json();
+    if (postResponse.ok && staffResponse.ok) {
+      const post = await postResponse.json();
+      const staff = await staffResponse.json();
+
       return {
         props: {
-          post: json
+          post: post,
+          staffMember: staff.find((s: StaffType) => s.uuid === post.uuid)
         }
       };
     } else {
@@ -23,8 +32,9 @@
 
 <script lang="ts">
   import Post from 'src/components/post.svelte';
-  import type { Post as PostType } from 'src/types';
+
   export let post: PostType;
+  export let staffMember: StaffType;
 </script>
 
 <div class="single-post-container">
@@ -32,7 +42,7 @@
   {#await post}
     <div>Loading...</div>
   {:then}
-    <Post {post} />
+    <Post {post} {staffMember} />
   {:catch}
     <div>An unexpected error occurred.</div>
   {/await}

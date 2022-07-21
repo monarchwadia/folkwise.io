@@ -1,19 +1,17 @@
 <script lang="ts">
-  import type { Post } from 'src/types';
-  export let post: Post;
-
-  import { getStaffMemberByID } from 'src/services/staffService';
-  import type { StaffMember } from 'src/types';
+  import type { Post as PostType, StaffMember as StaffType } from 'src/types';
   import Author from './author.svelte';
+  import { getStaffMemberByID } from 'src/services/staffDAO';
 
-  export let author: StaffMember = getStaffMemberByID(post.uuid);
+  export let post: PostType;
+  export let staffMember: StaffType = getStaffMemberByID(post.uuid);
 </script>
 
 <div class="post">
   {@html post.html}
   <br />
   <div>
-    <Author {author} />
+    <Author author={staffMember} />
   </div>
   <br />
   <a class="post-link" href={post.slug}>Link to this post</a>

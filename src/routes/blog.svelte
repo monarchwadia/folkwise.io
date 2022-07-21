@@ -4,13 +4,14 @@
 
   export const load: Load = async ({ fetch }) => {
     // todo: error catching
-    const response = await fetch('/api/posts');
+    const postsResponse = await fetch('/api/posts');
 
-    if (response.ok) {
-      const json = await response.json();
+    if (postsResponse.ok) {
+      const posts = await postsResponse.json();
+
       return {
         props: {
-          posts: json
+          posts: posts
         }
       };
     } else {

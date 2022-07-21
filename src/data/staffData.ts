@@ -1,8 +1,13 @@
-import type { StaffMember } from './types';
+import type { StaffMember } from '../types';
 
 //UUIDs generated here: https://www.uuidgenerator.net/version4
 
-export const staffMembers: StaffMember[] = [
+//allows hiding the contact email
+interface StaffMemberRaw extends Omit<StaffMember, 'hasEmail'> {
+  contactEmail?: string;
+}
+
+export const staffMembers: StaffMemberRaw[] = [
   {
     uuid: '9bc0c49c-2ffa-4b90-a379-bcfddf27badc',
     name: 'Monarch Wadia',
@@ -22,7 +27,7 @@ export const staffMembers: StaffMember[] = [
       'Josh is a software engineer who works at Folkwise. His cross-disciplinary expertise includes the education industry, linguistics, and English as an Additional Language (EAL).',
     projectStatus: 'Josh is currently accepting new projects.',
     linkedInURL: 'https://www.linkedin.com/in/jojawhi/',
-    contactEmail: 'test@test.ca'
+    contactEmail: 'jojawhi@gmail.com'
   },
   {
     uuid: '6a409855-e835-4ddf-b7ff-93cbc17ef453',

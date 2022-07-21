@@ -18,5 +18,5 @@ export type StaffMember = {
   projectStatus: string;
   linkedInURL?: string;
   twitterURL?: string;
-  contactEmail: string;
+  hasEmail: boolean;
 };
