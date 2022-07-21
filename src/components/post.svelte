@@ -1,13 +1,19 @@
 <script lang="ts">
-  import type { Post } from 'src/types';
+  import type { Post as PostType, StaffMember as StaffType } from 'src/types';
+  import Author from './author.svelte';
 
-  export let post: Post;
+  export let post: PostType;
+  export let staffMember: StaffType;
 </script>
 
 <div class="post">
   {@html post.html}
   <br />
-  <a class="post-link" href={post.slug}>Link</a>
+  <div>
+    <Author author={staffMember} />
+  </div>
+  <br />
+  <a class="post-link" href={post.slug}>Link to this post</a>
 </div>
 
 <style lang="scss">
@@ -49,6 +55,12 @@
       background-color: colors.$dark;
       opacity: 0;
       transition: all 300ms;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .post {
+      padding: 1rem;
     }
   }
 </style>
