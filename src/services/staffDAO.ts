@@ -5,6 +5,7 @@ export const getAllStaff = () => {
   const staffArray: StaffMember[] = staffMembers.map((staffMember) => {
     const uuid = staffMember.uuid;
     const name = staffMember.name;
+    const role = staffMember.role;
     const imgURL = staffMember.imgURL;
     const miniBio = staffMember.miniBio;
     const projectStatus = staffMember.projectStatus;
@@ -15,6 +16,7 @@ export const getAllStaff = () => {
     return {
       uuid,
       name,
+      role,
       imgURL,
       miniBio,
       projectStatus,

@@ -74,7 +74,13 @@
     flex: 1 0 auto;
     height: 100%;
     min-height: 100%;
-    padding: 0;
+    padding: 0 1rem;
     max-width: 100%;
+  }
+
+  @media screen and (max-width: 768px) {
+    .content-wrapper {
+      padding: 0 0.75rem;
+    }
   }
 </style>

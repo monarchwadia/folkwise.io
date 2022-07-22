@@ -90,16 +90,25 @@
   @media screen and (max-width: 767px) {
     .navbar {
       justify-content: space-between;
+      padding-inline: 0.75rem;
     }
 
     .navlink-container {
       position: absolute;
-      right: 0;
+      right: 7px;
       top: 100%;
+      width: 50%;
 
       ul {
         flex-direction: column;
-        padding: 1rem 2rem 1rem 2rem;
+        align-items: center;
+        padding: 1rem 1rem 1rem 1rem;
+
+        li {
+          width: 80%;
+          padding: 0.75rem 0.5rem 0 0.5rem;
+          border-top: 1px solid colors.$white;
+        }
       }
     }
   }

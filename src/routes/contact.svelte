@@ -12,13 +12,19 @@
 
 <style>
   .contact-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
     max-width: 1000px;
-    padding: 1rem;
+    padding: 1rem 0;
+    margin: 0 auto;
   }
 
   .contact-form-container {
     display: flex;
     flex-direction: column;
-    width: 80%;
+    width: 100%;
+    max-width: 500px;
   }
 </style>

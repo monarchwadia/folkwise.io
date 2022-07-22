@@ -14,14 +14,6 @@ body,
   min-height: 100%;
 }
 
-a {
-  color: colors.$highlight-red;
-}
-
-h2 {
-  font-size: 24px;
-}
-
 table {
   border-collapse: collapse;
 }
@@ -38,25 +30,67 @@ td {
   padding: 10px;
 }
 
-.base-text {
+// TEXT STYLES
+// ===============================================
+
+a {
+  color: colors.$highlight-red;
+}
+
+p {
   font-size: 1rem;
   line-height: 1rem;
   margin: 0;
 }
 
 .bold-text {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 600;
-  line-height: 1.1rem;
+  line-height: 1rem;
 }
 
-.small-header {
+h3 {
+  font-size: 1.25rem;
+  line-height: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+h1 {
   font-size: 2rem;
   line-height: 2rem;
 }
 
-.large-header {
-  font-size: 2.5rem;
-  line-height: 2.5rem;
-  margin: 0;
+@media screen and (max-width: 420px) {
+  p {
+    font-size: 0.875rem;
+    line-height: 0.875rem;
+  }
+
+  .bold-text,
+  a {
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 0.875rem;
+  }
+
+  h3 {
+    font-size: 1rem;
+    line-height: 1rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+    line-height: 1.25rem;
+  }
+
+  h1 {
+    font-size: 1.625rem;
+    line-height: 1.625rem;
+  }
 }

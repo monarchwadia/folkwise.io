@@ -9,9 +9,9 @@
 <div class="post">
   {@html post.html}
   <br />
-  <div>
-    <Author author={staffMember} />
-  </div>
+
+  <Author author={staffMember} />
+
   <br />
   <a class="post-link" href={post.slug}>Link to this post</a>
 </div>
@@ -22,7 +22,7 @@
   .post {
     max-width: 1000px;
     border-bottom: 3px solid colors.$dark;
-    margin: 1rem 0;
+    margin: 1rem auto;
     padding: 2rem;
     background-color: colors.$white;
 
@@ -60,7 +60,7 @@
 
   @media screen and (max-width: 768px) {
     .post {
-      padding: 1rem;
+      padding: 1.5rem 0.75rem;
     }
   }
 </style>

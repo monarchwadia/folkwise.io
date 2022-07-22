@@ -13,6 +13,7 @@ export type Post = {
 export type StaffMember = {
   uuid: string;
   name: string;
+  role: string;
   imgURL: string;
   miniBio: string;
   projectStatus: string;

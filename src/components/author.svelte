@@ -30,13 +30,13 @@
 
     <div class="bio">
       <h2>{author.name}</h2>
-      <p class="base-text">{author.miniBio}</p>
+      <p>{author.miniBio}</p>
     </div>
   </div>
   <div class="cta-container">
-    <b>{author.projectStatus}</b>
+    <p class="bold-text">{author.projectStatus}</p>
     <div class="social-container">
-      <p class="base-text">Contact {author.name}:</p>
+      <p>Contact {author.name}:</p>
 
       {#each iconOptions as option}
         {#if option.hasProperty}
@@ -112,6 +112,14 @@
   }
 
   @media screen and (max-width: 440px) {
+    .author-image {
+      display: none;
+    }
+
+    .bio-container {
+      grid-template-columns: 1fr;
+    }
+
     .bio {
       justify-content: flex-end;
 

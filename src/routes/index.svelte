@@ -63,7 +63,7 @@
     gap: 1rem;
     max-width: 1000px;
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: 0;
   }
 
   .blog-snippet {
@@ -125,7 +125,6 @@
     .blog-snippets-container {
       display: flex;
       flex-direction: column;
-      padding: 1rem;
     }
   }
 </style>
