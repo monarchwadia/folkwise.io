@@ -2,7 +2,7 @@
   import Icon from './icon.svelte';
   import LinkedinSquare from './icons/linkedin-square.svelte';
   import TwitterSquare from './icons/twitter-square.svelte';
-  import Email1 from './icons/email1.svelte';
+  import Email2 from './icons/email2.svelte';
 
   import type { StaffMember } from 'src/types';
 
@@ -55,7 +55,7 @@
           {:else if option.type === 'email'}
             <a href="/contact">
               <Icon>
-                <Email1 />
+                <Email2 />
               </Icon>
             </a>
           {/if}

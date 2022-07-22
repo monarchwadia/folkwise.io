@@ -26,7 +26,7 @@
   .footer {
     padding: 2rem 1rem;
     background-color: colors.$dark;
-    background-image: url('/kikko-optimized.svg'),
+    background-image: url('/assets/kikko-optimized.svg'),
       linear-gradient(to left, colors.$medium, colors.$dark, colors.$dark, colors.$dark);
     background-repeat: no-repeat;
     background-size: 60%, 100%;
@@ -83,7 +83,7 @@
 
   @media screen and (max-width: 768px) {
     .footer {
-      background-image: url('/kikko-optimized.svg'),
+      background-image: url('/assets/kikko-optimized.svg'),
         linear-gradient(to left, colors.$medium, colors.$dark, colors.$dark, colors.$dark);
       background-size: 150%, 100%;
       background-position: 70% 30%, 0 0;

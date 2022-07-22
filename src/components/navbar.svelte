@@ -10,7 +10,7 @@
 <svelte:window bind:innerWidth={vwidth} />
 
 <div class="navbar">
-  <a href="/" class="logo-link"><img class="logo-img" src="/wordmark.png" alt="logo" /></a>
+  <a href="/" class="logo-link"><img class="logo-img" src="/assets/wordmark.png" alt="logo" /></a>
   {#if isOpen || vwidth >= 768}
     <div class={isOpen === true ? 'navlink-container' : 'navlink-container hidden-nav'}>
       <ul>

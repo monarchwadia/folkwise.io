@@ -1,10 +1,13 @@
-<div class="icon-container">
-  <slot />
-</div>
+<!-- Source for icon imports: https://github.com/FortAwesome/Font-Awesome -->
 
 <!-- Svelte docs for :global() selector: https://svelte.dev/docs#component-format-style -->
 
 <!-- add class="icon" to the path element of an SVG you want to use in this component -->
+
+<div class="icon-container">
+  <slot />
+</div>
+
 <style type="scss">
   @use 'src/styles/colors' as colors;
 
