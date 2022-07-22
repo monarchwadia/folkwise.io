@@ -10,7 +10,9 @@
   </div>
 </div>
 
-<style>
+<style type="scss">
+  @use 'src/styles/colors' as colors;
+
   .contact-container {
     display: flex;
     flex-direction: column;
@@ -18,13 +20,33 @@
     width: 100%;
     max-width: 1000px;
     padding: 1rem 0;
-    margin: 0 auto;
+    margin: 1rem auto;
+    background-color: colors.$white;
+
+    h1 {
+      margin-left: 1rem;
+    }
   }
 
   .contact-form-container {
     display: flex;
     flex-direction: column;
+    align-self: center;
     width: 100%;
     max-width: 500px;
+    padding: 1rem;
+
+    label {
+      margin-top: 1rem;
+    }
+
+    input,
+    textarea {
+      color: colors.$white;
+      background-color: colors.$dark;
+      outline: none;
+      border: none;
+      padding: 0.5rem;
+    }
   }
 </style>
