@@ -101,7 +101,7 @@
 
   .about-container {
     min-height: 100%;
-    max-width: 1000px;
+    max-width: 750px;
     margin: 1rem auto;
     background-color: colors.$light;
 

@@ -33,7 +33,7 @@
     display: flex;
     justify-content: left;
     align-items: baseline;
-    max-width: 1000px;
+    max-width: 750px;
     margin: 0 auto;
     padding: 0 1rem;
 

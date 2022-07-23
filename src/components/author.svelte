@@ -29,7 +29,7 @@
     <img src={author.imgURL} alt={author.name} class="author-image" />
 
     <div class="bio">
-      <h2>{author.name}</h2>
+      <h3>{author.name}</h3>
       <p>{author.miniBio}</p>
     </div>
   </div>
@@ -72,13 +72,13 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    width: 62.5%;
+    width: 100%;
     margin-top: 1rem;
   }
 
   .bio-container {
     display: grid;
-    grid-template-columns: 25% 60%;
+    grid-template-columns: 20% 70%;
     grid-gap: 0.75rem;
   }
 

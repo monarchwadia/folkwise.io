@@ -6,6 +6,16 @@
   color: colors.$dark;
 }
 
+::selection {
+  color: colors.$white;
+  background-color: colors.$highlight-red;
+}
+
+::-moz-selection {
+  color: colors.$white;
+  background-color: colors.$highlight-red;
+}
+
 html,
 body,
 #root {

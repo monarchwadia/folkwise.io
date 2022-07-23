@@ -36,7 +36,7 @@
   .footer-content-container {
     display: flex;
     gap: 2rem;
-    max-width: 1000px;
+    max-width: 750px;
     margin: 0 auto;
 
     .company-container,

@@ -20,7 +20,7 @@
   @use 'src/styles/colors' as colors;
 
   .post {
-    max-width: 1000px;
+    max-width: 750px;
     border-bottom: 3px solid colors.$dark;
     margin: 1rem auto;
     padding: 2rem;

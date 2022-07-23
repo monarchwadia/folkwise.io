@@ -11,7 +11,7 @@ export const staffMembers: StaffMemberRaw[] = [
   {
     uuid: '9bc0c49c-2ffa-4b90-a379-bcfddf27badc',
     name: 'Monarch Wadia',
-    role: 'CEO',
+    role: 'CEO & Software Engineer',
     imgURL: '/assets/monarch-optimized.jpg',
     miniBio:
       'Monarch is a senior software developer and startup CEO, and his work centers around the intersection of software engineering and online community building.',
@@ -27,7 +27,7 @@ export const staffMembers: StaffMemberRaw[] = [
     imgURL: '/assets/david-optimized.jpg',
     miniBio:
       'David is a software engineer who works at Folkwise. His cross-disciplinary expertise includes the automotive industry, sales, and rocking out as a touring musician.',
-    projectStatus: 'David is currently accepting new projects.',
+    projectStatus: 'David is not currently accepting new projects.',
     linkedInURL: 'https://www.linkedin.com/in/thehenshincoder/',
     contactEmail: 'test@test.ca'
   },

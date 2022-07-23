@@ -32,11 +32,7 @@
       <Navbar />
     </div>
     {#key currentRoute}
-      <div
-        class="content-wrapper"
-        in:fade={{ duration: 150, delay: 150 }}
-        out:fade={{ duration: 150 }}
-      >
+      <div class="content-wrapper" in:fade={{ duration: 150 }} out:fade={{ duration: 150 }}>
         <slot />
       </div>
     {/key}
