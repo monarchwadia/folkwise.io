@@ -12,11 +12,12 @@ export type Post = {
 
 export type StaffMember = {
   uuid: string;
-  name: string;
+  firstName: string;
+  lastName: string;
   role: string;
   imgURL: string;
   miniBio: string;
-  projectStatus: string;
+  isAcceptingProjects: boolean;
   linkedInURL?: string;
   twitterURL?: string;
   hasEmail: boolean;

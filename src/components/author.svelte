@@ -24,19 +24,24 @@
   ];
 </script>
 
+<br />
 <div class="author-container">
   <div class="bio-container">
-    <img src={author.imgURL} alt={author.name} class="author-image" />
+    <img src={author.imgURL} alt={author.firstName} class="author-image" />
 
     <div class="bio">
-      <h3>{author.name}</h3>
+      <h3>{author.firstName} {author.lastName}</h3>
       <p>{author.miniBio}</p>
     </div>
   </div>
   <div class="cta-container">
-    <p class="bold-text">{author.projectStatus}</p>
+    {#if author.isAcceptingProjects === true}
+      <p class="bold-text teal">{author.firstName} is accepting new projects!</p>
+    {:else}
+      <p class="bold-text red">{author.firstName} isn't currently accepting new projects.</p>
+    {/if}
     <div class="social-container">
-      <p>Contact {author.name}:</p>
+      <p class="bold-text">Contact {author.firstName}:</p>
 
       {#each iconOptions as option}
         {#if option.hasProperty}
@@ -103,6 +108,14 @@
   .author-image {
     width: 100%;
     box-shadow: 0 0 3px 1px colors.$dark;
+  }
+
+  .teal {
+    color: colors.$highlight-green;
+  }
+
+  .red {
+    color: colors.$highlight-red;
   }
 
   @media screen and (max-width: 768px) {
