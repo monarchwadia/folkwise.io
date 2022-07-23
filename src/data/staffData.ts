@@ -17,7 +17,7 @@ export const staffMembers: StaffMemberRaw[] = [
       'Monarch is a senior software developer and startup CEO, and his work centers around the intersection of software engineering and online community building.',
     projectStatus: 'Monarch is currently accepting new projects.',
     linkedInURL: 'https://www.linkedin.com/in/monarchwadia/',
-    twitterURL: 'https://twitter.com/monarchwadia?s=20&t=4RbdZOP3xW64QcN3zwViwg',
+    twitterURL: 'https://twitter.com/monarchwadia',
     contactEmail: 'test@test.ca'
   },
   {
