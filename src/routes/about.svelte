@@ -145,6 +145,9 @@
   @use 'src/styles/colors' as colors;
 
   .about-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
     min-height: 100%;
     max-width: 750px;
     margin: 1rem auto;
@@ -153,9 +156,10 @@
     section {
       display: flex;
       flex-direction: column;
-      gap: 0.875rem;
-      padding: 1rem;
+      gap: 2rem;
+      padding: 2rem 1rem;
       background-color: colors.$white;
+      border-bottom: 3px solid colors.$dark;
     }
   }
 
