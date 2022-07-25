@@ -1,5 +1,5 @@
-<section class="contact-section">
-  <div class="contact-container">
+<div class="contact-container">
+  <section class="contact-section">
     <form class="contact-form-container">
       <h1>Get in touch with us</h1>
       <div class="form-group">
@@ -17,8 +17,8 @@
 
       <button type="submit">Send</button>
     </form>
-  </div>
-</section>
+  </section>
+</div>
 
 <style type="scss">
   @use 'src/styles/colors' as colors;
@@ -38,9 +38,7 @@
     flex-direction: column;
     align-self: center;
     gap: 1rem;
-    width: 100%;
-    max-width: 700px;
-    padding: 2rem 1rem;
+    padding: 1rem;
 
     button {
       padding: 0.75rem 1.5rem;
@@ -80,6 +78,16 @@
         outline: 1px solid colors.$highlight-red;
         box-shadow: 0 0 4px 1px colors.$highlight-red, inset 0 0 4px 1px colors.$highlight-red;
       }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .contact-section {
+      padding: 0.75rem;
+    }
+
+    .contact-form-container {
+      padding: 0.75rem;
     }
   }
 </style>
