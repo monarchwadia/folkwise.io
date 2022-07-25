@@ -36,9 +36,11 @@
   </div>
   <div class="cta-container">
     {#if author.isAcceptingProjects === true}
-      <p class="bold-text teal">{author.firstName} is accepting new projects!</p>
+      <p class="bold-text accepting">{author.firstName} is accepting new projects!</p>
     {:else}
-      <p class="bold-text red">{author.firstName} isn't currently accepting new projects.</p>
+      <p class="bold-text not-accepting">
+        {author.firstName} isn't currently accepting new projects.
+      </p>
     {/if}
     <div class="social-container">
       <p class="bold-text">Contact {author.firstName}:</p>
@@ -101,7 +103,7 @@
 
   .social-container {
     display: flex;
-    gap: 0.5rem;
+    gap: 1rem;
     align-items: center;
   }
 
@@ -110,12 +112,12 @@
     box-shadow: 0 0 3px 1px colors.$dark;
   }
 
-  .teal {
+  .accepting {
     color: colors.$highlight-green;
   }
 
-  .red {
-    color: colors.$highlight-red;
+  .not-accepting {
+    color: colors.$medium;
   }
 
   @media screen and (max-width: 768px) {

@@ -12,9 +12,11 @@
   @use 'src/styles/colors' as colors;
 
   .icon-container {
+    display: flex;
     width: 1.25rem;
-    padding: 0 0.5rem;
     cursor: pointer;
+    padding: 0;
+    margin: 0;
 
     :global(.icon) {
       fill: colors.$dark;

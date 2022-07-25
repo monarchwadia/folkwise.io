@@ -23,15 +23,30 @@
 </script>
 
 <script lang="ts">
+  import Icon from 'src/components/icon.svelte';
+  import LinkedinSquare from 'src/components/icons/linkedin-square.svelte';
+  import TwitterSquare from 'src/components/icons/twitter-square.svelte';
+  import Email2 from 'src/components/icons/email2.svelte';
+  import { staffMembers } from 'src/data/staffData';
+
   export let staff: StaffType[];
 
-  interface TeamMember {
-    name: string;
-    role: string;
-    imgURL: string;
-    bio: string;
-    showBio: boolean;
-  }
+  // let staffMember: StaffType;
+
+  // let iconOptions = [
+  //   {
+  //     type: 'linkedin',
+  //     hasProperty: staffMember.linkedInURL
+  //   },
+  //   {
+  //     type: 'twitter',
+  //     hasProperty: staffMember.twitterURL
+  //   },
+  //   {
+  //     type: 'email',
+  //     hasProperty: staffMember.hasEmail
+  //   }
+  // ];
 </script>
 
 <div class="about-container">
@@ -42,6 +57,7 @@
       have specialist expertise in different industries and fields.
     </p>
   </section>
+
   <section class="values-section">
     <h1>What we value</h1>
     <div class="">
@@ -76,6 +92,7 @@
       as we drive towards them. There is no daily schedule.
     </p>
   </section>
+
   <section class="team-section">
     <h1>Who we are</h1>
     <div class="team-container">
@@ -84,11 +101,41 @@
           <img class="team-member-img" src={member.imgURL} alt="team member" />
 
           <div class="team-member-info">
-            <h3>{member.name}</h3>
+            <h3>{member.firstName} {member.lastName}</h3>
             <p class="bold-text">{member.role}</p>
-          </div>
-          <div class="team-member-bio">
             <p class="base-text">{member.miniBio}</p>
+
+            {#if member.isAcceptingProjects === true}
+              <p class="bold-text accepting">{member.firstName} is accepting new projects!</p>
+            {:else}
+              <p class="bold-text not-accepting">
+                {member.firstName} isn't currently accepting new projects.
+              </p>
+            {/if}
+            <div class="social-container">
+              <p class="bold-text">Contact {member.firstName}:</p>
+              {#if member.linkedInURL}
+                <a href={member.linkedInURL} target="_blank" rel="noopener noreferrer">
+                  <Icon>
+                    <LinkedinSquare />
+                  </Icon>
+                </a>
+              {/if}
+              {#if member.twitterURL}
+                <a href={member.twitterURL} target="_blank" rel="noopener noreferrer">
+                  <Icon>
+                    <TwitterSquare />
+                  </Icon>
+                </a>
+              {/if}
+              {#if member.hasEmail}
+                <a href="/contact">
+                  <Icon>
+                    <Email2 />
+                  </Icon>
+                </a>
+              {/if}
+            </div>
           </div>
         </div>
       {/each}
@@ -115,42 +162,57 @@
   }
 
   .team-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 3rem;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: left;
   }
 
   .team-member-container {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 40% 55%;
+    grid-template-areas: 'img info';
+    gap: 1rem;
+    padding: 0.75rem;
     background-color: colors.$white;
     color: colors.$white;
+    box-shadow: 0 0 6px 0 colors.$medium;
     transition: all 300ms;
   }
 
   .team-member-img {
+    grid-area: img;
     max-width: 100%;
     box-shadow: 0 0 4px 0 colors.$dark;
   }
 
   .team-member-info {
+    grid-area: info;
+    display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    gap: 0.75rem;
     width: 100%;
     transition: all 300ms;
 
     h3,
     p {
       margin: 0;
-      padding: 0.25rem 0;
-      color: colors.$dark;
     }
   }
 
-  .team-member-bio {
-    color: colors.$white;
+  .social-container {
+    grid-area: socials;
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  .accepting {
+    color: colors.$highlight-green;
+  }
+
+  .not-accepting {
+    color: colors.$medium;
   }
 
   @media screen and (max-width: 768px) {
@@ -164,8 +226,9 @@
       }
     }
 
-    .team-container {
-      grid-template-columns: 1fr;
+    .team-member-container {
+      display: flex;
+      flex-direction: column;
     }
   }
 </style>
