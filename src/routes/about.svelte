@@ -29,6 +29,28 @@
   import Email2 from 'src/components/icons/email2.svelte';
 
   export let staff: StaffType[];
+
+  let iconOptions = [
+    {
+      hasProperty: (staffMember: StaffType) => staffMember.linkedInURL,
+      component: LinkedinSquare
+    },
+    {
+      hasProperty: (staffMember: StaffType) => staffMember.twitterURL,
+      component: TwitterSquare
+    },
+    {
+      hasProperty: (staffMember: StaffType) => {
+        //to address typescript issue with href in the each block not liking boolean type
+        if (staffMember.hasEmail) {
+          return 'true';
+        } else {
+          return 'false';
+        }
+      },
+      component: Email2
+    }
+  ];
 </script>
 
 <div class="about-container">
@@ -96,27 +118,21 @@
             {/if}
             <div class="social-container">
               <p class="bold-text">Contact {member.firstName}:</p>
-              {#if member.linkedInURL}
-                <a href={member.linkedInURL} target="_blank" rel="noopener noreferrer">
-                  <Icon>
-                    <LinkedinSquare />
-                  </Icon>
-                </a>
-              {/if}
-              {#if member.twitterURL}
-                <a href={member.twitterURL} target="_blank" rel="noopener noreferrer">
-                  <Icon>
-                    <TwitterSquare />
-                  </Icon>
-                </a>
-              {/if}
-              {#if member.hasEmail}
-                <a href="/contact">
-                  <Icon>
-                    <Email2 />
-                  </Icon>
-                </a>
-              {/if}
+              {#each iconOptions as option}
+                {#if option.hasProperty(member)}
+                  <a
+                    href={option.hasProperty(member) === 'true'
+                      ? '/contact'
+                      : option.hasProperty(member)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Icon>
+                      <svelte:component this={option.component} />
+                    </Icon>
+                  </a>
+                {/if}
+              {/each}
             </div>
           </div>
         </div>
