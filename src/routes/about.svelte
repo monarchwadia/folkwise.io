@@ -27,26 +27,8 @@
   import LinkedinSquare from 'src/components/icons/linkedin-square.svelte';
   import TwitterSquare from 'src/components/icons/twitter-square.svelte';
   import Email2 from 'src/components/icons/email2.svelte';
-  import { staffMembers } from 'src/data/staffData';
 
   export let staff: StaffType[];
-
-  // let staffMember: StaffType;
-
-  // let iconOptions = [
-  //   {
-  //     type: 'linkedin',
-  //     hasProperty: staffMember.linkedInURL
-  //   },
-  //   {
-  //     type: 'twitter',
-  //     hasProperty: staffMember.twitterURL
-  //   },
-  //   {
-  //     type: 'email',
-  //     hasProperty: staffMember.hasEmail
-  //   }
-  // ];
 </script>
 
 <div class="about-container">
