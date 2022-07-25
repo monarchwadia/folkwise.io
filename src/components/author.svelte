@@ -10,16 +10,16 @@
 
   let iconOptions = [
     {
-      type: 'linkedin',
-      hasProperty: author.linkedInURL
+      hasProperty: author.linkedInURL,
+      component: LinkedinSquare
     },
     {
-      type: 'twitter',
-      hasProperty: author.twitterURL
+      hasProperty: author.twitterURL,
+      component: TwitterSquare
     },
     {
-      type: 'email',
-      hasProperty: author.hasEmail
+      hasProperty: author.hasEmail,
+      component: Email2
     }
   ];
 </script>
@@ -47,25 +47,15 @@
 
       {#each iconOptions as option}
         {#if option.hasProperty}
-          {#if option.type === 'linkedin'}
-            <a href={author.linkedInURL} target="_blank" rel="noopener noreferrer">
-              <Icon>
-                <LinkedinSquare />
-              </Icon>
-            </a>
-          {:else if option.type === 'twitter'}
-            <a href={author.twitterURL} target="_blank" rel="noopener noreferrer">
-              <Icon>
-                <TwitterSquare />
-              </Icon>
-            </a>
-          {:else if option.type === 'email'}
-            <a href="/contact">
-              <Icon>
-                <Email2 />
-              </Icon>
-            </a>
-          {/if}
+          <a
+            href={option.hasProperty === true ? '/contact' : option.hasProperty}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Icon>
+              <svelte:component this={option.component} />
+            </Icon>
+          </a>
         {/if}
       {/each}
     </div>
