@@ -1,22 +1,10 @@
+<script lang="ts">
+  import ContactForm from '../components/contact-form.svelte';
+</script>
+
 <div class="contact-container">
   <section class="contact-section">
-    <form class="contact-form-container">
-      <h1>Get in touch with us</h1>
-      <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" class="text" id="name" required />
-      </div>
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="text" class="text" id="email" required />
-      </div>
-      <div class="form-group">
-        <label for="message">Message</label>
-        <textarea name="message" id="message" cols="30" rows="10" required />
-      </div>
-
-      <button type="submit">Send</button>
-    </form>
+    <ContactForm />
   </section>
 </div>
 
@@ -33,60 +21,8 @@
     background-color: colors.$white;
   }
 
-  .contact-form-container {
-    display: flex;
-    flex-direction: column;
-    align-self: center;
-    gap: 1rem;
-    padding: 1rem;
-
-    button {
-      padding: 0.75rem 1.5rem;
-      color: colors.$highlight;
-      background-color: colors.$dark;
-      font-weight: 700;
-      text-decoration: none;
-      border-radius: 4px;
-      border: none;
-      outline: none;
-      transition: all 300ms;
-
-      &:hover {
-        color: colors.$dark;
-        background-color: colors.$highlight;
-      }
-    }
-  }
-
-  .form-group {
-    display: flex;
-    flex-direction: column;
-
-    input,
-    textarea {
-      color: colors.$white;
-      background-color: colors.$dark-50;
-      outline: none;
-      border: none;
-      padding: 0.5rem;
-      transition: all 300ms;
-      margin: 0.25rem 0;
-      border-radius: 3px;
-
-      &:focus {
-        background-color: colors.$dark;
-        outline: 1px solid colors.$highlight-red;
-        box-shadow: 0 0 4px 1px colors.$highlight-red, inset 0 0 4px 1px colors.$highlight-red;
-      }
-    }
-  }
-
   @media screen and (max-width: 768px) {
     .contact-section {
-      padding: 0.75rem;
-    }
-
-    .contact-form-container {
       padding: 0.75rem;
     }
   }
