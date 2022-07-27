@@ -3,8 +3,9 @@
   import LinkedinSquare from './icons/linkedin-square.svelte';
   import TwitterSquare from './icons/twitter-square.svelte';
   import Email2 from './icons/email2.svelte';
-
   import type { StaffMember } from 'src/types';
+  import Modal, { getModal } from './modal.svelte';
+  import ContactForm from './contact-form.svelte';
 
   export let author: StaffMember;
 
@@ -22,6 +23,12 @@
       component: Email2
     }
   ];
+
+  let selection;
+
+  const setSelection = (res = undefined) => {
+    selection = res;
+  };
 </script>
 
 <br />
@@ -46,19 +53,25 @@
       <p class="bold-text">Contact {author.firstName}:</p>
 
       {#each iconOptions as option}
-        {#if option.hasProperty}
-          <a
-            href={option.hasProperty === true ? '/contact' : option.hasProperty}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+        {#if option.hasProperty && typeof option.hasProperty != 'boolean'}
+          <a href={option.hasProperty} target="_blank" rel="noopener noreferrer">
             <Icon>
               <svelte:component this={option.component} />
             </Icon>
           </a>
+        {:else if option.hasProperty === true}
+          <button on:click={() => getModal().open()}>
+            <Icon>
+              <svelte:component this={option.component} />
+            </Icon>
+          </button>
         {/if}
       {/each}
     </div>
+
+    <Modal>
+      <ContactForm />
+    </Modal>
   </div>
 </div>
 
@@ -95,6 +108,13 @@
     display: flex;
     gap: 1rem;
     align-items: center;
+
+    button {
+      padding: 0;
+      background-color: transparent;
+      border: none;
+      outline: none;
+    }
   }
 
   .author-image {
