@@ -1,22 +1,7 @@
-<!-- <script context="module" lang="ts">
-  interface ModalMap {
-    [key: string]: {
-      open: Function;
-      close: Function;
-    };
-  }
-
-  let onTop: Node;
-  const modals: ModalMap = {};
-
-  export const getModal = (id: string = '') => {
-    return modals[id];
-  };
-</script> -->
+<!-- Original modal architecture inspired by: https://svelte.dev/repl/514f1335749a4eae9d34ad74dc277f20?version=3.37.0 -->
 <script lang="ts">
   import Icon from './icon.svelte';
   import Xmark from './icons/xmark.svelte';
-  import { onMount, onDestroy } from 'svelte';
 
   export let onClick: () => void;
   export let isOpen: boolean;
@@ -25,56 +10,7 @@
     event.preventDefault();
 
     onClick();
-
-    // if (isOpen === true) {
-    //   window.addEventListener('keydown', keyPress);
-    //   document.body.style.overflow = 'hidden';
-    // } else if (isOpen === false) {
-    //   window.removeEventListener('keydown', keyPress);
-    //   document.body.style.overflow = '';
-    // }
   };
-
-  // let topDiv: Node;
-  // let visible = false;
-  // let prevOnTop: Node;
-  // let closeCallback: Function;
-
-  // export let id = '';
-
-  // const keyPress = (event: KeyboardEvent) => {
-  //   if (event.key == 'Escape') {
-  //     isOpen = false;
-  //   }
-  // };
-
-  /** API **/
-  // const open = (callback: Function) => {
-  //   closeCallback = callback;
-  //   if (visible) return;
-  //   // prevOnTop = onTop;
-  //   // onTop = topDiv;
-  //   window.addEventListener('keydown', keyPress);
-  //   document.body.style.overflow = 'hidden';
-  //   visible = true;
-  //   // document.body.appendChild(topDiv);
-  // };
-
-  // const close = (retVal = undefined) => {
-  //   if (!visible) return;
-  //   window.removeEventListener('keydown', keyPress);
-  //   // onTop = prevOnTop;
-  //   if (onTop == null) document.body.style.overflow = '';
-  //   visible = false;
-  //   if (closeCallback) closeCallback(retVal);
-  // };
-
-  // modals[id] = { open, close };
-
-  // onDestroy(() => {
-  //   delete modals[id];
-  //   window.removeEventListener('keydown', keyPress);
-  // });
 </script>
 
 <div
@@ -113,7 +49,7 @@
 
   .modal {
     position: relative;
-    width: 75%;
+    width: 85%;
     max-width: 500px;
     padding: 1rem;
     background-color: colors.$white;
@@ -136,6 +72,21 @@
     &:hover {
       :global(#close-button) {
         fill: colors.$highlight-red;
+      }
+    }
+  }
+
+  @media screen and (max-width: 420px) {
+    .modal {
+      padding: 0.75rem;
+    }
+
+    .close {
+      top: 0.75rem;
+      right: 0.75rem;
+
+      :global(#close-button) {
+        transform: scale(0.85);
       }
     }
   }
