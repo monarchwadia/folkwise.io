@@ -1,7 +1,7 @@
 <section class="hero">
   <div class="hero-container">
     <div class="hero-text-container">
-      <h1>We're a community of software developers.</h1>
+      <h1 class="hero-title">We're a community of software developers.</h1>
       <p class="bold-text">
         We're custom software developers with deep expertise in a variety of industries.
       </p>
@@ -16,9 +16,9 @@
   @use 'src/styles/colors' as colors;
 
   .hero {
-    width: 100%;
+    margin-inline: -1rem;
     background-color: colors.$medium;
-    background-image: url('/kikko-light-optimized.svg'),
+    background-image: url('/assets/kikko-light-optimized.svg'),
       linear-gradient(to left, colors.$white, colors.$white, colors.$light);
     background-size: 90%, 100%;
     background-position: -50% 50%, 100% 100%;
@@ -28,7 +28,7 @@
   .hero-container {
     display: grid;
     grid-template-columns: 60% 40%;
-    max-width: 1000px;
+    max-width: 750px;
     margin: 0 auto;
     padding: 0 1rem;
   }
@@ -42,6 +42,11 @@
     p {
       margin: 0;
     }
+  }
+
+  .hero-title {
+    font-size: 2.25rem;
+    line-height: 2.25rem;
   }
 
   .hero-cta-container {
@@ -71,6 +76,7 @@
 
   @media screen and (max-width: 768px) {
     .hero {
+      margin-inline: -0.75rem;
       background-image: linear-gradient(to top, colors.$white, colors.$white, colors.$light);
       background-size: 100%;
     }
@@ -78,11 +84,16 @@
     .hero-container {
       display: flex;
       flex-direction: column;
-      padding: 1rem;
+      padding: 2rem 0.75rem 0 0.75rem;
     }
 
     .hero-text-container {
       padding: 0;
+    }
+
+    .hero-title {
+      font-size: 1.875rem;
+      line-height: 1.875rem;
     }
   }
 </style>

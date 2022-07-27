@@ -18,5 +18,12 @@
 </div>
 
 <style lang="scss">
+  .post-content-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+    margin: 0 auto;
+    width: 100%;
+  }
   /* For some reason, SCSS doesn't work in this file. */
 </style>

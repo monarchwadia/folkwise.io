@@ -4,19 +4,25 @@ import { staffMembers } from 'src/data/staffData';
 export const getAllStaff = () => {
   const staffArray: StaffMember[] = staffMembers.map((staffMember) => {
     const uuid = staffMember.uuid;
-    const name = staffMember.name;
+    const firstName = staffMember.firstName;
+    const lastName = staffMember.lastName;
+    const role = staffMember.role;
     const imgURL = staffMember.imgURL;
     const miniBio = staffMember.miniBio;
-    const projectStatus = staffMember.projectStatus;
+    const isAcceptingProjects = staffMember.isAcceptingProjects;
+    const linkedInURL = staffMember.linkedInURL;
     const twitterURL = staffMember.twitterURL;
     const hasEmail = staffMember.contactEmail ? true : false;
 
     return {
       uuid,
-      name,
+      firstName,
+      lastName,
+      role,
       imgURL,
       miniBio,
-      projectStatus,
+      isAcceptingProjects,
+      linkedInURL,
       twitterURL,
       hasEmail
     };

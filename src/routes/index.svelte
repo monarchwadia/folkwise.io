@@ -59,11 +59,11 @@
 
   .blog-snippets-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
-    max-width: 1000px;
+    max-width: 750px;
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: 0;
   }
 
   .blog-snippet {
@@ -125,7 +125,6 @@
     .blog-snippets-container {
       display: flex;
       flex-direction: column;
-      padding: 1rem;
     }
   }
 </style>

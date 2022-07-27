@@ -10,7 +10,7 @@
 <svelte:window bind:innerWidth={vwidth} />
 
 <div class="navbar">
-  <a href="/" class="logo-link"><img class="logo-img" src="/wordmark.png" alt="logo" /></a>
+  <a href="/" class="logo-link"><img class="logo-img" src="/assets/wordmark.png" alt="logo" /></a>
   {#if isOpen || vwidth >= 768}
     <div class={isOpen === true ? 'navlink-container' : 'navlink-container hidden-nav'}>
       <ul>
@@ -33,7 +33,7 @@
     display: flex;
     justify-content: left;
     align-items: baseline;
-    max-width: 1000px;
+    max-width: 750px;
     margin: 0 auto;
     padding: 0 1rem;
 
@@ -90,16 +90,25 @@
   @media screen and (max-width: 767px) {
     .navbar {
       justify-content: space-between;
+      padding-inline: 0.75rem;
     }
 
     .navlink-container {
       position: absolute;
-      right: 0;
+      right: 7px;
       top: 100%;
+      width: 50%;
 
       ul {
         flex-direction: column;
-        padding: 1rem 2rem 1rem 2rem;
+        align-items: center;
+        padding: 1rem 1rem 1rem 1rem;
+
+        li {
+          width: 80%;
+          padding: 0.75rem 0.5rem 0 0.5rem;
+          border-top: 1px solid colors.$white;
+        }
       }
     }
   }

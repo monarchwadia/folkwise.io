@@ -1,23 +1,22 @@
 <footer class="footer">
   <div class="footer-content-container">
+    <h3 class="footer-heading">Folkwise</h3>
     <div class="company-container">
-      <h3>Folkwise</h3>
       <ul>
         <li><a class="footer-link" href="/">Home</a></li>
         <li><a class="footer-link" href="/about">About</a></li>
         <li><a class="footer-link" href="/blog">Blog</a></li>
         <li><a class="footer-link" href="/contact">Contact</a></li>
-        <li><a class="footer-link" href="/contact">Careers</a></li>
       </ul>
     </div>
-    <div class="education-container">
-      <h3>Community</h3>
+    <div class="other-container">
       <ul>
-        <li><a class="footer-link" href="/">Mentorship</a></li>
-        <li><a class="footer-link" href="/">Open Source</a></li>
+        <li><a class="footer-link" href="/">Terms & Conditions</a></li>
+        <li><a class="footer-link" href="/">Privacy</a></li>
       </ul>
     </div>
   </div>
+  <p class="copyright">© Copyright 2022 Zero Projects Inc.</p>
 </footer>
 
 <style type="scss">
@@ -26,7 +25,7 @@
   .footer {
     padding: 2rem 1rem;
     background-color: colors.$dark;
-    background-image: url('/kikko-optimized.svg'),
+    background-image: url('/assets/kikko-optimized.svg'),
       linear-gradient(to left, colors.$medium, colors.$dark, colors.$dark, colors.$dark);
     background-repeat: no-repeat;
     background-size: 60%, 100%;
@@ -34,13 +33,28 @@
   }
 
   .footer-content-container {
-    display: flex;
-    gap: 2rem;
-    max-width: 1000px;
+    display: grid;
+    grid-template-columns: 20% 25%;
+    grid-template-areas:
+      'heading heading'
+      'company other';
+    max-width: 750px;
     margin: 0 auto;
 
+    .footer-heading {
+      grid-area: heading;
+    }
+
+    .company-container {
+      grid-area: company;
+    }
+
+    .other-container {
+      grid-area: other;
+    }
+
     .company-container,
-    .education-container {
+    .other-container {
       ul {
         display: flex;
         gap: 0.25rem;
@@ -81,9 +95,17 @@
     }
   }
 
+  .copyright {
+    max-width: 750px;
+    margin: 0 auto;
+    color: colors.$white;
+    font-size: 0.875rem;
+    text-align: left;
+  }
+
   @media screen and (max-width: 768px) {
     .footer {
-      background-image: url('/kikko-optimized.svg'),
+      background-image: url('/assets/kikko-optimized.svg'),
         linear-gradient(to left, colors.$medium, colors.$dark, colors.$dark, colors.$dark);
       background-size: 150%, 100%;
       background-position: 70% 30%, 0 0;

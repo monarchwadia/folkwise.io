@@ -32,11 +32,7 @@
       <Navbar />
     </div>
     {#key currentRoute}
-      <div
-        class="content-wrapper"
-        in:fade={{ duration: 150, delay: 150 }}
-        out:fade={{ duration: 150 }}
-      >
+      <div class="content-wrapper" in:fade={{ duration: 150 }} out:fade={{ duration: 150 }}>
         <slot />
       </div>
     {/key}
@@ -74,7 +70,13 @@
     flex: 1 0 auto;
     height: 100%;
     min-height: 100%;
-    padding: 0;
+    padding: 0 1rem;
     max-width: 100%;
+  }
+
+  @media screen and (max-width: 768px) {
+    .content-wrapper {
+      padding: 0 0.75rem;
+    }
   }
 </style>

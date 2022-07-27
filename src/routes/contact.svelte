@@ -1,24 +1,93 @@
 <div class="contact-container">
-  <h1>Get in touch with us</h1>
-  <div class="contact-form-container">
-    <label for="name">Name</label>
-    <input type="text" class="text" id="name" />
-    <label for="email">Email</label>
-    <input type="text" class="text" id="email" />
-    <label for="message">Message</label>
-    <textarea name="message" id="message" cols="30" rows="10" />
-  </div>
+  <section class="contact-section">
+    <form class="contact-form-container">
+      <h1>Get in touch with us</h1>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="text" id="name" required />
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" class="text" id="email" required />
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea name="message" id="message" cols="30" rows="10" required />
+      </div>
+
+      <button type="submit">Send</button>
+    </form>
+  </section>
 </div>
 
-<style>
+<style type="scss">
+  @use 'src/styles/colors' as colors;
+
   .contact-container {
-    max-width: 1000px;
-    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    max-width: 750px;
+    margin: 1rem auto;
+    background-color: colors.$white;
   }
 
   .contact-form-container {
     display: flex;
     flex-direction: column;
-    width: 80%;
+    align-self: center;
+    gap: 1rem;
+    padding: 1rem;
+
+    button {
+      padding: 0.75rem 1.5rem;
+      color: colors.$highlight;
+      background-color: colors.$dark;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 4px;
+      border: none;
+      outline: none;
+      transition: all 300ms;
+
+      &:hover {
+        color: colors.$dark;
+        background-color: colors.$highlight;
+      }
+    }
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+
+    input,
+    textarea {
+      color: colors.$white;
+      background-color: colors.$dark-50;
+      outline: none;
+      border: none;
+      padding: 0.5rem;
+      transition: all 300ms;
+      margin: 0.25rem 0;
+      border-radius: 3px;
+
+      &:focus {
+        background-color: colors.$dark;
+        outline: 1px solid colors.$highlight-red;
+        box-shadow: 0 0 4px 1px colors.$highlight-red, inset 0 0 4px 1px colors.$highlight-red;
+      }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .contact-section {
+      padding: 0.75rem;
+    }
+
+    .contact-form-container {
+      padding: 0.75rem;
+    }
   }
 </style>
