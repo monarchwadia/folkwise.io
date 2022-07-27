@@ -38,7 +38,9 @@
     email = '';
     message = '';
     //add in success/error handling/view, then set timeout on onClick() to close modal
-    onClick();
+    if (onClick) {
+      onClick();
+    }
   };
 </script>
 
