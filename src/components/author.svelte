@@ -84,7 +84,7 @@
     </div>
     {#if isOpen}
       <Modal {isOpen} {onClick}>
-        <ContactForm />
+        <ContactForm staffMember={author} {onClick} />
       </Modal>
     {/if}
   </div>

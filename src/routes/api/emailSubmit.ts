@@ -10,12 +10,14 @@ export const post = async ({ request }: { request: Request }) => {
   const name = body.name;
   const email = body.email;
   const message = body.message;
+  const uuid = body.uuid;
 
   return {
     body: {
       name,
       email,
-      message
+      message,
+      uuid
     }
   };
 };

@@ -1,8 +1,21 @@
 <script lang="ts">
+  import type { StaffMember } from 'src/types';
+
+  //default undefined to prevent errors on the contact page
+  export let staffMember: StaffMember | undefined = undefined;
+  export let onClick: Function | undefined = undefined;
+
   //dummy values for testing
   let name = 'Josh';
   let email = 'jojawhi+test@gmail.com';
   let message = 'Test message oh yeah!';
+  let uuid: string;
+
+  if (staffMember) {
+    uuid = staffMember.uuid;
+  } else {
+    uuid = '9bc0c49c-2ffa-4b90-a379-bcfddf27badc';
+  }
 
   const submitForm = async () => {
     const response = await fetch('/api/emailSubmit', {
@@ -10,7 +23,8 @@
       body: JSON.stringify({
         name,
         email,
-        message
+        message,
+        uuid
       })
     });
 
@@ -23,11 +37,17 @@
     name = '';
     email = '';
     message = '';
+    //add in success/error handling/view, then set timeout on onClick() to close modal
+    onClick();
   };
 </script>
 
 <form class="contact-form-container" method="POST" on:submit|preventDefault={handleSubmit}>
-  <h1>Get in touch with us</h1>
+  {#if staffMember}
+    <h1>Contact {staffMember.firstName}</h1>
+  {:else}
+    <h1>Get in touch with us</h1>
+  {/if}
   <div class="form-group">
     <label for="name">Name</label>
     <input bind:value={name} type="text" class="text" id="name" required />
