@@ -4,7 +4,7 @@
   import TwitterSquare from './icons/twitter-square.svelte';
   import Email2 from './icons/email2.svelte';
   import type { StaffMember } from 'src/types';
-  import Modal, { getModal } from './modal.svelte';
+  import Modal from './modal.svelte';
   import ContactForm from './contact-form.svelte';
 
   export let author: StaffMember;
@@ -24,11 +24,25 @@
     }
   ];
 
-  let selection;
-
-  const setSelection = (res = undefined) => {
-    selection = res;
+  const keyPress = (event: KeyboardEvent) => {
+    if (event.key == 'Escape') {
+      isOpen = false;
+    }
   };
+
+  let onClick = () => {
+    isOpen = !isOpen;
+
+    if (isOpen === true) {
+      window.addEventListener('keydown', keyPress);
+      document.body.style.overflow = 'hidden';
+    } else if (isOpen === false) {
+      window.removeEventListener('keydown', keyPress);
+      document.body.style.overflow = '';
+    }
+  };
+
+  let isOpen = false;
 </script>
 
 <br />
@@ -60,7 +74,7 @@
             </Icon>
           </a>
         {:else if option.hasProperty === true}
-          <button on:click={() => getModal().open()}>
+          <button on:click={onClick}>
             <Icon>
               <svelte:component this={option.component} />
             </Icon>
@@ -68,10 +82,11 @@
         {/if}
       {/each}
     </div>
-
-    <Modal>
-      <ContactForm />
-    </Modal>
+    {#if isOpen}
+      <Modal {isOpen} {onClick}>
+        <ContactForm />
+      </Modal>
+    {/if}
   </div>
 </div>
 

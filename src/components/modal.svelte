@@ -1,4 +1,4 @@
-<script context="module" lang="ts">
+<!-- <script context="module" lang="ts">
   interface ModalMap {
     [key: string]: {
       open: Function;
@@ -12,58 +12,77 @@
   export const getModal = (id: string = '') => {
     return modals[id];
   };
-</script>
-
+</script> -->
 <script lang="ts">
   import Icon from './icon.svelte';
   import Xmark from './icons/xmark.svelte';
-  import { onDestroy } from 'svelte';
+  import { onMount, onDestroy } from 'svelte';
 
-  let topDiv: Node;
-  let visible = false;
-  let prevOnTop: Node;
-  let closeCallback: Function;
+  export let onClick: () => void;
+  export let isOpen: boolean;
 
-  export let id = '';
+  const handleClick = (event: Event) => {
+    event.preventDefault();
 
-  const keyPress = (event: KeyboardEvent) => {
-    if (event.key == 'Escape' && onTop == topDiv) {
-      close();
-    }
+    onClick();
+
+    // if (isOpen === true) {
+    //   window.addEventListener('keydown', keyPress);
+    //   document.body.style.overflow = 'hidden';
+    // } else if (isOpen === false) {
+    //   window.removeEventListener('keydown', keyPress);
+    //   document.body.style.overflow = '';
+    // }
   };
+
+  // let topDiv: Node;
+  // let visible = false;
+  // let prevOnTop: Node;
+  // let closeCallback: Function;
+
+  // export let id = '';
+
+  // const keyPress = (event: KeyboardEvent) => {
+  //   if (event.key == 'Escape') {
+  //     isOpen = false;
+  //   }
+  // };
 
   /** API **/
-  const open = (callback: Function) => {
-    closeCallback = callback;
-    if (visible) return;
-    prevOnTop = onTop;
-    onTop = topDiv;
-    window.addEventListener('keydown', keyPress);
-    document.body.style.overflow = 'hidden';
-    visible = true;
-    document.body.appendChild(topDiv);
-  };
+  // const open = (callback: Function) => {
+  //   closeCallback = callback;
+  //   if (visible) return;
+  //   // prevOnTop = onTop;
+  //   // onTop = topDiv;
+  //   window.addEventListener('keydown', keyPress);
+  //   document.body.style.overflow = 'hidden';
+  //   visible = true;
+  //   // document.body.appendChild(topDiv);
+  // };
 
-  const close = (retVal = undefined) => {
-    if (!visible) return;
-    window.removeEventListener('keydown', keyPress);
-    onTop = prevOnTop;
-    if (onTop == null) document.body.style.overflow = '';
-    visible = false;
-    if (closeCallback) closeCallback(retVal);
-  };
+  // const close = (retVal = undefined) => {
+  //   if (!visible) return;
+  //   window.removeEventListener('keydown', keyPress);
+  //   // onTop = prevOnTop;
+  //   if (onTop == null) document.body.style.overflow = '';
+  //   visible = false;
+  //   if (closeCallback) closeCallback(retVal);
+  // };
 
-  modals[id] = { open, close };
+  // modals[id] = { open, close };
 
-  onDestroy(() => {
-    delete modals[id];
-    window.removeEventListener('keydown', keyPress);
-  });
+  // onDestroy(() => {
+  //   delete modals[id];
+  //   window.removeEventListener('keydown', keyPress);
+  // });
 </script>
 
-<div class="modal-background" class:visible bind:this={topDiv} on:click={() => close()}>
+<div
+  class={isOpen === true ? 'modal-background visible' : 'modal-background'}
+  on:click={handleClick}
+>
   <div class="modal" on:click|stopPropagation={() => {}}>
-    <div class="close" on:click={() => close()}>
+    <div class="close" on:click={handleClick}>
       <Icon>
         <Xmark />
       </Icon>
