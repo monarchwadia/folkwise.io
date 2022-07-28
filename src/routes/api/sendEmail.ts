@@ -4,8 +4,8 @@ import type { StaffMemberRaw } from 'src/data/staffData';
 import { getStaffMemberByID } from '../../services/staffDAO';
 
 // Production
-if (process.env.VITE_SENDGRID_SECRET) {
-  sgMail.setApiKey(process.env.VITE_SENDGRID_SECRET);
+if (process.env.SENDGRID_SECRET) {
+  sgMail.setApiKey(process.env.SENDGRID_SECRET);
 }
 
 // Dev
