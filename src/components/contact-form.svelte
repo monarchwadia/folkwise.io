@@ -5,9 +5,9 @@
   export let staffMember: StaffMember | undefined = undefined;
   export let onClick: Function | undefined = undefined;
 
-  let name = '';
-  let email = '';
-  let message = '';
+  let name = 'Josh';
+  let email = 'jojawhi@gmail.com';
+  let message = 'Test message oh yeah!';
   let uuid: string;
 
   if (staffMember) {
@@ -17,7 +17,7 @@
   }
 
   const submitForm = async () => {
-    const response = await fetch('/api/emailSubmit', {
+    const response = await fetch('/api/sendEmail', {
       method: 'POST',
       body: JSON.stringify({
         name,

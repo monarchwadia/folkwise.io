@@ -3,8 +3,8 @@ import type { StaffMember } from '../types';
 //UUIDs generated here: https://www.uuidgenerator.net/version4
 
 //allows hiding the contact email
-interface StaffMemberRaw extends Omit<StaffMember, 'hasEmail'> {
-  contactEmail?: string;
+export interface StaffMemberRaw extends Omit<StaffMember, 'hasEmail'> {
+  contactEmail: string;
 }
 
 export const staffMembers: StaffMemberRaw[] = [

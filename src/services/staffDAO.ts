@@ -1,5 +1,5 @@
 import type { StaffMember } from 'src/types';
-import { staffMembers } from 'src/data/staffData';
+import { staffMembers, type StaffMemberRaw } from 'src/data/staffData';
 
 export const getAllStaff = () => {
   const staffArray: StaffMember[] = staffMembers.map((staffMember) => {
@@ -31,8 +31,8 @@ export const getAllStaff = () => {
   return staffArray;
 };
 
-export const getStaffMemberByID = (uuid: string): StaffMember => {
-  const staff: StaffMember[] = getAllStaff();
+export const getStaffMemberByID = (uuid: string): StaffMemberRaw => {
+  const staff: StaffMemberRaw[] = staffMembers;
   const staffMember = staff.find((s) => s.uuid === uuid);
-  return staffMember as StaffMember;
+  return staffMember as StaffMemberRaw;
 };
