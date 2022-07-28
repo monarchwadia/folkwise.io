@@ -5,10 +5,9 @@
   export let staffMember: StaffMember | undefined = undefined;
   export let onClick: Function | undefined = undefined;
 
-  //dummy values for testing
-  let name = 'Josh';
-  let email = 'jojawhi+test@gmail.com';
-  let message = 'Test message oh yeah!';
+  let name = '';
+  let email = '';
+  let message = '';
   let uuid: string;
 
   if (staffMember) {
@@ -52,15 +51,23 @@
   {/if}
   <div class="form-group">
     <label for="name">Name</label>
-    <input bind:value={name} type="text" class="text" id="name" required />
+    <input bind:value={name} type="text" class="text" id="name" placeholder="Name" required />
   </div>
   <div class="form-group">
     <label for="email">Email</label>
-    <input bind:value={email} type="text" class="text" id="email" required />
+    <input bind:value={email} type="text" class="text" id="email" placeholder="Email" required />
   </div>
   <div class="form-group">
     <label for="message">Message</label>
-    <textarea bind:value={message} name="message" id="message" cols="30" rows="10" required />
+    <textarea
+      bind:value={message}
+      name="message"
+      id="message"
+      cols="30"
+      rows="10"
+      placeholder="Type your message"
+      required
+    />
   </div>
 
   <button type="submit">Send</button>
@@ -108,6 +115,10 @@
       transition: all 300ms;
       margin: 0.25rem 0;
       border-radius: 3px;
+
+      &::placeholder {
+        color: colors.$medium;
+      }
 
       &:focus {
         background-color: colors.$dark;

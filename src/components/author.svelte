@@ -142,7 +142,7 @@
   }
 
   .not-accepting {
-    color: colors.$medium;
+    color: colors.$grey;
   }
 
   @media screen and (max-width: 768px) {
