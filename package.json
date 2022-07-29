@@ -13,6 +13,7 @@
     "format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. ."
   },
   "devDependencies": {
+    "@hcaptcha/types": "^1.0.2",
     "@sveltejs/adapter-auto": "next",
     "@sveltejs/kit": "next",
     "@types/imagemagick": "^0.0.31",
@@ -35,6 +36,7 @@
   "dependencies": {
     "@sendgrid/mail": "^7.7.0",
     "@types/gm": "^1.18.11",
+    "dotenv": "^16.0.1",
     "gm": "^1.23.1"
   }
 }

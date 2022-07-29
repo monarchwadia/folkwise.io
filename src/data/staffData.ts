@@ -19,7 +19,7 @@ export const staffMembers: StaffMemberRaw[] = [
     isAcceptingProjects: true,
     linkedInURL: 'https://www.linkedin.com/in/monarchwadia/',
     twitterURL: 'https://twitter.com/monarchwadia',
-    contactEmail: 'test@test.ca'
+    contactEmail: 'monarch@zeroprojects.ca'
   },
   {
     uuid: '6a409855-e835-4ddf-b7ff-93cbc17ef453',

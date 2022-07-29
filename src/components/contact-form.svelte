@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { StaffMember } from 'src/types';
+  import Captcha from './captcha.svelte';
 
   //default undefined to prevent errors on the contact page
   export let staffMember: StaffMember | undefined = undefined;
@@ -9,6 +10,7 @@
   let email = 'jojawhi@gmail.com';
   let message = 'Test message oh yeah!';
   let uuid: string;
+  // let notVerified = true;
 
   if (staffMember) {
     uuid = staffMember.uuid;
@@ -43,7 +45,12 @@
   };
 </script>
 
-<form class="contact-form-container" method="POST" on:submit|preventDefault={handleSubmit}>
+<form
+  id="contact-form"
+  class="contact-form-container"
+  method="POST"
+  on:submit|preventDefault={handleSubmit}
+>
   {#if staffMember}
     <h1>Contact {staffMember.firstName}</h1>
   {:else}
@@ -69,7 +76,7 @@
       required
     />
   </div>
-
+  <Captcha />
   <button type="submit">Send</button>
 </form>
 
@@ -94,7 +101,12 @@
       outline: none;
       transition: all 300ms;
 
-      &:hover {
+      &:disabled {
+        color: colors.$medium;
+        background-color: colors.$grey;
+      }
+
+      &:not(:disabled):hover {
         color: colors.$dark;
         background-color: colors.$highlight;
       }

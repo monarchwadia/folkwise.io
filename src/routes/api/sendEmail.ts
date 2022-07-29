@@ -3,13 +3,13 @@ import type { RequestHandler } from '@sveltejs/kit';
 import type { StaffMemberRaw } from 'src/data/staffData';
 import { getStaffMemberByID } from '../../services/staffDAO';
 
-// Production
-if (process.env.SENDGRID_SECRET) {
-  sgMail.setApiKey(process.env.SENDGRID_SECRET);
-}
+import config from 'src/components/server/config';
 
-// Dev
-// sgMail.setApiKey(import.meta.env.VITE_SENDGRID_SECRET);
+const sendgrid = config.sendgridSecret as string;
+
+console.log(sendgrid); //returns undefined
+
+sgMail.setApiKey(sendgrid);
 
 export const post: RequestHandler = async ({ request }: { request: Request }) => {
   const body = await request.json();
