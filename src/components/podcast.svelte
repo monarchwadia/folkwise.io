@@ -18,9 +18,9 @@
     <div class="episode-info">
       <h2>Episode 1</h2>
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa ut labore praesentium. Sequi
-        officia veritatis molestias. Animi fugit laboriosam sunt fugiat nesciunt? Corporis iste
-        animi veritatis
+        Meet the host, and meet the team! David moderates a great discussion where Monarch breaks
+        down what he thinks is missing in the tech industry and the gang gets sidetracked
+        reminiscing about old video games.
       </p>
     </div>
     <div class="guests-container">
