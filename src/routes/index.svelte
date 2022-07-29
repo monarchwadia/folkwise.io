@@ -1,6 +1,7 @@
 <script context="module" lang="ts">
   import type { Load } from '@sveltejs/kit';
   import type { Post as PostType } from 'src/types';
+  import Podcast from 'src/components/podcast.svelte';
 
   export const load: Load = async ({ fetch }) => {
     // todo: error catching
@@ -42,11 +43,12 @@
       {/each}
     </div>
   </section>
-  <!-- <section class="podcast-section">
-    <div class="carousel-container">
-      <h1>Podcast Section</h1>
+  <section class="podcast-section">
+    <div class="playlist-container">
+      <h1>The Folkwise Podcast</h1>
+      <Podcast />
     </div>
-  </section> -->
+  </section>
 </div>
 
 <style type="scss">
@@ -116,10 +118,20 @@
     }
   }
 
-  // .carousel-container {
-  //   padding: 2rem;
-  //   background-color: colors.$medium;
-  // }
+  .podcast-section {
+    margin: 0 auto;
+    padding: 2rem 0;
+  }
+
+  .playlist-container {
+    max-width: 750px;
+    margin: 0 auto;
+    padding: 0;
+
+    h1 {
+      margin-bottom: 1rem;
+    }
+  }
 
   @media screen and (max-width: 768px) {
     .blog-snippets-container {
