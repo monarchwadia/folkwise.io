@@ -11,7 +11,7 @@
       srcset=""
     />
     <audio controls>
-      <source src="/assets/audio/takeone.mp3" />
+      <source src="https://stream.redcircle.com/episodes/4b9dab95-8e3f-4a46-8335-37609e3584f9/stream.mp3" />
     </audio>
   </div>
   <div class="info-container">
