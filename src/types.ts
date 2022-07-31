@@ -22,3 +22,11 @@ export type StaffMember = {
   twitterURL?: string;
   hasEmail: boolean;
 };
+
+export type Podcast = {
+  episodeNum: number;
+  title: string;
+  description: string;
+  sourceURL: string;
+  guests: string[];
+};

@@ -6,7 +6,7 @@
   <div class="player-container">
     <img
       class="podcast-thumb"
-      src="/assets/podcast-thumb-rough.jpg"
+      src="/assets/Folkwise_podcast_cover.png"
       alt="people around a gold sphere"
       srcset=""
     />
@@ -49,20 +49,21 @@
   .podcast-container {
     display: flex;
     gap: 1rem;
-    padding: 1rem;
+    padding: 3rem 2rem;
     max-width: 750px;
     margin: 0 auto;
     border-radius: 25px;
     background-image: linear-gradient(
-      to right,
-      colors.$dark,
-      colors.$dark-50,
-      colors.$dark,
-      colors.$dark
-    );
+        to right,
+        colors.$dark,
+        colors.$dark-50,
+        colors.$dark,
+        colors.$dark
+      ),
+      url('/assets/kikko-light-optimized.svg');
     background-position: center;
     background-repeat: no-repeat;
-    background-size: 120%, 120%;
+    background-size: 175%, 120%;
 
     :global(h2),
     :global(p) {
@@ -79,6 +80,7 @@
 
   .podcast-thumb {
     width: 100%;
+    box-shadow: 0 0 6px 2px colors.$medium;
   }
 
   audio {
@@ -95,17 +97,17 @@
   .guest {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.25rem;
     align-items: center;
     text-align: center;
 
     img {
-      width: 80%;
+      width: 70%;
       border-radius: 50%;
     }
 
     p {
-      font-size: 0.875rem;
+      font-size: 0.75rem;
     }
   }
 </style>
