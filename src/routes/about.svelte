@@ -58,15 +58,30 @@
 </script>
 
 <div class="about-container">
-  <section class="folkwise-section">
+  <section>
     <h1 class="large-header">Folkwise</h1>
-    <p class="base-text">
-      We're a community of software developers. We come from many different backgrounds, and we each
-      have specialist expertise in different industries and fields.
-    </p>
+    <div>
+      <h2>Who we are</h2>
+      <p class="base-text">
+        We're a small group of freelance software developers. We come from many different backgrounds, and we each
+        have specialist expertise in different industries and fields.
+      </p>
+    </div>
+    <div>
+      <h2>How we can help you</h2>
+      <p class="base-text">
+        We help you build software that naturally grows on platforms like Slack, Discord, Twitter, Facebook, and LinkedIn. We do this through a combination of full-stack software development, social media marketing, UX design, and community building.
+      </p>
+    </div>
+    <div>
+      <h2>The technologies we use</h2>
+      <p class="base-text">
+        As custom software developers, we fit the tool to your project. We enjoy React, Svelte, Node, Python, Java, PostgreSQL, Firebase. We also enjoy using marketing tools like Mailchimp, Hubspot, Orbit, Outreach, and Unbounce.
+      </p>
+    </div>
   </section>
 
-  <section class="values-section">
+  <section>
     <h1>What we value</h1>
     <div class="">
       <h2>Above All: To Care for Others</h2>
@@ -93,7 +108,7 @@
       <p class="base-text">We put our names next to the work we do.</p>
     </div>
   </section>
-  <section class="mission-section">
+  <section>
     <h1>How We Work</h1>
     <p class="base-text">
       Everyone codes. Everyone is a decision maker. We agree on goals, and then we over-communicate
@@ -101,7 +116,7 @@
     </p>
   </section>
 
-  <section class="team-section">
+  <section>
     <h1>Who we are</h1>
     <div class="team-container">
       {#each staff as member}
