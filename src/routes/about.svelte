@@ -70,7 +70,7 @@
     <div>
       <h2>How we can help you</h2>
       <p class="base-text">
-        We help you build software that naturally grows on platforms like Slack, Discord, Twitter, Facebook, and LinkedIn. We do this through a combination of full-stack software development, social media marketing, UX design, and community building.
+        Ethical software products are good for your user and good for your business. We help you build software that your users can trust, and that naturally grow on platforms like Slack, Discord, Twitter, Facebook, and LinkedIn. We do this through a combination of full-stack software development, ethical UX design, and community building.
       </p>
     </div>
     <div>
@@ -111,8 +111,7 @@
   <section>
     <h1>How We Work</h1>
     <p class="base-text">
-      Everyone codes. Everyone is a decision maker. We agree on goals, and then we over-communicate
-      as we drive towards them. There is no daily schedule.
+      Being an asynchronous company, we have few scheduled meetings. Instead, we prioritize deep work and minimize distractions. Everyone codes, everyone is a decision maker, and everyone understands our values. We agree with our clients on our end-goals, and then we over-communicate as we drive towards them.
     </p>
   </section>
 
