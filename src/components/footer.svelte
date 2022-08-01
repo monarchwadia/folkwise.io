@@ -15,12 +15,12 @@ import { ffEnableEmailForms } from "./client/config";
         {/if}
       </ul>
     </div>
-    <div class="other-container">
+    <!-- <div class="other-container">
       <ul>
         <li><a class="footer-link" href="/">Terms & Conditions</a></li>
         <li><a class="footer-link" href="/">Privacy</a></li>
       </ul>
-    </div>
+    </div> -->
   </div>
   <p class="copyright">© Copyright 2022 Zero Projects Inc.</p>
 </footer>
