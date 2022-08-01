@@ -6,16 +6,16 @@
   export let staffMember: StaffMember | undefined = undefined;
   export let onClick: Function | undefined = undefined;
 
-  let name = 'Josh';
-  let email = 'jojawhi@gmail.com';
-  let message = 'Test message oh yeah!';
-  let uuid: string;
+  let name = '';
+  let email = '';
+  let message = '';
+  let username: string;
   // let notVerified = true;
 
   if (staffMember) {
-    uuid = staffMember.uuid;
+    username = staffMember.username;
   } else {
-    uuid = '9bc0c49c-2ffa-4b90-a379-bcfddf27badc';
+    username = 'monarchwadia';
   }
 
   const submitForm = async () => {
@@ -25,7 +25,7 @@
         name,
         email,
         message,
-        uuid
+        username
       })
     });
 

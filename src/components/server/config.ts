@@ -8,8 +8,8 @@ if (browser) {
 }
 
 const config = {
-  debug: process.env.DEBUG,
   sendgridSecret: process.env.SENDGRID_SECRET,
+  sendgridSenderEmail: process.env.SENDGRID_SENDER_EMAIL,
   hCaptchaSecret: process.env.HCAPTCHA_SECRET
 };
 

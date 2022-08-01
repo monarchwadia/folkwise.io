@@ -1,7 +1,7 @@
 import * as sgMail from '@sendgrid/mail';
 import type { RequestHandler } from '@sveltejs/kit';
 import type { StaffMemberRaw } from 'src/data/staffData';
-import { getStaffMemberByID } from '../../services/staffDAO';
+import { getStaffMemberByUsername } from '../../services/staffDAO';
 
 import config from 'src/components/server/config';
 
@@ -14,7 +14,7 @@ sgMail.setApiKey(sendgrid);
 export const post: RequestHandler = async ({ request }: { request: Request }) => {
   const body = await request.json();
 
-  const uuid = body.uuid;
+  const username = body.username;
 
   const messageObject = {
     name: body.name,
@@ -22,19 +22,19 @@ export const post: RequestHandler = async ({ request }: { request: Request }) =>
     message: body.message
   };
 
-  sendEmail(messageObject, uuid);
+  sendEmail(messageObject, username);
 
   return {
     body: messageObject
   };
 };
 
-const sendEmail = async (formObject: Record<string, string>, uuid: string) => {
-  const staffMember: StaffMemberRaw = getStaffMemberByID(uuid);
+const sendEmail = async (formObject: Record<string, string>, username: string) => {
+  const staffMember: StaffMemberRaw = getStaffMemberByUsername(username);
 
   const message = {
     to: staffMember.contactEmail,
-    from: 'contact@jojawhi.com',
+    from: 'noreply@folkwise.io',
     subject: `Message from ${formObject.name} via Folkwise.io`,
     text: `
     Sender: ${formObject.name};

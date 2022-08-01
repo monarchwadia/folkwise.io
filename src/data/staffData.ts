@@ -1,15 +1,13 @@
 import type { StaffMember } from '../types';
 
-//UUIDs generated here: https://www.uuidgenerator.net/version4
-
 //allows hiding the contact email
 export interface StaffMemberRaw extends Omit<StaffMember, 'hasEmail'> {
-  contactEmail: string;
+  contactEmail?: string;
 }
 
 export const staffMembers: StaffMemberRaw[] = [
   {
-    uuid: '9bc0c49c-2ffa-4b90-a379-bcfddf27badc',
+    username: 'monarchwadia',
     firstName: 'Monarch',
     lastName: 'Wadia',
     role: 'CEO & Software Engineer',
@@ -19,10 +17,10 @@ export const staffMembers: StaffMemberRaw[] = [
     isAcceptingProjects: true,
     linkedInURL: 'https://www.linkedin.com/in/monarchwadia/',
     twitterURL: 'https://twitter.com/monarchwadia',
-    contactEmail: 'monarch@zeroprojects.ca'
+    // contactEmail: 'monarch@zeroprojects.ca'
   },
   {
-    uuid: '6a409855-e835-4ddf-b7ff-93cbc17ef453',
+    username: 'dlmarshall3',
     firstName: 'David',
     lastName: 'Marshall',
     role: 'Software Engineer',
@@ -31,10 +29,10 @@ export const staffMembers: StaffMemberRaw[] = [
       'David is a software engineer who works at Folkwise. His cross-disciplinary expertise includes the automotive industry, sales, and rocking out as a touring musician.',
     isAcceptingProjects: false,
     linkedInURL: 'https://www.linkedin.com/in/thehenshincoder/',
-    contactEmail: 'test@test.ca'
+    // contactEmail: 'test@test.ca'
   },
   {
-    uuid: '208a1658-e940-4bd1-bad7-10f0d090243e',
+    username: 'jojawhi',
     firstName: 'Josh',
     lastName: 'White',
     role: 'Software Engineer',
@@ -43,6 +41,6 @@ export const staffMembers: StaffMemberRaw[] = [
       'Josh is a software engineer who works at Folkwise. His cross-disciplinary expertise includes the education industry, linguistics, and English as an Additional Language (EAL).',
     isAcceptingProjects: true,
     linkedInURL: 'https://www.linkedin.com/in/jojawhi/',
-    contactEmail: 'jojawhi@gmail.com'
+    // contactEmail: 'jojawhi@gmail.com'
   }
 ];

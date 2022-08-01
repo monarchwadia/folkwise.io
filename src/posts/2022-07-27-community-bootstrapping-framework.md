@@ -2,7 +2,7 @@
 title: 'Community bootstrapping framework'
 date: 2022-07-27
 excerpt: 'This is a very basic community bootstrapping framework, but it should help you get started with your own community.'
-uuid: '9bc0c49c-2ffa-4b90-a379-bcfddf27badc'
+username: 'monarchwadia'
 ---
 
 This is a very basic community bootstrapping framework, but it should help you get started with your own community.

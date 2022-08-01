@@ -2,7 +2,7 @@
 title: 'Push it anyway.'
 date: 2022-05-07
 excerpt: 'Treat your LinkedIn like a dealership and your Github like a mechanic shop.'
-uuid: '9bc0c49c-2ffa-4b90-a379-bcfddf27badc'
+username: 'monarchwadia'
 ---
 
 If you're a developer who is looking for work, you need to treat your LinkedIn like a dealership and your Github like a mechanic shop.
