@@ -4,9 +4,9 @@
 <section class="hero">
   <div class="hero-container">
     <div class="hero-text-container">
-      <h1 class="hero-title">Being ethical builds communities.</h1>
+      <h1 class="hero-title">We build vibrant communities around ethical software.</h1>
       <p class="bold-text">
-        We help you build ethical software products and grow vibrant communities around them. 
+        We write software that respects users' rights, design audience journeys that empower your users, and grow communities full of fans.
       </p>
     </div>
     {#if ffEnableEmailForms}
