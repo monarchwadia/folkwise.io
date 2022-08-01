@@ -4,9 +4,9 @@
 <section class="hero">
   <div class="hero-container">
     <div class="hero-text-container">
-      <h1 class="hero-title">We're a community of software developers.</h1>
+      <h1 class="hero-title">We build products and communities.</h1>
       <p class="bold-text">
-        We're custom software developers with deep expertise in a variety of industries.
+        Software exists to serve communities. Our developers can help you build both.
       </p>
     </div>
     {#if ffEnableEmailForms}
