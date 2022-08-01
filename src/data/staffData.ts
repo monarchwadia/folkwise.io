@@ -17,7 +17,7 @@ export const staffMembers: StaffMemberRaw[] = [
     isAcceptingProjects: true,
     linkedInURL: 'https://www.linkedin.com/in/monarchwadia/',
     twitterURL: 'https://twitter.com/monarchwadia',
-    // contactEmail: 'monarch@zeroprojects.ca'
+    contactEmail: 'monarch@zeroprojects.ca'
   },
   {
     username: 'dlmarshall3',
@@ -29,7 +29,7 @@ export const staffMembers: StaffMemberRaw[] = [
       'David is a software engineer who works at Folkwise. His cross-disciplinary expertise includes the automotive industry, sales, and rocking out as a touring musician.',
     isAcceptingProjects: false,
     linkedInURL: 'https://www.linkedin.com/in/thehenshincoder/',
-    // contactEmail: 'test@test.ca'
+    contactEmail: 'test@test.ca'
   },
   {
     username: 'jojawhi',
@@ -41,6 +41,6 @@ export const staffMembers: StaffMemberRaw[] = [
       'Josh is a software engineer who works at Folkwise. His cross-disciplinary expertise includes the education industry, linguistics, and English as an Additional Language (EAL).',
     isAcceptingProjects: true,
     linkedInURL: 'https://www.linkedin.com/in/jojawhi/',
-    // contactEmail: 'jojawhi@gmail.com'
+    contactEmail: 'jojawhi@gmail.com'
   }
 ];

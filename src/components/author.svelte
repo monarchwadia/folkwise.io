@@ -6,10 +6,16 @@
   import type { StaffMember } from 'src/types';
   import Modal from './modal.svelte';
   import ContactForm from './contact-form.svelte';
+  import {ffEnableEmailForms} from "./client/config";
 
   export let author: StaffMember;
 
-  let iconOptions = [
+  type IconOption = {
+    hasProperty?: string | boolean,
+    component: any
+  }
+
+  let iconOptions: IconOption[] = [
     {
       hasProperty: author.linkedInURL,
       component: LinkedinSquare
@@ -17,12 +23,15 @@
     {
       hasProperty: author.twitterURL,
       component: TwitterSquare
-    },
-    {
-      hasProperty: author.hasEmail,
-      component: Email2
     }
   ];
+
+  if (ffEnableEmailForms) {
+    iconOptions.push({
+      hasProperty: author.hasEmail,
+      component: Email2
+    })
+  }
 
   const keyPress = (event: KeyboardEvent) => {
     if (event.key == 'Escape') {

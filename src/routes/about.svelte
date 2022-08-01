@@ -27,6 +27,7 @@
   import LinkedinSquare from 'src/components/icons/linkedin-square.svelte';
   import TwitterSquare from 'src/components/icons/twitter-square.svelte';
   import Email2 from 'src/components/icons/email2.svelte';
+  import {ffEnableEmailForms} from "../components/client/config";
 
   export let staff: StaffType[];
 
@@ -38,8 +39,11 @@
     {
       hasProperty: (staffMember: StaffType) => staffMember.twitterURL,
       component: TwitterSquare
-    },
-    {
+    }
+  ];
+
+  if (ffEnableEmailForms) {
+    iconOptions.push({
       hasProperty: (staffMember: StaffType) => {
         //to address typescript issue with href in the each block not liking boolean type
         if (staffMember.hasEmail) {
@@ -49,8 +53,8 @@
         }
       },
       component: Email2
-    }
-  ];
+    })
+  }
 </script>
 
 <div class="about-container">

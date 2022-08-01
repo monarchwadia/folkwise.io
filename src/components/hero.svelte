@@ -1,3 +1,6 @@
+<script lang="ts">
+  import {ffEnableEmailForms} from "./client/config";
+</script>
 <section class="hero">
   <div class="hero-container">
     <div class="hero-text-container">
@@ -6,9 +9,11 @@
         We're custom software developers with deep expertise in a variety of industries.
       </p>
     </div>
+    {#if ffEnableEmailForms}
     <div class="hero-cta-container">
       <a class="hero-cta" href="/contact">Let's grow.</a>
     </div>
+    {/if}
   </div>
 </section>
 
