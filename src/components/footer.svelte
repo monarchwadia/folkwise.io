@@ -11,8 +11,19 @@
     </div>
     <div class="other-container">
       <ul>
-        <li><a class="footer-link" href="/">Terms & Conditions</a></li>
-        <li><a class="footer-link" href="/">Privacy</a></li>
+        <li>
+          <a
+            class="footer-link"
+            href="https://www.termsfeed.com/live/c9f4b307-4183-40e6-a29b-6c4dc5183b4b"
+            >Terms & Conditions</a
+          >
+        </li>
+        <li>
+          <a
+            class="footer-link"
+            href="https://www.termsfeed.com/live/41d7490d-b01f-4b82-ac49-01af97aefddd">Privacy</a
+          >
+        </li>
       </ul>
     </div>
   </div>
