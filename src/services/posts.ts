@@ -9,14 +9,14 @@ export const getPosts = () => {
       const slug = urlJoin('/', filepath).replace(/\/\.\.(.*)(\.[^.]+$)/, '$1');
       const id = slug.split('/')[2];
       const { metadata } = module;
-      const { uuid } = module;
+      const { username } = module;
       const { html } = (module.default.render && module.default.render()) || '';
 
       return {
         id,
         slug,
         html,
-        uuid,
+        username,
         ...metadata
       };
     })

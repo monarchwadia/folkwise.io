@@ -1,8 +1,8 @@
 ---
-title: 'Power'
+title: 'Responsibility'
 date: 2022-05-08
 excerpt: 'Software engineers make choices that ripple through the economy.'
-uuid: '9bc0c49c-2ffa-4b90-a379-bcfddf27badc'
+username: 'monarchwadia'
 ---
 
 Programmers don't just write code. We influence human behaviour and the policies and operations of human organizations.

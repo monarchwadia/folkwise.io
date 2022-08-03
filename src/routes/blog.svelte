@@ -29,6 +29,7 @@
 
 <script lang="ts">
   import Post from 'src/components/post.svelte';
+import { staffMembers } from 'src/data/staffData';
 
   export let posts: PostType[];
   export let staff: StaffType[];
@@ -39,7 +40,10 @@
 {:then data}
   <div class="blog-posts">
     {#each data as post}
-      <Post {post} staffMember={staff.find((s) => s.uuid === post.uuid)} />
+      {@const staffMember = staff.find((s) => s.username === post.username) }
+        {#if staffMember}
+          <Post {post} staffMember={staffMember} />
+        {/if}
     {/each}
   </div>
 {:catch error}

@@ -27,6 +27,7 @@
   import LinkedinSquare from 'src/components/icons/linkedin-square.svelte';
   import TwitterSquare from 'src/components/icons/twitter-square.svelte';
   import Email2 from 'src/components/icons/email2.svelte';
+  import {ffEnableEmailForms} from "../components/client/config";
 
   export let staff: StaffType[];
 
@@ -38,8 +39,11 @@
     {
       hasProperty: (staffMember: StaffType) => staffMember.twitterURL,
       component: TwitterSquare
-    },
-    {
+    }
+  ];
+
+  if (ffEnableEmailForms) {
+    iconOptions.push({
       hasProperty: (staffMember: StaffType) => {
         //to address typescript issue with href in the each block not liking boolean type
         if (staffMember.hasEmail) {
@@ -49,20 +53,35 @@
         }
       },
       component: Email2
-    }
-  ];
+    })
+  }
 </script>
 
 <div class="about-container">
-  <section class="folkwise-section">
+  <section>
     <h1 class="large-header">Folkwise</h1>
-    <p class="base-text">
-      We're a community of software developers. We come from many different backgrounds, and we each
-      have specialist expertise in different industries and fields.
-    </p>
+    <div>
+      <h2>Who we are</h2>
+      <p class="base-text">
+        We're a small group of freelance software developers. We come from many different backgrounds, and we each
+        have specialist expertise in different industries and fields.
+      </p>
+    </div>
+    <div>
+      <h2>How we can help you</h2>
+      <p class="base-text">
+        Ethical software products are good for your user and good for your business. We help you build software that your users can trust, and that naturally grow on platforms like Slack, Discord, Twitter, Facebook, and LinkedIn. We do this through a combination of full-stack software development, ethical UX design, and community building.
+      </p>
+    </div>
+    <div>
+      <h2>The technologies we use</h2>
+      <p class="base-text">
+        As custom software developers, we fit the tool to your project. We enjoy React, Svelte, Node, Python, Java, PostgreSQL, Firebase. We also enjoy using marketing tools like Mailchimp, Hubspot, Orbit, Outreach, and Unbounce.
+      </p>
+    </div>
   </section>
 
-  <section class="values-section">
+  <section>
     <h1>What we value</h1>
     <div class="">
       <h2>Above All: To Care for Others</h2>
@@ -89,15 +108,14 @@
       <p class="base-text">We put our names next to the work we do.</p>
     </div>
   </section>
-  <section class="mission-section">
+  <section>
     <h1>How We Work</h1>
     <p class="base-text">
-      Everyone codes. Everyone is a decision maker. We agree on goals, and then we over-communicate
-      as we drive towards them. There is no daily schedule.
+      Being an asynchronous company, we have few scheduled meetings. Instead, we prioritize deep work and minimize distractions. Everyone codes, everyone is a decision maker, and everyone understands our values. We agree with our clients on our end-goals, and then we over-communicate as we drive towards them.
     </p>
   </section>
 
-  <section class="team-section">
+  <section>
     <h1>Who we are</h1>
     <div class="team-container">
       {#each staff as member}

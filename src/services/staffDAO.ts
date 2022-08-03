@@ -3,19 +3,20 @@ import { staffMembers, type StaffMemberRaw } from 'src/data/staffData';
 
 export const getAllStaff = () => {
   const staffArray: StaffMember[] = staffMembers.map((staffMember) => {
-    const uuid = staffMember.uuid;
-    const firstName = staffMember.firstName;
-    const lastName = staffMember.lastName;
-    const role = staffMember.role;
-    const imgURL = staffMember.imgURL;
-    const miniBio = staffMember.miniBio;
-    const isAcceptingProjects = staffMember.isAcceptingProjects;
-    const linkedInURL = staffMember.linkedInURL;
-    const twitterURL = staffMember.twitterURL;
-    const hasEmail = staffMember.contactEmail ? true : false;
+    const {
+      username,
+      firstName,
+      lastName,
+      role,
+      imgURL,
+      miniBio,
+      isAcceptingProjects,
+      linkedInURL,
+      twitterURL 
+    } = staffMember;
 
     return {
-      uuid,
+      username,
       firstName,
       lastName,
       role,
@@ -24,15 +25,15 @@ export const getAllStaff = () => {
       isAcceptingProjects,
       linkedInURL,
       twitterURL,
-      hasEmail
+      hasEmail: !!staffMember.contactEmail
     };
   });
 
   return staffArray;
 };
 
-export const getStaffMemberByID = (uuid: string): StaffMemberRaw => {
+export const getStaffMemberByUsername = (username: string): StaffMemberRaw => {
   const staff: StaffMemberRaw[] = staffMembers;
-  const staffMember = staff.find((s) => s.uuid === uuid);
+  const staffMember = staff.find((s) => s.username === username);
   return staffMember as StaffMemberRaw;
 };

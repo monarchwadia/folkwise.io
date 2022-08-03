@@ -40,7 +40,8 @@
   </div>
 </GlobalStyles>
 <PostMetatags />
-<GoogleAnalytics />
+<!-- Disabling for now, ethical purposes -->
+<!-- <GoogleAnalytics /> -->
 
 <style lang="scss">
   @use 'src/styles/colors' as colors;

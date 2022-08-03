@@ -10,3 +10,7 @@ Current: Social media previews
 - Slack
 - Discord
 - Refactor & simplify
+
+# Tickets
+
+- https://github.com/monarchwadia/folkwise.io/issues/8

@@ -19,7 +19,7 @@
       return {
         props: {
           post: post,
-          staffMember: staff.find((s: StaffType) => s.uuid === post.uuid)
+          staffMember: staff.find((s: StaffType) => s.username === post.username)
         }
       };
     } else {

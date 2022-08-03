@@ -1,3 +1,7 @@
+<script>
+import { ffEnableEmailForms } from "./client/config";
+
+</script>
 <footer class="footer">
   <div class="footer-content-container">
     <h3 class="footer-heading">Folkwise</h3>
@@ -6,10 +10,12 @@
         <li><a class="footer-link" href="/">Home</a></li>
         <li><a class="footer-link" href="/about">About</a></li>
         <li><a class="footer-link" href="/blog">Blog</a></li>
-        <li><a class="footer-link" href="/contact">Contact</a></li>
+        {#if ffEnableEmailForms}
+          <li><a class="footer-link" href="/contact">Contact</a></li>
+        {/if}
       </ul>
     </div>
-    <div class="other-container">
+    <!-- <div class="other-container">
       <ul>
         <li>
           <a
@@ -25,7 +31,7 @@
           >
         </li>
       </ul>
-    </div>
+    </div> -->
   </div>
   <p class="copyright">© Copyright 2022 Zero Projects Inc.</p>
 </footer>

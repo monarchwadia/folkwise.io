@@ -2,7 +2,7 @@ export type Post = {
   id: string;
   slug: string;
   html: string;
-  uuid: string;
+  username: string;
   title: string;
   excerpt: string;
   isPublished: boolean;
@@ -11,7 +11,7 @@ export type Post = {
 };
 
 export type StaffMember = {
-  uuid: string;
+  username: string;
   firstName: string;
   lastName: string;
   role: string;

@@ -1,14 +1,19 @@
+<script lang="ts">
+  import {ffEnableEmailForms} from "./client/config";
+</script>
 <section class="hero">
   <div class="hero-container">
     <div class="hero-text-container">
-      <h1 class="hero-title">We're a community of software developers.</h1>
+      <h1 class="hero-title">We build vibrant communities around ethical software.</h1>
       <p class="bold-text">
-        We're custom software developers with deep expertise in a variety of industries.
+        We write software that respects users' rights, design audience journeys that empower your users, and grow communities full of fans.
       </p>
     </div>
+    {#if ffEnableEmailForms}
     <div class="hero-cta-container">
       <a class="hero-cta" href="/contact">Let's grow.</a>
     </div>
+    {/if}
   </div>
 </section>
 

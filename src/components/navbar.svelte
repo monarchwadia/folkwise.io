@@ -1,5 +1,6 @@
 <script lang="ts">
-  import Hamburger from './hamburger.svelte';
+  import { ffEnableEmailForms } from './client/config';
+import Hamburger from './hamburger.svelte';
 
   let isOpen = false;
 
@@ -17,7 +18,9 @@
         <li><a href="/" on:click={() => (isOpen = false)}>Home</a></li>
         <li><a href="/blog" on:click={() => (isOpen = false)}>Blog</a></li>
         <li><a href="/about" on:click={() => (isOpen = false)}>About</a></li>
-        <li><a href="/contact" on:click={() => (isOpen = false)}>Contact</a></li>
+        {#if ffEnableEmailForms}
+          <li><a href="/contact" on:click={() => (isOpen = false)}>Contact</a></li>
+        {/if}
       </ul>
     </div>
   {/if}
