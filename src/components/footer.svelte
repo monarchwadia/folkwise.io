@@ -1,7 +1,7 @@
 <script>
-import { ffEnableEmailForms } from "./client/config";
-
+  import { ffEnableEmailForms } from './client/config';
 </script>
+
 <footer class="footer">
   <div class="footer-content-container">
     <h3 class="footer-heading">Folkwise</h3>
@@ -15,12 +15,26 @@ import { ffEnableEmailForms } from "./client/config";
         {/if}
       </ul>
     </div>
-    <!-- <div class="other-container">
+    <div class="other-container">
       <ul>
-        <li><a class="footer-link" href="/">Terms & Conditions</a></li>
-        <li><a class="footer-link" href="/">Privacy</a></li>
+        <li>
+          <a
+            class="footer-link"
+            href="https://www.termsfeed.com/live/c9f4b307-4183-40e6-a29b-6c4dc5183b4b"
+            target="_blank"
+            rel="noopener noreferrer">Terms & Conditions</a
+          >
+        </li>
+        <li>
+          <a
+            class="footer-link"
+            href="https://www.termsfeed.com/live/41d7490d-b01f-4b82-ac49-01af97aefddd"
+            target="_blank"
+            rel="noopener noreferrer">Privacy</a
+          >
+        </li>
       </ul>
-    </div> -->
+    </div>
   </div>
   <p class="copyright">© Copyright 2022 Zero Projects Inc.</p>
 </footer>
@@ -31,11 +45,11 @@ import { ffEnableEmailForms } from "./client/config";
   .footer {
     padding: 2rem 1rem;
     background-color: colors.$dark;
-    background-image: url('/assets/kikko-optimized.svg'),
-      linear-gradient(to left, colors.$medium, colors.$dark, colors.$dark, colors.$dark);
-    background-repeat: no-repeat;
-    background-size: 60%, 100%;
-    background-position: 108% 7%, 0 0;
+    // background-image: url('/assets/kikko-optimized.svg'),
+    //   linear-gradient(to left, colors.$medium, colors.$dark, colors.$dark, colors.$dark);
+    // background-repeat: no-repeat;
+    // background-size: 60%, 100%;
+    // background-position: 108% 7%, 0 0;
   }
 
   .footer-content-container {

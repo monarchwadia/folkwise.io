@@ -41,8 +41,8 @@
 </GlobalStyles>
 <PostMetatags />
 <!-- Disabling for now, ethical purposes -->
-<!-- <GoogleAnalytics /> -->
 
+<!-- <GoogleAnalytics /> -->
 <style lang="scss">
   @use 'src/styles/colors' as colors;
 

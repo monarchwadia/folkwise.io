@@ -7,8 +7,6 @@ import config from 'src/components/server/config';
 
 const sendgrid = config.sendgridSecret as string;
 
-console.log(sendgrid); //returns undefined
-
 sgMail.setApiKey(sendgrid);
 
 export const post: RequestHandler = async ({ request }: { request: Request }) => {
@@ -30,21 +28,27 @@ export const post: RequestHandler = async ({ request }: { request: Request }) =>
 };
 
 const sendEmail = async (formObject: Record<string, string>, username: string) => {
-  const staffMember: StaffMemberRaw = getStaffMemberByUsername(username);
+  try {
+    const staffMember: StaffMemberRaw = getStaffMemberByUsername(username);
 
-  const message = {
-    to: staffMember.contactEmail,
-    from: 'noreply@folkwise.io',
-    subject: `Message from ${formObject.name} via Folkwise.io`,
-    text: `
+    const message = {
+      to: staffMember.contactEmail,
+      from: 'noreply@folkwise.io',
+      subject: `Message from ${formObject.name} via Folkwise.io`,
+      text: `
     Sender: ${formObject.name};
     Sender email: ${formObject.email};
     Message: ${formObject.message}
     `
-  };
+    };
 
-  sgMail
-    .send(message)
-    .then(() => console.log('Email sent successfully'))
-    .catch((error) => console.log(error.message));
+    sgMail
+      .send(message)
+      .then(() =>
+        console.log(`Your message has been received! Thanks for getting in touch with us!`)
+      )
+      .catch((error) => console.log(error.message));
+  } catch (error) {
+    console.log(`sendEmail error: ${error}`);
+  }
 };

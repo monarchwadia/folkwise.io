@@ -12,7 +12,7 @@ export const getAllStaff = () => {
       miniBio,
       isAcceptingProjects,
       linkedInURL,
-      twitterURL 
+      twitterURL
     } = staffMember;
 
     return {
@@ -32,7 +32,7 @@ export const getAllStaff = () => {
   return staffArray;
 };
 
-export const getStaffMemberByUsername = (username: string): StaffMemberRaw => {
+export const getStaffMemberByUsername = (username: string) => {
   const staff: StaffMemberRaw[] = staffMembers;
   const staffMember = staff.find((s) => s.username === username);
   return staffMember as StaffMemberRaw;
