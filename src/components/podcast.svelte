@@ -21,36 +21,40 @@
 </script>
 
 <div class="podcast-container">
-  <!-- Spotify embed -->
-
-  <div class="player-container">
-    <iframe
-      style="border-radius:12px; box-shadow: 0 0 4px 0 white"
-      src="https://open.spotify.com/embed/show/73RAoxiaE3Qs08EvePd8io?utm_source=generator&theme=0"
-      width="100%"
-      height="232"
-      title="folkwise podcast"
-      frameBorder="0"
-      allow="clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+  <div class="top-container">
+    <img
+      class="thumb"
+      src="/assets/Folkwise_podcast_cover.png"
+      alt="a community of people sitting around a gold ball"
     />
-  </div>
-  <div class="info-container">
-    <div class="host">
-      <p>Hosted by</p>
-      <img src="/assets/david-optimized.jpg" alt="host david" />
-      <p class="bold-text">David Marshall</p>
-    </div>
+    <div class="info-container">
+      <h2>The Folkwise Podcast</h2>
 
-    <div class="listen-info">
-      <p>Listen wherever you get your podcasts:</p>
-      <div class="listen-links-container">
-        {#each podcastURLs as podcastURL}
-          <div class="listen-link">
-            <a href={podcastURL.liveURL} target="_blank" rel="noopener noreferrer">
-              <img src={podcastURL.imgURL} alt="podcast provider badge" srcset="" />
-            </a>
-          </div>
-        {/each}
+      <div class="host">
+        <img src="/assets/david-optimized.jpg" alt="host david" />
+        <p>Hosted by David Marshall</p>
+      </div>
+      <div class="listen-info">
+        <p>Check out the latest episode on Spotify:</p>
+        <iframe
+          style="border-radius:12px; box-shadow: 0 0 2px 0 white"
+          src="https://open.spotify.com/embed/show/73RAoxiaE3Qs08EvePd8io?utm_source=generator&theme=0"
+          width="100%"
+          height="auto"
+          title="folkwise podcast"
+          frameBorder="0"
+          allow="clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        />
+        <!-- <p>Listen wherever you get your podcasts:</p> -->
+        <!-- <div class="listen-links-container">
+          {#each podcastURLs as podcastURL}
+            <div class="listen-link">
+              <a href={podcastURL.liveURL} target="_blank" rel="noopener noreferrer">
+                <img src={podcastURL.imgURL} alt="podcast provider badge" srcset="" />
+              </a>
+            </div>
+          {/each}
+        </div> -->
       </div>
     </div>
   </div>
@@ -63,21 +67,10 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    padding: 1rem 2rem;
+    padding: 1rem;
     max-width: 750px;
     margin: 0 auto;
     border-radius: 25px;
-    background-image: linear-gradient(
-        to right,
-        colors.$dark,
-        colors.$dark-50,
-        colors.$dark,
-        colors.$dark
-      ),
-      url('/assets/kikko-light-optimized.svg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 175%, 120%;
 
     :global(h2),
     :global(p) {
@@ -85,19 +78,29 @@
     }
   }
 
-  .info-container {
+  .top-container {
     display: grid;
-    grid-template-columns: 20% 65%;
-    gap: 1.5rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .thumb {
     width: 100%;
+    border-radius: 20px;
+  }
+
+  .info-container {
+    display: flex;
+    gap: 0.5rem;
+    flex-direction: column;
+    justify-content: space-evenly;
   }
 
   .host {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
+    display: grid;
+    grid-template-columns: 25% 30%;
+    gap: 0.75rem;
     align-items: center;
-    text-align: center;
 
     img {
       width: 100%;
@@ -112,25 +115,25 @@
   .listen-info {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.25rem;
 
     p {
       font-size: 0.75rem;
     }
   }
 
-  .listen-links-container {
-    display: grid;
-    grid-template-columns: 8.75rem 8.75rem;
-    grid-template-rows: 1fr 1fr;
-    align-items: center;
-  }
+  // .listen-links-container {
+  //   display: grid;
+  //   grid-template-columns: 8.75rem 8.75rem;
+  //   grid-template-rows: 1fr 1fr;
+  //   align-items: center;
+  // }
 
-  .listen-link {
-    img {
-      max-width: 8rem;
-    }
-  }
+  // .listen-link {
+  //   img {
+  //     max-width: 8rem;
+  //   }
+  // }
 
   @media screen and (max-width: 520px) {
     .podcast-container {
@@ -163,9 +166,9 @@
       text-align: center;
     }
 
-    .listen-links-container {
-      display: flex;
-      flex-direction: column;
-    }
+    // .listen-links-container {
+    //   display: flex;
+    //   flex-direction: column;
+    // }
   }
 </style>

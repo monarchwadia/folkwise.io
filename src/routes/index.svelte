@@ -32,8 +32,8 @@
 <div class="home">
   <Hero />
   <section class="blog-snippets-section">
-    <UserMessage isError={false} message="What an informative message!" />
-    <UserMessage isError={true} message="What a catastrophic error!" />
+    <!-- <UserMessage isError={false} message="What an informative message!" />
+    <UserMessage isError={true} message="What a catastrophic error!" /> -->
     <div class="blog-snippets-container">
       {#each posts as post}
         <div class="blog-snippet">
@@ -49,14 +49,13 @@
             </p>
             <p class="base-text">{post.excerpt}</p>
           </div>
-          <a class="snippet-read-more" href={post.slug}>Read more →</a>
+          <a class="snippet-read-more" href={post.slug}>read more →</a>
         </div>
       {/each}
     </div>
   </section>
   <section class="podcast-section">
     <div class="playlist-container">
-      <h1>The Folkwise Podcast</h1>
       <Podcast />
     </div>
   </section>
@@ -80,15 +79,13 @@
   }
 
   .blog-snippet {
-    display: grid;
-    grid-template-columns: 80% 1fr;
-    gap: 1rem;
+    display: flex;
     align-items: left;
     justify-content: space-between;
     padding: 1.5rem 1rem;
-    background-color: colors.$white;
+    background-color: colors.$light;
     // box-shadow: 0 0 3px 0 colors.$dark;
-    transition: all 300ms;
+    transition: all 400ms;
 
     .date {
       margin-bottom: 1rem;
@@ -100,12 +97,17 @@
       font-size: 0.875rem;
     }
 
+    .text-container {
+      max-width: 60%;
+    }
+
     .snippet-read-more {
       position: relative;
       display: none;
       width: fit-content;
       font-size: 0.875rem;
       font-weight: 500;
+      font-variant: small-caps;
       color: colors.$highlight-green;
       text-decoration: none;
       transition: all 300ms;
@@ -134,8 +136,9 @@
     }
 
     &:hover {
-      background-color: colors.$light;
-
+      background-color: colors.$white;
+      margin: 0 -4rem;
+      padding: 1.5rem 5rem;
       .snippet-read-more {
         display: block;
         transition: all 300ms;
@@ -144,18 +147,36 @@
   }
 
   .podcast-section {
-    margin: 0 auto;
-    padding: 2rem 0;
+    position: relative;
+    margin: 0 -1rem;
+    padding: 1rem 0;
+    background-image: radial-gradient(
+      farthest-corner at 850px 400px,
+      colors.$dark-50 0%,
+      colors.$dark 70%
+    );
+    background-size: 120%;
+  }
+
+  .podcast-section::before {
+    content: '';
+    position: absolute;
+    background-image: url('/assets/kikko-optimized.svg');
+    background-size: 110%;
+    background-position: -20% 20%;
+    background-repeat: no-repeat;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0.25;
   }
 
   .playlist-container {
+    position: relative;
     max-width: 750px;
     margin: 0 auto;
     padding: 0;
-
-    h1 {
-      margin-bottom: 1rem;
-    }
   }
 
   @media screen and (max-width: 768px) {

@@ -50,7 +50,7 @@
     display: flex;
     flex-direction: column;
     min-height: 100%;
-    background-color: colors.$white;
+    background-color: colors.$light;
     // background-image: linear-gradient(to top, colors.$white, colors.$light);
     background-size: cover;
     background-position: center;
