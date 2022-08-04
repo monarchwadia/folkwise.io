@@ -18,6 +18,12 @@
     username = 'monarchwadia';
   }
 
+  const resetFormFields = () => {
+    name = '';
+    email = '';
+    message = '';
+  };
+
   const submitForm = async () => {
     const response = await fetch('/api/sendEmail', {
       method: 'POST',
@@ -35,9 +41,7 @@
 
   const handleSubmit = () => {
     submitForm();
-    name = '';
-    email = '';
-    message = '';
+    resetFormFields();
     //add in success/error handling/view, then set timeout on onClick() to close modal
     if (onClick) {
       onClick();
