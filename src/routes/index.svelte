@@ -24,6 +24,7 @@
 
 <script lang="ts">
   import Hero from '../components/hero.svelte';
+  import UserMessage from 'src/components/user-message.svelte';
 
   export let posts: PostType[];
 </script>
@@ -31,6 +32,8 @@
 <div class="home">
   <Hero />
   <section class="blog-snippets-section">
+    <UserMessage isError={false} message="What an informative message!" />
+    <UserMessage isError={true} message="What a catastrophic error!" />
     <div class="blog-snippets-container">
       {#each posts as post}
         <div class="blog-snippet">
