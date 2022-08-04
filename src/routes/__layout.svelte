@@ -41,8 +41,8 @@
 </GlobalStyles>
 <PostMetatags />
 <!-- Disabling for now, ethical purposes -->
-<!-- <GoogleAnalytics /> -->
 
+<!-- <GoogleAnalytics /> -->
 <style lang="scss">
   @use 'src/styles/colors' as colors;
 
@@ -50,7 +50,7 @@
     display: flex;
     flex-direction: column;
     min-height: 100%;
-    background-color: colors.$light;
+    background-color: colors.$white;
     // background-image: linear-gradient(to top, colors.$white, colors.$light);
     background-size: cover;
     background-position: center;

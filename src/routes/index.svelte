@@ -35,7 +35,15 @@
       {#each posts as post}
         <div class="blog-snippet">
           <div class="text-container">
-            <h3>{post.title}</h3>
+            <h4>{post.title}</h4>
+            <p class="date">
+              {new Date(post.date).toLocaleDateString('en-US', {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+              })}
+            </p>
             <p class="base-text">{post.excerpt}</p>
           </div>
           <a class="snippet-read-more" href={post.slug}>Read more →</a>
@@ -60,61 +68,75 @@
   }
 
   .blog-snippets-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    // gap: 1rem;
     max-width: 750px;
     margin: 0 auto;
     padding: 0;
   }
 
   .blog-snippet {
-    padding: 1rem;
-    background-color: colors.$white;
-  }
-
-  .blog-snippet {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
+    display: grid;
+    grid-template-columns: 80% 1fr;
+    gap: 1rem;
     align-items: left;
     justify-content: space-between;
-    box-shadow: 0 0 3px 0 colors.$dark;
+    padding: 1.5rem 1rem;
+    background-color: colors.$white;
+    // box-shadow: 0 0 3px 0 colors.$dark;
     transition: all 300ms;
 
-    h3,
-    p {
-      margin: 0 0 1rem 0;
+    .date {
+      margin-bottom: 1rem;
+      font-size: 0.875rem;
+      font-style: italic;
     }
-  }
 
-  .snippet-read-more {
-    position: relative;
-    width: fit-content;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 300ms;
-    justify-self: flex-end;
-    padding-top: 1rem;
+    p {
+      font-size: 0.875rem;
+    }
 
-    &:hover {
-      color: colors.$dark;
+    .snippet-read-more {
+      position: relative;
+      display: none;
+      width: fit-content;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: colors.$highlight-green;
+      text-decoration: none;
+      transition: all 300ms;
+      align-self: center;
+      transition: all 300ms;
+
+      &:hover {
+        color: colors.$dark;
+
+        &::after {
+          opacity: 1;
+        }
+      }
 
       &::after {
-        opacity: 1;
+        position: absolute;
+        bottom: -3px;
+        left: 0;
+        content: '';
+        width: 100%;
+        height: 2px;
+        background-color: colors.$dark;
+        opacity: 0;
+        transition: all 300ms;
       }
     }
 
-    &::after {
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      content: '';
-      width: 100%;
-      height: 2px;
-      background-color: colors.$dark;
-      opacity: 0;
-      transition: all 300ms;
+    &:hover {
+      background-color: colors.$light;
+
+      .snippet-read-more {
+        display: block;
+        transition: all 300ms;
+      }
     }
   }
 
