@@ -29,7 +29,7 @@
       </div>
       <div class="guest">
         <p class="bold-text">Guest</p>
-        <img src="/assets/guest-photos/jeffgomez.png" alt="host david" />
+        <img src="/assets/guest-photos/jeffgomez.png" alt="jeff gomez" />
         <p>Jeff Gomez</p>
       </div>
     </div>
