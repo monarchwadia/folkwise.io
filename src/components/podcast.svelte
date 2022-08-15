@@ -16,7 +16,7 @@
   </div>
   <div class="info-container">
     <div class="episode-info">
-      <h2>Episode 1</h2>
+      <h2>Episode 2</h2>
       <p>
         With his insight into the world of transmedia, our guest Jeff Gomez shares his own story about starting an enterprise that helps other businesses establish their narrative. We also touch on friction in storytelling, along with the current state of social media.
       </p>
