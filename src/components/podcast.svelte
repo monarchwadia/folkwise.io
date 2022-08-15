@@ -11,16 +11,14 @@
       srcset=""
     />
     <audio controls>
-      <source src="https://stream.redcircle.com/episodes/4b9dab95-8e3f-4a46-8335-37609e3584f9/stream.mp3" />
+      <source src="https://stream.redcircle.com/episodes/fb115370-d6ce-4647-9762-6203cb7ab7d5/stream.mp3" />
     </audio>
   </div>
   <div class="info-container">
     <div class="episode-info">
       <h2>Episode 1</h2>
       <p>
-        Meet the host, and meet the team! David moderates a great discussion where Monarch breaks
-        down what he thinks is missing in the tech industry and the gang gets sidetracked
-        reminiscing about old video games.
+        With his insight into the world of transmedia, our guest Jeff Gomez shares his own story about starting an enterprise that helps other businesses establish their narrative. We also touch on friction in storytelling, along with the current state of social media.
       </p>
     </div>
     <div class="guests-container">
@@ -31,13 +29,8 @@
       </div>
       <div class="guest">
         <p class="bold-text">Guest</p>
-        <img src="/assets/monarch-optimized.jpg" alt="host david" />
-        <p>Monarch Wadia</p>
-      </div>
-      <div class="guest">
-        <p class="bold-text">Guest</p>
-        <img src="/assets/josh.jpg" alt="host david" />
-        <p>Josh White</p>
+        <img src="/assets/guest-photos/jeffgomez.png" alt="jeff gomez" />
+        <p>Jeff Gomez</p>
       </div>
     </div>
   </div>
