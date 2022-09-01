@@ -33,8 +33,10 @@ const sendEmail = async (formObject: Record<string, string>, username: string) =
   const staffMember: StaffMemberRaw = getStaffMemberByUsername(username);
 
   const message = {
-    to: staffMember.contactEmail,
-    from: 'noreply@folkwise.io',
+    // to: staffMember.contactEmail, //production
+    to: 'jojawhi@gmail.com', //testing purposes
+    // from: 'noreply@folkwise.io', //once we get this setup
+    from: 'contact@jojawhi.com', //testing purposes
     subject: `Message from ${formObject.name} via Folkwise.io`,
     text: `
     Sender: ${formObject.name};
@@ -43,8 +45,26 @@ const sendEmail = async (formObject: Record<string, string>, username: string) =
     `
   };
 
+  const confirmationMessage = {
+    to: formObject.email,
+    from: 'contact@jojawhi.com',
+    subject: 'Thank you for your message!',
+    text: `
+    Thank you so much for contacting Folkwise. We've received your message, and we will get back to you as soon as we can.
+
+    Regards,
+
+    The Folkwise team
+    `
+  };
+
   sgMail
     .send(message)
     .then(() => console.log('Email sent successfully'))
+    .catch((error) => console.log(error.message));
+
+  sgMail
+    .send(confirmationMessage)
+    .then(() => console.log('Confirmation sent.'))
     .catch((error) => console.log(error.message));
 };

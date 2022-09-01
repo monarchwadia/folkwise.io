@@ -1,5 +1,6 @@
 <script lang="ts">
   import { fly } from 'svelte/transition';
+  import { flip } from 'svelte/animate';
   import Xmark from './icons/xmark.svelte';
   import { notifications } from '../stores/notifications';
 
@@ -14,8 +15,8 @@
   // };
 </script>
 
-{#each $notifications as notification}
-  <div class={`notification ${notification.type}`} transition:fly={{ y: 30 }}>
+{#each $notifications as notification (1)}
+  <div class={`notification ${notification.type}`} animate:flip transition:fly={{ y: -30 }}>
     <!-- <button class="close-button" on:click={() => notificationStore.set([])}> -->
     <div class="close-button" on:click={() => notifications.set([])}>
       <Xmark on:click={() => notifications.set([])} />
