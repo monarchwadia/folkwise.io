@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { StaffMember } from 'src/types';
-  import { notificationStore } from 'src/stores/notifications';
+  import { notifications } from 'src/stores/notifications';
   import Notification from './notification.svelte';
   import Captcha from './captcha.svelte';
 
@@ -36,7 +36,7 @@
     if (name.trim() === '') {
       valid = false;
       errors.name = 'Please enter your name';
-      notificationStore.update(() => {
+      notifications.update(() => {
         return [
           {
             type: 'error',
@@ -46,7 +46,7 @@
         ];
       });
       console.log(errors.name);
-      console.log($notificationStore);
+      console.log($notifications);
     } else {
       errors.name = '';
       // notificationStore.update(() => undefined);
@@ -55,7 +55,7 @@
     if (email.trim() === '' || !email.includes('@') || !email.includes('.')) {
       valid = false;
       errors.email = 'Please enter a valid email';
-      notificationStore.update(() => {
+      notifications.update(() => {
         return [
           {
             type: 'error',
@@ -65,7 +65,7 @@
         ];
       });
       console.log(errors.email);
-      console.log($notificationStore);
+      console.log($notifications);
     } else {
       errors.email = '';
       // notificationStore.update(() => undefined);
@@ -74,7 +74,7 @@
     if (message.length < 10) {
       valid = false;
       errors.message = 'Message must be at least 10 characters long.';
-      notificationStore.update(() => {
+      notifications.update(() => {
         return [
           {
             type: 'error',
@@ -84,7 +84,7 @@
         ];
       });
       console.log(errors.message);
-      console.log($notificationStore);
+      console.log($notifications);
     } else {
       errors.message = '';
       // notificationStore.update(() => undefined);
@@ -92,10 +92,10 @@
 
     if (valid) {
       console.log('Validation successful.');
-      notificationStore.update(() => {
+      notifications.update(() => {
         return [{ type: 'success', header: 'Success!', message: 'Your message has been sent.' }];
       });
-      setTimeout(() => notificationStore.set([]), 5000);
+      setTimeout(() => notifications.set([]), 5000);
       //set timeout to update to []
     }
 
@@ -145,7 +145,7 @@
   {:else}
     <h1>Get in touch with us</h1>
   {/if}
-  {#if $notificationStore[0]}
+  {#if $notifications[0]}
     <div class="notification">
       <Notification />
     </div>
@@ -220,6 +220,10 @@
     display: flex;
     flex-direction: column;
 
+    label {
+      font-size: 0.875rem;
+    }
+
     input,
     textarea {
       color: colors.$white;
@@ -241,6 +245,11 @@
         box-shadow: 0 0 4px 1px colors.$highlight-green, inset 0 0 4px 2px colors.$highlight-green;
       }
     }
+  }
+
+  .validation {
+    color: colors.$highlight-red;
+    font-size: 0.625rem;
   }
 
   @media screen and (max-width: 768px) {

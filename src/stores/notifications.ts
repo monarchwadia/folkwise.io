@@ -1,5 +1,5 @@
-import { writable } from 'svelte/store';
-// import type { Notification } from 'src/types';
+import { writable, type Subscriber, type Updater, type Writable } from 'svelte/store';
+import type { ToastNotification } from 'src/types';
 
 // const createNotificationStore = (timeout: number) => {
 //   const _notifications = writable([]);
@@ -29,7 +29,20 @@ import { writable } from 'svelte/store';
 
 // export const notifications = createNotificationStore();
 
-export const notificationStore = writable([]);
+type NotificationStore = {
+  subscribe: Writable<ToastNotification[] | []>['subscribe'];
+  set: (this: void, value: never[]) => void;
+  update: (this: void, updater: Updater<never[]>) => void;
+};
+
+const createNotificationStore = (): NotificationStore => {
+  const { subscribe, set, update } = writable([]);
+
+  return { subscribe, set, update };
+};
+
+export const notifications = createNotificationStore();
+
 // {
 //   type: 'error',
 //   header: 'Whoops!',

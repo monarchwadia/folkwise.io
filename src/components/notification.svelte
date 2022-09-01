@@ -1,7 +1,7 @@
 <script lang="ts">
   import { fly } from 'svelte/transition';
   import Xmark from './icons/xmark.svelte';
-  import { notificationStore } from '../stores/notifications';
+  import { notifications } from '../stores/notifications';
 
   // export let message: string;
   // export let isError: boolean;
@@ -14,11 +14,11 @@
   // };
 </script>
 
-{#each $notificationStore as notification}
+{#each $notifications as notification}
   <div class={`notification ${notification.type}`} transition:fly={{ y: 30 }}>
     <!-- <button class="close-button" on:click={() => notificationStore.set([])}> -->
-    <div class="close-button" on:click={() => notificationStore.set([])}>
-      <Xmark on:click={() => notificationStore.set([])} />
+    <div class="close-button" on:click={() => notifications.set([])}>
+      <Xmark on:click={() => notifications.set([])} />
     </div>
 
     <!-- </button> -->
@@ -34,7 +34,7 @@
   .notification {
     position: relative;
     max-width: 750px;
-    margin: 1rem auto;
+    margin: 0 auto;
     padding: 0.5rem;
     background-color: colors.$white;
     box-shadow: 0 2px 4px 1px colors.$dark;
