@@ -1,5 +1,7 @@
-import { writable, type Subscriber, type Updater, type Writable } from 'svelte/store';
+import { writable, type Updater, type Writable } from 'svelte/store';
 import type { ToastNotification } from 'src/types';
+
+// Structure inspired by https://svelte.dev/repl/2254c3b9b9ba4eeda05d81d2816f6276?version=3.32.2
 
 // const createNotificationStore = (timeout: number) => {
 //   const _notifications = writable([]);
