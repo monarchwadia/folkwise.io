@@ -22,9 +22,12 @@ You'll need [Fira Sans Regular](https://fonts.google.com/specimen/Fira+Sans?quer
 `.env` contains configs for both, the frontend and the backend. Anything marked with `VITE_` is exposed to the frontend. 
 
 Here is a sample `.env`. More up-to-date configs are in `env.example`
+
+```env
 SENDGRID_SECRET=
 SENDGRID_SENDER_EMAIL=
 HCAPTCHA_SECRET=
 FF_ENABLE_EMAIL_FORMS=false
 VITE_HCAPTCHA_SITE_KEY=
 VITE_HCAPTCHA_VERIFY_URL=
+```
