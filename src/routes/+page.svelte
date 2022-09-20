@@ -1,7 +1,9 @@
-<script context="module" lang="ts">
+<!-- <script context="module" lang="ts">
+  throw new Error(
+    /*Done, I think*/ '@migration task: Check code was safely removed (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292722)'
+  );
+
   import type { Load } from '@sveltejs/kit';
-  import type { Post as PostType } from 'src/types';
-  import Podcast from 'src/components/podcast.svelte';
 
   export const load: Load = async ({ fetch }) => {
     // todo: error catching
@@ -20,19 +22,28 @@
       };
     }
   };
-</script>
+</script> -->
 
 <script lang="ts">
-  import Hero from '../components/hero.svelte';
+  import type { Post as PostType } from '../types';
+  import Hero from '$lib/hero.svelte';
+  import Podcast from '$lib/podcast.svelte';
 
-  export let posts: PostType[];
+  // throw new Error(
+  //  /*Done, I think*/ '@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)'
+  // );
+
+  interface Data {
+    posts: PostType[];
+  }
+  export let data: Data;
 </script>
 
 <div class="home">
   <Hero />
   <section class="blog-snippets-section">
     <div class="blog-snippets-container">
-      {#each posts as post}
+      {#each data.posts as post}
         <div class="blog-snippet">
           <div class="text-container">
             <h3>{post.title}</h3>

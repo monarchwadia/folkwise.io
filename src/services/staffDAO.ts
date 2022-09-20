@@ -1,5 +1,5 @@
-import type { StaffMember } from 'src/types';
-import { staffMembers, type StaffMemberRaw } from 'src/data/staffData';
+import type { StaffMember } from '../types';
+import { staffMembers, type StaffMemberRaw } from '../data/staffData';
 
 export const getAllStaff = () => {
   const staffArray: StaffMember[] = staffMembers.map((staffMember) => {

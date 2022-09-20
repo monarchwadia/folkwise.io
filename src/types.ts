@@ -30,3 +30,9 @@ export type Podcast = {
   sourceURL: string;
   guests: string[];
 };
+
+export type ToastNotification = {
+  type: string;
+  header: string;
+  message: string;
+};

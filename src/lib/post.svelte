@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Post as PostType, StaffMember as StaffType } from 'src/types';
+  import type { Post as PostType, StaffMember as StaffType } from '../types';
   import Author from './author.svelte';
 
   export let post: PostType;

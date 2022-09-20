@@ -1,4 +1,4 @@
-import type { Post } from 'src/types';
+import type { Post } from '../../types';
 
 // Record gets output like so..
 // <meta key1="value1" key2="value2" />
