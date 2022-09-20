@@ -1,33 +1,37 @@
 <script context="module" lang="ts">
-  import type { Load } from '@sveltejs/kit';
-  import type { Post as PostType, StaffMember as StaffType } from 'src/types';
+  throw new Error("@migration task: Check code was safely removed (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292722)");
 
-  export const load: Load = async ({ fetch }) => {
-    // todo: error catching
-    const [postsResponse, staffResponse] = await Promise.all([
-      fetch('/api/posts'),
-      fetch('/api/allStaffController')
-    ]);
+  // import type { Load } from '@sveltejs/kit';
+  // import type { Post as PostType, StaffMember as StaffType } from 'src/types';
 
-    if (postsResponse.ok && staffResponse.ok) {
-      const posts = await postsResponse.json();
-      const staff = await staffResponse.json();
+  // export const load: Load = async ({ fetch }) => {
+  //   // todo: error catching
+  //   const [postsResponse, staffResponse] = await Promise.all([
+  //     fetch('/api/posts'),
+  //     fetch('/api/allStaffController')
+  //   ]);
 
-      return {
-        props: {
-          posts: posts,
-          staff: staff
-        }
-      };
-    } else {
-      return {
-        status: 404
-      };
-    }
-  };
+  //   if (postsResponse.ok && staffResponse.ok) {
+  //     const posts = await postsResponse.json();
+  //     const staff = await staffResponse.json();
+
+  //     return {
+  //       props: {
+  //         posts: posts,
+  //         staff: staff
+  //       }
+  //     };
+  //   } else {
+  //     return {
+  //       status: 404
+  //     };
+  //   }
+  // };
 </script>
 
 <script lang="ts">
+  throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
+
   import Post from 'src/components/post.svelte';
 import { staffMembers } from 'src/data/staffData';
 
