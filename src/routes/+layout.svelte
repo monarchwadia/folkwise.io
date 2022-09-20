@@ -1,6 +1,20 @@
-<script lang="ts">
-  throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
+<script context="module" lang="ts">
+  interface URL {
+    pathname: string;
+  }
 
+  export const load = ({ url }: { url: URL }) => {
+    const currentRoute = url.pathname;
+
+    return {
+      props: {
+        currentRoute
+      }
+    };
+  };
+</script>
+
+<script lang="ts">
   import Navbar from 'src/components/navbar.svelte';
   import Footer from 'src/components/footer.svelte';
   import GlobalStyles from 'src/components/global-styles.svelte';

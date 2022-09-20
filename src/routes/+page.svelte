@@ -1,32 +1,28 @@
 <script context="module" lang="ts">
-  throw new Error("@migration task: Check code was safely removed (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292722)");
+  import type { Load } from '@sveltejs/kit';
+  import type { Post as PostType } from 'src/types';
+  import Podcast from 'src/components/podcast.svelte';
 
-  // import type { Load } from '@sveltejs/kit';
-  // import type { Post as PostType } from 'src/types';
-  // import Podcast from 'src/components/podcast.svelte';
+  export const load: Load = async ({ fetch }) => {
+    // todo: error catching
+    const response = await fetch('/api/posts');
 
-  // export const load: Load = async ({ fetch }) => {
-  //   // todo: error catching
-  //   const response = await fetch('/api/posts');
-
-  //   if (response.ok) {
-  //     const json = await response.json();
-  //     return {
-  //       props: {
-  //         posts: json
-  //       }
-  //     };
-  //   } else {
-  //     return {
-  //       status: 404
-  //     };
-  //   }
-  // };
+    if (response.ok) {
+      const json = await response.json();
+      return {
+        props: {
+          posts: json
+        }
+      };
+    } else {
+      return {
+        status: 404
+      };
+    }
+  };
 </script>
 
 <script lang="ts">
-  throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
-
   import Hero from '../components/hero.svelte';
 
   export let posts: PostType[];

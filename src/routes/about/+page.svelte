@@ -1,37 +1,33 @@
 <script context="module" lang="ts">
-  throw new Error("@migration task: Check code was safely removed (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292722)");
+  import type { Load } from '@sveltejs/kit';
+  import type { StaffMember as StaffType } from 'src/types';
 
-  // import type { Load } from '@sveltejs/kit';
-  // import type { StaffMember as StaffType } from 'src/types';
+  export const load: Load = async ({ fetch }) => {
+    // todo: error catching
+    const staffResponse = await fetch('/api/allStaffController');
 
-  // export const load: Load = async ({ fetch }) => {
-  //   // todo: error catching
-  //   const staffResponse = await fetch('/api/allStaffController');
+    if (staffResponse.ok) {
+      const staff = await staffResponse.json();
 
-  //   if (staffResponse.ok) {
-  //     const staff = await staffResponse.json();
-
-  //     return {
-  //       props: {
-  //         staff: staff
-  //       }
-  //     };
-  //   } else {
-  //     return {
-  //       status: 404
-  //     };
-  //   }
-  // };
+      return {
+        props: {
+          staff: staff
+        }
+      };
+    } else {
+      return {
+        status: 404
+      };
+    }
+  };
 </script>
 
 <script lang="ts">
-  throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
-
   import Icon from 'src/components/icon.svelte';
   import LinkedinSquare from 'src/components/icons/linkedin-square.svelte';
   import TwitterSquare from 'src/components/icons/twitter-square.svelte';
   import Email2 from 'src/components/icons/email2.svelte';
-  import {ffEnableEmailForms} from "../../components/client/config";
+  import {ffEnableEmailForms} from "../components/client/config";
 
   export let staff: StaffType[];
 
