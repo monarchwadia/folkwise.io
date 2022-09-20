@@ -1,5 +1,5 @@
 import { error } from '@sveltejs/kit';
-import type { PageLoad } from '@sveltejs/kit';
+import type { PageLoad } from './$types';
 import type { Post as PostType, StaffMember as StaffType } from 'src/types';
 
 // Double fetch structure from here: https://scottspence.com/posts/fetch-data-from-two-or-more-endpoints-in-svelte
@@ -15,11 +15,12 @@ export const load: PageLoad = async ({ fetch, params }) => {
   if (postResponse.ok && staffResponse.ok) {
     const post = await postResponse.json();
     const staff = await staffResponse.json();
+    const staffMember = staff.find((s: StaffType) => s.username === post.username);
 
     return {
-  post: post,
-  staffMember: staff.find((s: StaffType) => s.username === post.username)
-};
+      post,
+      staffMember
+    };
   } else {
     throw error(404);
   }

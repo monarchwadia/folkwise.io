@@ -1,8 +1,8 @@
-<script context="module" lang="ts">
-  throw new Error("@migration task: Check code was safely removed (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292722)");
+<!-- <script context="module" lang="ts">
+  /*done, I think*/ throw new Error("@migration task: Check code was safely removed (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292722)");
 
   // import type { Load } from '@sveltejs/kit';
-  // import type { Post as PostType, StaffMember as StaffType } from 'src/types';
+  // 
 
   // export const load: Load = async ({ fetch }) => {
   //   // todo: error catching
@@ -27,27 +27,34 @@
   //     };
   //   }
   // };
-</script>
-
+</script> -->
 <script lang="ts">
-  throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
+  throw new Error(
+   /*HELP*/ '@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)'
+  );
+  import Post from '$lib/post.svelte';
+  import { staffMembers } from '../../data/staffData';
+  import type { Post as PostType, StaffMember as StaffType } from '../../types';
 
-  import Post from 'src/components/post.svelte';
-import { staffMembers } from 'src/data/staffData';
+  interface Data {
+    posts: PostType[];
+    staff: StaffType[];
+  }
 
-  export let posts: PostType[];
-  export let staff: StaffType[];
+  export let data: Data;
+  // export let posts: PostType[];
+  // export let staff: StaffType[];
 </script>
 
-{#await posts}
+{#await data.posts}
   <div>Loading...</div>
 {:then data}
   <div class="blog-posts">
     {#each data as post}
-      {@const staffMember = staff.find((s) => s.username === post.username) }
-        {#if staffMember}
-          <Post {post} staffMember={staffMember} />
-        {/if}
+      {@const staffMember = data.staff.find((s) => s.username === post.username)}
+      {#if staffMember}
+        <Post {post} {staffMember} />
+      {/if}
     {/each}
   </div>
 {:catch error}

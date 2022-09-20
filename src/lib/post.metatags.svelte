@@ -1,8 +1,8 @@
 <script lang="ts">
-  import type { Metatag } from 'src/services/preview/types';
+  import type { Metatag } from '../services/preview/types';
   import { page } from '$app/stores';
-  import { getPostbyId } from 'src/services/posts';
-  import generators from 'src/services/preview/metatag-generators';
+  import { getPostbyId } from '../services/posts';
+  import generators from '../services/preview/metatag-generators';
 
   let metatags: Metatag[] = [];
   const { postId } = $page.params;

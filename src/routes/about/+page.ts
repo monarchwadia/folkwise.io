@@ -1,6 +1,6 @@
 import { error } from '@sveltejs/kit';
-import type { PageLoad } from '@sveltejs/kit';
-import type { StaffMember as StaffType } from 'src/types';
+import type { PageLoad } from './$types';
+// import type { StaffMember as StaffType } from 'src/types';
 
 export const load: PageLoad = async ({ fetch }) => {
   // todo: error catching
@@ -10,8 +10,8 @@ export const load: PageLoad = async ({ fetch }) => {
     const staff = await staffResponse.json();
 
     return {
-  staff: staff
-};
+      staff
+    };
   } else {
     throw error(404);
   }

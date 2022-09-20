@@ -1,47 +1,69 @@
-<script context="module" lang="ts">
-  throw new Error("@migration task: Check code was safely removed (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292722)");
+<!-- <script context="module" lang="ts">
+  /*Done, I think*/ throw new Error("@migration task: Check code was safely removed (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292722)");
 
-  // import type { Load } from '@sveltejs/kit';
-  // import type { StaffMember as StaffType } from 'src/types';
+  import type { Load } from '@sveltejs/kit';
 
-  // export const load: Load = async ({ fetch }) => {
-  //   // todo: error catching
-  //   const staffResponse = await fetch('/api/allStaffController');
 
-  //   if (staffResponse.ok) {
-  //     const staff = await staffResponse.json();
+  export const load: Load = async ({ fetch }) => {
+    // todo: error catching
+    const staffResponse = await fetch('/api/allStaffController');
 
-  //     return {
-  //       props: {
-  //         staff: staff
-  //       }
-  //     };
-  //   } else {
-  //     return {
-  //       status: 404
-  //     };
-  //   }
-  // };
-</script>
+    if (staffResponse.ok) {
+      const staff = await staffResponse.json();
+
+      return {
+        props: {
+          staff: staff
+        }
+      };
+    } else {
+      return {
+        status: 404
+      };
+    }
+  };
+</script> -->
+
 
 <script lang="ts">
-  throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
+    
+  /*HELP*/throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
 
-  import Icon from 'src/components/icon.svelte';
-  import LinkedinSquare from 'src/components/icons/linkedin-square.svelte';
-  import TwitterSquare from 'src/components/icons/twitter-square.svelte';
-  import Email2 from 'src/components/icons/email2.svelte';
-  import {ffEnableEmailForms} from "../../components/client/config";
+  import Icon from '$lib/icon.svelte';
+  import LinkedinSquare from '$lib/icons/linkedin-square.svelte';
+  import TwitterSquare from '$lib/icons/twitter-square.svelte';
+  import Email2 from '$lib/icons/email2.svelte';
+  import {ffEnableEmailForms} from "$lib/client/config";
+  import type { StaffMember as StaffType } from '../../types';
 
-  export let staff: StaffType[];
+  interface Data {
+    staff: StaffType;
+  }
 
-  let iconOptions = [
+  export let data: Data;
+
+  const component = [
     {
-      hasProperty: (staffMember: StaffType) => staffMember.linkedInURL,
+      name: 'LinkedinSquare',
       component: LinkedinSquare
     },
     {
-      hasProperty: (staffMember: StaffType) => staffMember.twitterURL,
+      name: 'TwitterSquare',
+      component: TwitterSquare
+    },
+    {
+      name: 'Email2',
+      component: Email2
+    }
+  ];
+
+  let iconOptions = [
+    {
+      hasProperty: data.staff => data.staff.linkedInURL,
+      component: LinkedinSquare
+    },
+    {
+      hasProperty: data.staff => data.staff.twitterURL,
       component: TwitterSquare
     }
   ];
@@ -67,20 +89,25 @@
     <div>
       <h2>Who we are</h2>
       <p class="base-text">
-        We're a small group of freelance software developers. We come from many different backgrounds, and we each
-        have specialist expertise in different industries and fields.
+        We're a small group of freelance software developers. We come from many different
+        backgrounds, and we each have specialist expertise in different industries and fields.
       </p>
     </div>
     <div>
       <h2>How we can help you</h2>
       <p class="base-text">
-        Ethical software products are good for your user and good for your business. We help you build software that your users can trust, and that naturally grow on platforms like Slack, Discord, Twitter, Facebook, and LinkedIn. We do this through a combination of full-stack software development, ethical UX design, and community building.
+        Ethical software products are good for your user and good for your business. We help you
+        build software that your users can trust, and that naturally grow on platforms like Slack,
+        Discord, Twitter, Facebook, and LinkedIn. We do this through a combination of full-stack
+        software development, ethical UX design, and community building.
       </p>
     </div>
     <div>
       <h2>The technologies we use</h2>
       <p class="base-text">
-        As custom software developers, we fit the tool to your project. We enjoy React, Svelte, Node, Python, Java, PostgreSQL, Firebase. We also enjoy using marketing tools like Mailchimp, Hubspot, Orbit, Outreach, and Unbounce.
+        As custom software developers, we fit the tool to your project. We enjoy React, Svelte,
+        Node, Python, Java, PostgreSQL, Firebase. We also enjoy using marketing tools like
+        Mailchimp, Hubspot, Orbit, Outreach, and Unbounce.
       </p>
     </div>
   </section>
@@ -115,7 +142,10 @@
   <section>
     <h1>How We Work</h1>
     <p class="base-text">
-      Being an asynchronous company, we have few scheduled meetings. Instead, we prioritize deep work and minimize distractions. Everyone codes, everyone is a decision maker, and everyone understands our values. We agree with our clients on our end-goals, and then we over-communicate as we drive towards them.
+      Being an asynchronous company, we have few scheduled meetings. Instead, we prioritize deep
+      work and minimize distractions. Everyone codes, everyone is a decision maker, and everyone
+      understands our values. We agree with our clients on our end-goals, and then we
+      over-communicate as we drive towards them.
     </p>
   </section>
 

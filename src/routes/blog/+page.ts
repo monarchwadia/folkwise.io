@@ -1,6 +1,6 @@
 import { error } from '@sveltejs/kit';
-import type { PageLoad } from '@sveltejs/kit';
-import type { Post as PostType, StaffMember as StaffType } from 'src/types';
+import type { PageLoad } from './$types';
+// import type { Post as PostType, StaffMember as StaffType } from 'src/types';
 
 export const load: PageLoad = async ({ fetch }) => {
   // todo: error catching

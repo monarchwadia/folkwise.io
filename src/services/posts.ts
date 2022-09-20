@@ -1,5 +1,5 @@
-import { urlJoin } from 'src/utils';
-import type { Post } from 'src/types';
+import { urlJoin } from '../utils';
+import type { Post } from '../types';
 
 export const getPosts = () => {
   const modules = import.meta.globEager('../posts/*.md');

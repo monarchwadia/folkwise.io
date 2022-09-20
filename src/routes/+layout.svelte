@@ -1,15 +1,19 @@
 <script lang="ts">
-  throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
+  // /*Done, I think*/ throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
 
-  import Navbar from 'src/components/navbar.svelte';
-  import Footer from 'src/components/footer.svelte';
-  import GlobalStyles from 'src/components/global-styles.svelte';
-  import PostMetatags from 'src/components/post.metatags.svelte';
-  import GoogleAnalytics from 'src/components/google-analytics.svelte';
+  import Navbar from '$lib/navbar.svelte';
+  import Footer from '$lib/footer.svelte';
+  import GlobalStyles from '$lib/global-styles.svelte';
+  import PostMetatags from '$lib/post.metatags.svelte';
+  import GoogleAnalytics from '$lib/google-analytics.svelte';
 
   import { fade } from 'svelte/transition';
 
-  export let currentRoute: string;
+  interface Data {
+    currentRoute: string
+  }
+
+  export let data: Data;
 </script>
 
 <GlobalStyles>
@@ -17,7 +21,7 @@
     <div class="navbar-wrapper">
       <Navbar />
     </div>
-    {#key currentRoute}
+    {#key data.currentRoute}
       <div class="content-wrapper" in:fade={{ duration: 150 }} out:fade={{ duration: 150 }}>
         <slot />
       </div>

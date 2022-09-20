@@ -1,11 +1,11 @@
-throw new Error("@migration task: Update +server.js (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292701)");
+/*HELP*/throw new Error("@migration task: Update +server.js (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292701)");
 
 import * as sgMail from '@sendgrid/mail';
 import type { RequestHandler } from '@sveltejs/kit';
 import type { StaffMemberRaw } from 'src/data/staffData';
 import { getStaffMemberByUsername } from '../../../services/staffDAO';
 
-import config from 'src/components/server/config';
+import config from 'src/lib/server/config';
 
 const sendgrid = config.sendgridSecret as string;
 

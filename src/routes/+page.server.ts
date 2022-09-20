@@ -1,4 +1,6 @@
-throw new Error("@migration task: Update +page.server.js (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292699)");
+// throw new Error(
+//  /*Done, I think*/ '@migration task: Update +page.server.js (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292699)'
+// );
 
 import { getPosts } from '../services/posts';
 import { generatePreviewsForAllPosts } from '../services/preview';
@@ -11,10 +13,5 @@ export async function get() {
 
   const posts = getPosts();
 
-  return {
-    status: 200,
-    body: {
-      posts
-    }
-  };
+  return { posts };
 }

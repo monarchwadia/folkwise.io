@@ -1,5 +1,5 @@
-import type { Post } from 'src/types';
-import { absoluteUrl } from 'src/utils';
+import type { Post } from '../../../types';
+import { absoluteUrl } from '../../../utils';
 import type { Metatag, MetatagGenerator } from '../types';
 
 const generalMetatags: MetatagGenerator = {

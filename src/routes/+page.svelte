@@ -1,42 +1,49 @@
-<script context="module" lang="ts">
-  throw new Error("@migration task: Check code was safely removed (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292722)");
+<!-- <script context="module" lang="ts">
+  throw new Error(
+    /*Done, I think*/ '@migration task: Check code was safely removed (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292722)'
+  );
 
-  // import type { Load } from '@sveltejs/kit';
-  // import type { Post as PostType } from 'src/types';
-  // import Podcast from 'src/components/podcast.svelte';
+  import type { Load } from '@sveltejs/kit';
 
-  // export const load: Load = async ({ fetch }) => {
-  //   // todo: error catching
-  //   const response = await fetch('/api/posts');
+  export const load: Load = async ({ fetch }) => {
+    // todo: error catching
+    const response = await fetch('/api/posts');
 
-  //   if (response.ok) {
-  //     const json = await response.json();
-  //     return {
-  //       props: {
-  //         posts: json
-  //       }
-  //     };
-  //   } else {
-  //     return {
-  //       status: 404
-  //     };
-  //   }
-  // };
-</script>
+    if (response.ok) {
+      const json = await response.json();
+      return {
+        props: {
+          posts: json
+        }
+      };
+    } else {
+      return {
+        status: 404
+      };
+    }
+  };
+</script> -->
 
 <script lang="ts">
-  throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
+  import type { Post as PostType } from '../types';
+  import Hero from '$lib/hero.svelte';
+  import Podcast from '$lib/podcast.svelte';
 
-  import Hero from '../components/hero.svelte';
+  // throw new Error(
+  //  /*Done, I think*/ '@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)'
+  // );
 
-  export let posts: PostType[];
+  interface Data {
+    posts: PostType[];
+  }
+  export let data: Data;
 </script>
 
 <div class="home">
   <Hero />
   <section class="blog-snippets-section">
     <div class="blog-snippets-container">
-      {#each posts as post}
+      {#each data.posts as post}
         <div class="blog-snippet">
           <div class="text-container">
             <h3>{post.title}</h3>

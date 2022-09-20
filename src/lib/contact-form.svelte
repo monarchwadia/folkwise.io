@@ -1,6 +1,6 @@
 <script lang="ts">
-  import type { StaffMember } from 'src/types';
-  import { notifications } from 'src/stores/notifications';
+  import type { StaffMember } from '../types';
+  import { notifications } from '../stores/notifications';
   import Notification from './notification.svelte';
   import Captcha from './captcha.svelte';
 

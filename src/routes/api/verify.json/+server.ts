@@ -1,7 +1,7 @@
-throw new Error("@migration task: Update +server.js (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292701)");
+/*HELP*/ throw new Error("@migration task: Update +server.js (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292701)");
 
 import type { RequestHandler } from '@sveltejs/kit';
-import config from 'src/components/server/config';
+import config from 'src/lib/server/config';
 
 export const post: RequestHandler = async ({ request }: { request: Request }) => {
   try {
