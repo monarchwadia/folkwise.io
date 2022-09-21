@@ -42,5 +42,17 @@ export const staffMembers: StaffMemberRaw[] = [
     isAcceptingProjects: true,
     linkedInURL: 'https://www.linkedin.com/in/jojawhi/',
     contactEmail: 'jojawhi@gmail.com'
+  },
+  {
+    username: 'ddupasquier',
+    firstName: 'Dylan',
+    lastName: 'Dupasquier',
+    role: 'Software Engineer',
+    imgURL: '/assets/dylan.jpg',
+    miniBio:
+      'Dylan is a software engineer who works at Folkwise. His cross-disciplinary expertise includes front-end development, construction, sarcasm, and rock climbing.',
+    isAcceptingProjects: true,
+    linkedInURL: 'https://www.linkedin.com/in/dylan-dupasquier/',
+    contactEmail: 'dylan.dupasquier@folkwise.io'
   }
 ];
