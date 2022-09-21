@@ -1,28 +1,3 @@
-<!-- <script context="module" lang="ts">
-  throw new Error(
-    /*Done, I think*/ '@migration task: Check code was safely removed (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292722)'
-  );
-
-  import type { Load } from '@sveltejs/kit';
-
-  export const load: Load = async ({ fetch }) => {
-    // todo: error catching
-    const response = await fetch('/api/posts');
-
-    if (response.ok) {
-      const json = await response.json();
-      return {
-        props: {
-          posts: json
-        }
-      };
-    } else {
-      return {
-        status: 404
-      };
-    }
-  };
-</script> -->
 <script lang="ts">
   import type { Post as PostType } from '../types';
   import Hero from '$lib/hero.svelte';

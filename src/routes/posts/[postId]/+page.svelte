@@ -1,6 +1,4 @@
 <script lang="ts">
-  // /*Done, I think*/ throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
-
   import Post from '$lib/post.svelte';
   import type { Post as PostType, StaffMember as StaffType } from 'src/types';
 
@@ -10,9 +8,6 @@
   }
 
   export let data: Data;
-
-  // export let post: PostType;
-  // export let staffMember: StaffType;
 </script>
 
 <div class="single-post-container">

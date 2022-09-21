@@ -1,6 +1,4 @@
 <script lang="ts">
-  // /*Done, I think*/ throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
-
   import Navbar from '$lib/navbar.svelte';
   import Footer from '$lib/footer.svelte';
   import GlobalStyles from '$lib/global-styles.svelte';
@@ -10,7 +8,7 @@
   import { fade } from 'svelte/transition';
 
   interface Data {
-    currentRoute: string
+    currentRoute: string;
   }
 
   export let data: Data;
@@ -31,8 +29,8 @@
 </GlobalStyles>
 <PostMetatags />
 <!-- Disabling for now, ethical purposes -->
-<!-- <GoogleAnalytics /> -->
 
+<!-- <GoogleAnalytics /> -->
 <style lang="scss">
   @use 'src/styles/colors' as colors;
 
