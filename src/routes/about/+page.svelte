@@ -1,69 +1,25 @@
-<!-- <script context="module" lang="ts">
-  /*Done, I think*/ throw new Error("@migration task: Check code was safely removed (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292722)");
-
-  import type { Load } from '@sveltejs/kit';
-
-
-  export const load: Load = async ({ fetch }) => {
-    // todo: error catching
-    const staffResponse = await fetch('/api/allStaffController');
-
-    if (staffResponse.ok) {
-      const staff = await staffResponse.json();
-
-      return {
-        props: {
-          staff: staff
-        }
-      };
-    } else {
-      return {
-        status: 404
-      };
-    }
-  };
-</script> -->
-
-
 <script lang="ts">
-    
-  /*HELP*/throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
-
   import Icon from '$lib/icon.svelte';
   import LinkedinSquare from '$lib/icons/linkedin-square.svelte';
   import TwitterSquare from '$lib/icons/twitter-square.svelte';
   import Email2 from '$lib/icons/email2.svelte';
-  import {ffEnableEmailForms} from "$lib/client/config";
+  import { ffEnableEmailForms } from '$lib/client/config';
   import type { StaffMember as StaffType } from '../../types';
+  import type { PageData } from './$types';
 
-  interface Data {
-    staff: StaffType;
-  }
+  export let data: PageData;
 
-  export let data: Data;
+  const staffMembers: StaffType[] = data.staff;
 
-  const component = [
+  console.log('Staff', staffMembers);
+
+  const iconOptions = [
     {
-      name: 'LinkedinSquare',
+      hasProperty: (staffMember: StaffType) => staffMember.linkedInURL,
       component: LinkedinSquare
     },
     {
-      name: 'TwitterSquare',
-      component: TwitterSquare
-    },
-    {
-      name: 'Email2',
-      component: Email2
-    }
-  ];
-
-  let iconOptions = [
-    {
-      hasProperty: data.staff => data.staff.linkedInURL,
-      component: LinkedinSquare
-    },
-    {
-      hasProperty: data.staff => data.staff.twitterURL,
+      hasProperty: (staffMember: StaffType) => staffMember.twitterURL,
       component: TwitterSquare
     }
   ];
@@ -79,7 +35,7 @@
         }
       },
       component: Email2
-    })
+    });
   }
 </script>
 
@@ -152,7 +108,7 @@
   <section>
     <h1>Who we are</h1>
     <div class="team-container">
-      {#each staff as member}
+      {#each staffMembers as member}
         <div class="team-member-container">
           <img class="team-member-img" src={member.imgURL} alt="team member" />
 

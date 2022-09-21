@@ -1,22 +1,13 @@
 import { error } from '@sveltejs/kit';
 import type { PageLoad } from './$types';
-// import type { Post as PostType, StaffMember as StaffType } from 'src/types';
 
-export const load: PageLoad = async ({ fetch }) => {
-  // todo: error catching
-  const [postsResponse, staffResponse] = await Promise.all([
-    fetch('/api/posts'),
-    fetch('/api/allStaffController')
-  ]);
+export const load: PageLoad = async ({ data }) => {
+  // todo: error notifications
 
-  if (postsResponse.ok && staffResponse.ok) {
-    const posts = await postsResponse.json();
-    const staff = await staffResponse.json();
+  console.log(`Blog page.ts`);
 
-    return {
-  posts: posts,
-  staff: staff
-};
+  if (data) {
+    return { posts: data.posts, staff: data.staff };
   } else {
     throw error(404);
   }

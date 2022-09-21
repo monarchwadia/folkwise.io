@@ -1,6 +1,6 @@
 import { error } from '@sveltejs/kit';
 import type { PageLoad } from './$types';
-import type { Post as PostType, StaffMember as StaffType } from 'src/types';
+import type { StaffMember as StaffType } from 'src/types';
 
 // Double fetch structure from here: https://scottspence.com/posts/fetch-data-from-two-or-more-endpoints-in-svelte
 // Note: this did not work when destructuring the response.json() variables

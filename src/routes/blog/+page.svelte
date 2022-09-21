@@ -1,57 +1,22 @@
-<!-- <script context="module" lang="ts">
-  /*done, I think*/ throw new Error("@migration task: Check code was safely removed (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292722)");
-
-  // import type { Load } from '@sveltejs/kit';
-  // 
-
-  // export const load: Load = async ({ fetch }) => {
-  //   // todo: error catching
-  //   const [postsResponse, staffResponse] = await Promise.all([
-  //     fetch('/api/posts'),
-  //     fetch('/api/allStaffController')
-  //   ]);
-
-  //   if (postsResponse.ok && staffResponse.ok) {
-  //     const posts = await postsResponse.json();
-  //     const staff = await staffResponse.json();
-
-  //     return {
-  //       props: {
-  //         posts: posts,
-  //         staff: staff
-  //       }
-  //     };
-  //   } else {
-  //     return {
-  //       status: 404
-  //     };
-  //   }
-  // };
-</script> -->
 <script lang="ts">
-  throw new Error(
-   /*HELP*/ '@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)'
-  );
   import Post from '$lib/post.svelte';
-  import { staffMembers } from '../../data/staffData';
   import type { Post as PostType, StaffMember as StaffType } from '../../types';
+  import type { PageData } from './$types';
 
-  interface Data {
-    posts: PostType[];
-    staff: StaffType[];
-  }
+  export let data: PageData;
 
-  export let data: Data;
-  // export let posts: PostType[];
-  // export let staff: StaffType[];
+  let staff: StaffType[] = data.staff;
+  let posts: PostType[] = data.posts;
+
+  console.log(`Blog page.svelte`);
 </script>
 
-{#await data.posts}
+{#await posts}
   <div>Loading...</div>
-{:then data}
+{:then posts}
   <div class="blog-posts">
-    {#each data as post}
-      {@const staffMember = data.staff.find((s) => s.username === post.username)}
+    {#each posts as post}
+      {@const staffMember = staff.find((s) => s.username === post.username)}
       {#if staffMember}
         <Post {post} {staffMember} />
       {/if}
@@ -59,6 +24,7 @@
   </div>
 {:catch error}
   <div>Oops! An error occurred while loading the posts.</div>
+  <div>{error.message}</div>
 {/await}
 
 <style lang="scss">

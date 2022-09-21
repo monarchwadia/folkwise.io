@@ -23,27 +23,22 @@
     }
   };
 </script> -->
-
 <script lang="ts">
   import type { Post as PostType } from '../types';
   import Hero from '$lib/hero.svelte';
   import Podcast from '$lib/podcast.svelte';
+  import type { PageData } from './$types';
 
-  // throw new Error(
-  //  /*Done, I think*/ '@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)'
-  // );
+  export let data: PageData;
 
-  interface Data {
-    posts: PostType[];
-  }
-  export let data: Data;
+  const posts: PostType[] = data.posts;
 </script>
 
 <div class="home">
   <Hero />
   <section class="blog-snippets-section">
     <div class="blog-snippets-container">
-      {#each data.posts as post}
+      {#each posts as post}
         <div class="blog-snippet">
           <div class="text-container">
             <h3>{post.title}</h3>
