@@ -2,7 +2,8 @@
   import { fly } from 'svelte/transition';
   import { flip } from 'svelte/animate';
   import Xmark from './icons/xmark.svelte';
-  import { getNotification } from '../errors';
+  import { getNotification } from '../notifications';
+  import { showNotification } from '../stores/showNotification';
   // import { notifications } from '../stores/notifications';
 
   // export let message: string;
@@ -18,7 +19,13 @@
 
 <!-- {#each $notifications as notification (1)} -->
 <div class="notification" transition:fly={{ y: -30 }}>
-  <button class="close-button">
+  <button
+    type="button"
+    class="close-button"
+    on:click={() => {
+      showNotification.set(false);
+    }}
+  >
     <div class="close-button">
       <Xmark />
     </div>

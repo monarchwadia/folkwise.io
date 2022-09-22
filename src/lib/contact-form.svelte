@@ -1,11 +1,11 @@
 <script lang="ts">
   import type { StaffMember } from '../types';
-  // import { notifications } from '../stores/notifications';
+  import { showNotification } from '../stores/showNotification';
   import Notification from './notification.svelte';
   import Captcha from './captcha.svelte';
-  import { getNotification } from '../errors';
+  import { getNotification } from '../notifications';
 
-  //default undefined to prevent errors on the contact page
+  // Default undefined to prevent errors on the contact page
   export let staffMember: StaffMember | undefined = undefined;
   export let onClick: Function | undefined = undefined;
 
@@ -20,46 +20,73 @@
     username = 'monarchwadia';
   }
 
-  //Validation
-
+  // Validation
   let errors = {
     name: '',
     email: '',
     message: ''
   };
 
-  let valid = false;
+  let valid = true;
 
   const validateForm = (name: string, email: string, message: string) => {
-    valid = true;
+    // const validation = [
+    //   {
+    //     type: 'name',
+    //     valid: true,
+    //     error: 'contactName'
+    //   },
+    //   {
+    //     type: 'email',
+    //     valid: true,
+    //     error: 'contactEmail'
+    //   },
+    //   {
+    //     type: 'message',
+    //     valid: true,
+    //     error: 'contactMessage'
+    //   }
+    // ];
+
+    // // check validations for validation object, if not valid set valid to false for each and then getNotification(error)
+    // validation.forEach((item) => {
+    //   if (!item.valid) {
+    //     valid = false;
+    //     errors[item.type] = getNotification(item.error);
+    //   }
+    // });
 
     if (name.trim() === '') {
       valid = false;
-      errors.name = getNotification('contactName').message;
+      showNotification.set(true);
+      const errorType = getNotification('contactName');
+      if (errorType) errors.name = errorType.message;
     } else {
       errors.name = '';
     }
 
     if (email.trim() === '' || !email.includes('@') || !email.includes('.')) {
       valid = false;
-      errors.email = getNotification('contactEmail').message;
+      showNotification.set(true);
+      const errorType = getNotification('contactEmail');
+      if (errorType) errors.email = errorType.message;
     } else {
       errors.email = '';
     }
 
     if (message.length < 10) {
       valid = false;
-      errors.message = getNotification('contactMessage').message;
+      showNotification.set(true);
+      const errorType = getNotification('contactMessage');
+      if (errorType) errors.message = errorType.message;
     } else {
       errors.message = '';
     }
 
     if (valid) {
-      console.log('Validation successful.');
-      return [{ type: 'success', header: 'Success!', message: 'Your message has been sent.' }];
+      showNotification.set(false);
+      return getNotification('success');
     }
-
-    return valid;
   };
 
   const submitForm = async () => {
@@ -72,20 +99,15 @@
         username
       })
     });
-
-    const data = await response.json();
   };
 
   const handleSubmit = () => {
-    const validation = validateForm(name, email, message);
-
+    validateForm(name, email, message);
     if (valid) {
       submitForm();
       name = '';
       email = '';
       message = '';
-      valid = false;
-      //add in success/error handling/view, then set timeout on onClick() to close modal
       if (onClick) {
         onClick();
       }
@@ -104,7 +126,7 @@
   {:else}
     <h1>Get in touch with us</h1>
   {/if}
-  {#if !valid}
+  {#if $showNotification}
     <div class="notification">
       <Notification />
     </div>
