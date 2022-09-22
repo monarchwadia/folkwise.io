@@ -84,7 +84,6 @@
       list-style: none;
       gap: 1.25rem;
       height: 100%;
-      background-color: colors.$dark;
 
       li {
         display: flex;
