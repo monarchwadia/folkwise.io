@@ -44,7 +44,7 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    background-color: colors.$dark-50;
+    background-color: colors.$dark-85;
   }
 
   .modal {

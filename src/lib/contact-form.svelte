@@ -227,7 +227,7 @@
     input,
     textarea {
       color: colors.$white;
-      background-color: colors.$dark-50;
+      background-color: colors.$dark-85;
       outline: none;
       border: none;
       padding: 0.5rem;

@@ -1,5 +1,6 @@
 <script lang="ts">
-  import Navbar from '$lib/navbar.svelte';
+  import Navbar from '$lib/Header/Navbar.svelte';
+  import Header from '$lib/Header/Header.svelte';
   import Footer from '$lib/footer.svelte';
   import GlobalStyles from '$lib/global-styles.svelte';
   import PostMetatags from '$lib/post.metatags.svelte';
@@ -16,9 +17,7 @@
 
 <GlobalStyles>
   <div class="wrapper">
-    <div class="navbar-wrapper">
-      <Navbar />
-    </div>
+    <Header />
     {#key data.currentRoute}
       <div class="content-wrapper" in:fade={{ duration: 150 }} out:fade={{ duration: 150 }}>
         <slot />
@@ -39,18 +38,8 @@
     flex-direction: column;
     min-height: 100%;
     background-color: colors.$light;
-    // background-image: linear-gradient(to top, colors.$white, colors.$light);
     background-size: cover;
     background-position: center;
-  }
-
-  .navbar-wrapper {
-    flex-shrink: 0;
-    padding: 1rem 0;
-    background-color: colors.$dark;
-    background-repeat: no-repeat;
-    background-size: 60%, 100%;
-    background-position: 108% 7%, 0 0;
   }
 
   .content-wrapper {
@@ -59,7 +48,6 @@
     flex: 1 0 auto;
     height: 100%;
     min-height: 100%;
-    padding: 0 1rem;
     max-width: 100%;
   }
 
