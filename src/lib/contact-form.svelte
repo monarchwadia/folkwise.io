@@ -1,8 +1,9 @@
 <script lang="ts">
   import type { StaffMember } from '../types';
-  import { notifications } from '../stores/notifications';
+  // import { notifications } from '../stores/notifications';
   import Notification from './notification.svelte';
   import Captcha from './captcha.svelte';
+  import { getNotification } from '../errors';
 
   //default undefined to prevent errors on the contact page
   export let staffMember: StaffMember | undefined = undefined;
@@ -12,7 +13,6 @@
   let email = '';
   let message = '';
   let username: string;
-  // let notVerified = true;
 
   if (staffMember) {
     username = staffMember.username;
@@ -35,68 +35,28 @@
 
     if (name.trim() === '') {
       valid = false;
-      errors.name = 'Please enter your name';
-      notifications.update(() => {
-        return [
-          {
-            type: 'error',
-            header: 'Whoops!',
-            message: 'Please check that all fields have been filled out properly.'
-          }
-        ];
-      });
-      console.log(errors.name);
-      console.log($notifications);
+      errors.name = getNotification('contactName').message;
     } else {
       errors.name = '';
-      // notificationStore.update(() => undefined);
     }
 
     if (email.trim() === '' || !email.includes('@') || !email.includes('.')) {
       valid = false;
-      errors.email = 'Please enter a valid email';
-      notifications.update(() => {
-        return [
-          {
-            type: 'error',
-            header: 'Whoops!',
-            message: 'Please check that all fields have been filled out properly.'
-          }
-        ];
-      });
-      console.log(errors.email);
-      console.log($notifications);
+      errors.email = getNotification('contactEmail').message;
     } else {
       errors.email = '';
-      // notificationStore.update(() => undefined);
     }
 
     if (message.length < 10) {
       valid = false;
-      errors.message = 'Message must be at least 10 characters long.';
-      notifications.update(() => {
-        return [
-          {
-            type: 'error',
-            header: 'Whoops!',
-            message: 'Please check that all fields have been filled out properly.'
-          }
-        ];
-      });
-      console.log(errors.message);
-      console.log($notifications);
+      errors.message = getNotification('contactMessage').message;
     } else {
       errors.message = '';
-      // notificationStore.update(() => undefined);
     }
 
     if (valid) {
       console.log('Validation successful.');
-      notifications.update(() => {
-        return [{ type: 'success', header: 'Success!', message: 'Your message has been sent.' }];
-      });
-      setTimeout(() => notifications.set([]), 5000);
-      //set timeout to update to []
+      return [{ type: 'success', header: 'Success!', message: 'Your message has been sent.' }];
     }
 
     return valid;
@@ -114,7 +74,6 @@
     });
 
     const data = await response.json();
-    console.log(JSON.stringify(data));
   };
 
   const handleSubmit = () => {
@@ -145,7 +104,7 @@
   {:else}
     <h1>Get in touch with us</h1>
   {/if}
-  {#if $notifications[0]}
+  {#if !valid}
     <div class="notification">
       <Notification />
     </div>

@@ -2,7 +2,8 @@
   import { fly } from 'svelte/transition';
   import { flip } from 'svelte/animate';
   import Xmark from './icons/xmark.svelte';
-  import { notifications } from '../stores/notifications';
+  import { getNotification } from '../errors';
+  // import { notifications } from '../stores/notifications';
 
   // export let message: string;
   // export let isError: boolean;
@@ -15,20 +16,19 @@
   // };
 </script>
 
-{#each $notifications as notification (1)}
-  <div class={`notification ${notification.type}`} animate:flip transition:fly={{ y: -30 }}>
-    <!-- <button class="close-button" on:click={() => notificationStore.set([])}> -->
-    <div class="close-button" on:click={() => notifications.set([])}>
-      <Xmark on:click={() => notifications.set([])} />
+<!-- {#each $notifications as notification (1)} -->
+<div class="notification" transition:fly={{ y: -30 }}>
+  <button class="close-button">
+    <div class="close-button">
+      <Xmark />
     </div>
+  </button>
 
-    <!-- </button> -->
+  <h4>{getNotification('error').header}</h4>
+  <p>{getNotification('error').message}</p>
+</div>
 
-    <h4>{notification.header}</h4>
-    <p>{notification.message}</p>
-  </div>
-{/each}
-
+<!-- {/each} -->
 <style type="scss">
   @use 'src/styles/colors' as colors;
 
