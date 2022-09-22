@@ -1,11 +1,11 @@
 //pull any secret env variables into the config object with process.env, and then import config where you need to access them
 
 import 'dotenv/config';
-import { browser } from '$app/env';
+// import { browser } from '$app/env';
 
-if (browser) {
-  throw new Error('import of server config from browser');
-}
+// if (browser) {
+//   throw new Error('import of server config from browser');
+// }
 
 const config = {
   sendgridSecret: process.env.SENDGRID_SECRET,

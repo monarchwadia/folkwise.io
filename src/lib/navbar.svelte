@@ -1,6 +1,6 @@
 <script lang="ts">
   import { ffEnableEmailForms } from './client/config';
-import Hamburger from './hamburger.svelte';
+  import Hamburger from './hamburger.svelte';
 
   let isOpen = false;
 
