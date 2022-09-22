@@ -1,11 +1,16 @@
 <script lang="ts">
   import Hero from './Hero.svelte';
   import Navbar from './Navbar.svelte';
+  import { page } from '$app/stores';
+  const index = $page.url.searchParams.toString();
+  const isIndex = index.toString().endsWith('.io');
 </script>
 
 <header>
   <Navbar />
-  <Hero />
+  {#if isIndex}
+    <Hero />
+  {/if}
 </header>
 
 <style lang="scss">

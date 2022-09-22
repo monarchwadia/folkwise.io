@@ -33,8 +33,8 @@
   .blog-posts {
     display: flex;
     flex-direction: column;
+    gap: 2rem;
     width: 100%;
-    max-width: 750px;
     margin: 0 auto;
   }
 </style>

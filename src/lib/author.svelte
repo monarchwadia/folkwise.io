@@ -119,7 +119,10 @@
   .bio {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
+    p {
+      max-width: 30%;
+    }
   }
 
   .cta-container {
