@@ -2,9 +2,6 @@ import { error } from '@sveltejs/kit';
 import type { PageLoad } from './$types';
 
 export const load: PageLoad = async ({ data }) => {
-  // todo: error notifications
-
-  console.log(`Blog page.ts`);
 
   if (data) {
     return { posts: data.posts, staff: data.staff };

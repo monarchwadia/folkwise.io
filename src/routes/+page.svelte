@@ -1,6 +1,5 @@
 <script lang="ts">
   import type { Post as PostType } from '../types';
-  import Hero from '$lib/hero.svelte';
   import Podcast from '$lib/podcast.svelte';
   import type { PageData } from './$types';
 
@@ -10,20 +9,18 @@
 </script>
 
 <div class="home">
-  <Hero />
-  <section class="blog-snippets-section">
-    <div class="blog-snippets-container">
-      {#each posts as post}
-        <div class="blog-snippet">
-          <div class="text-container">
-            <h3>{post.title}</h3>
-            <p class="base-text">{post.excerpt}</p>
-          </div>
-          <a class="snippet-read-more" href={post.slug}>Read more →</a>
+  <div class="blog-snippets-container">
+    <div class="blog-header">What we belive in:</div>
+    {#each posts as post}
+      <div class="blog-snippet">
+        <div class="text-container">
+          <h3>{post.title}</h3>
+          <p class="base-text">{post.excerpt}</p>
         </div>
-      {/each}
-    </div>
-  </section>
+        <a class="snippet-read-more" href={post.slug}>Read more →</a>
+      </div>
+    {/each}
+  </div>
   <section class="podcast-section">
     <div class="playlist-container">
       <h1>The Folkwise Podcast</h1>
@@ -34,69 +31,47 @@
 
 <style type="scss">
   @use 'src/styles/colors' as colors;
+  @use 'src/styles/sizing' as sizing;
 
-  .blog-snippets-section {
-    margin: 0 auto;
-    padding: 2rem 0;
+
+  .blog-header {
+    padding: 1rem sizing.$gutters;
+    font-size: 2rem;
+    font-weight: 700;
+    background: colors.$white;
   }
 
   .blog-snippets-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-    max-width: 750px;
-    margin: 0 auto;
-    padding: 0;
-  }
-
-  .blog-snippet {
-    padding: 1rem;
-    background-color: colors.$white;
+    display: flex;
+    flex-direction: column;
   }
 
   .blog-snippet {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 0;
     align-items: left;
     justify-content: space-between;
-    box-shadow: 0 0 3px 0 colors.$dark;
-    transition: all 300ms;
-
-    h3,
-    p {
-      margin: 0 0 1rem 0;
+    padding: 2rem sizing.$gutters;
+    background-color: colors.$lightgrey;
+    transition: all ease-in 1s;
+    &:hover {
+      background-color: colors.$white;
+    }
+    &:hover .snippet-read-more {
+      opacity: 1;
     }
   }
 
   .snippet-read-more {
+    opacity: 0;
     position: relative;
     width: fit-content;
     font-weight: 600;
     text-decoration: none;
-    transition: all 300ms;
+    transition: all 2s;
     justify-self: flex-end;
     padding-top: 1rem;
-
-    &:hover {
-      color: colors.$dark;
-
-      &::after {
-        opacity: 1;
-      }
-    }
-
-    &::after {
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      content: '';
-      width: 100%;
-      height: 2px;
-      background-color: colors.$dark;
-      opacity: 0;
-      transition: all 300ms;
-    }
   }
 
   .podcast-section {
@@ -111,13 +86,6 @@
 
     h1 {
       margin-bottom: 1rem;
-    }
-  }
-
-  @media screen and (max-width: 768px) {
-    .blog-snippets-container {
-      display: flex;
-      flex-direction: column;
     }
   }
 </style>

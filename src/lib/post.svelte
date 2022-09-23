@@ -18,12 +18,11 @@
 
 <style lang="scss">
   @use 'src/styles/colors' as colors;
+  @use 'src/styles/sizing' as sizing;
 
   .post {
-    max-width: 750px;
-    border-bottom: 3px solid colors.$dark;
-    margin: 1rem auto;
-    padding: 2rem;
+    border-bottom: 3px solid colors.$highlight;
+    padding: 2rem sizing.$gutters;
     background-color: colors.$white;
 
     a {

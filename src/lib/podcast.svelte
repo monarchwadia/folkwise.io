@@ -11,14 +11,18 @@
       srcset=""
     />
     <audio controls>
-      <source src="https://stream.redcircle.com/episodes/fb115370-d6ce-4647-9762-6203cb7ab7d5/stream.mp3" />
+      <source
+        src="https://stream.redcircle.com/episodes/fb115370-d6ce-4647-9762-6203cb7ab7d5/stream.mp3"
+      />
     </audio>
   </div>
   <div class="info-container">
     <div class="episode-info">
       <h2>Episode 2</h2>
       <p>
-        With his insight into the world of transmedia, our guest Jeff Gomez shares his own story about starting an enterprise that helps other businesses establish their narrative. We also touch on friction in storytelling, along with the current state of social media.
+        With his insight into the world of transmedia, our guest Jeff Gomez shares his own story
+        about starting an enterprise that helps other businesses establish their narrative. We also
+        touch on friction in storytelling, along with the current state of social media.
       </p>
     </div>
     <div class="guests-container">
@@ -49,7 +53,7 @@
     background-image: linear-gradient(
         to right,
         colors.$dark,
-        colors.$dark-50,
+        colors.$dark-85,
         colors.$dark,
         colors.$dark
       ),
