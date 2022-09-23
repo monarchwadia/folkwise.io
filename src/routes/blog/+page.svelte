@@ -7,8 +7,6 @@
 
   let staff: StaffType[] = data.staff;
   let posts: PostType[] = data.posts;
-
-  console.log(`Blog page.svelte`);
 </script>
 
 {#await posts}

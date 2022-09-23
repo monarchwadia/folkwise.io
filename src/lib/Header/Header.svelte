@@ -2,13 +2,12 @@
   import Hero from './Hero.svelte';
   import Navbar from './Navbar.svelte';
   import { page } from '$app/stores';
-  const index = $page.url.searchParams.toString();
-  const isIndex = index.toString().endsWith('.io');
+  $: index = $page.url.pathname === '/';
 </script>
 
 <header>
   <Navbar />
-  {#if isIndex}
+  {#if index}
     <Hero />
   {/if}
 </header>
