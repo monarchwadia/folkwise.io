@@ -10,12 +10,12 @@
         We write software that respects users' rights, design<br /> audience journeys that empower
         your users, and grow<br /> communities full of fans.
       </p>
-      {#if ffEnableEmailForms}
-        <div class="hero-cta-container">
-          <a class="hero-cta" href="/contact">Let's grow.</a>
-        </div>
-      {/if}
     </div>
+    {#if ffEnableEmailForms}
+      <div class="hero-cta-container">
+        <a class="hero-cta" href="/contact">Let's grow.</a>
+      </div>
+    {/if}
   </div>
 </section>
 
@@ -24,12 +24,16 @@
   @use 'src/styles/sizing' as sizing;
 
   .hero {
-    background: linear-gradient(300deg, colors.$dark 30%, colors.$dark-85 90%);
+    // background-image: url('/assets/kikko-light-optimized.svg');
+    // background-size: 100%;
+    // background-position: left 2rem top -2rem;
+    // background-repeat: no-repeat;
+    // background: linear-gradient(300deg, colors.$dark-85 30%, colors.$dark 90%);
+    background: radial-gradient(ellipse at right, colors.$dark-85 30%, colors.$dark 90%);
   }
 
   .hero-container {
     display: flex;
-    flex-direction: column;
     margin: 0 auto;
   }
 
@@ -63,17 +67,18 @@
   }
 
   .hero-cta {
-    padding: 1rem 1.5rem;
-    color: colors.$dark;
-    background-color: colors.$highlight;
+    padding: 0.75rem 2rem;
+    color: colors.$highlight;
+    background-color: colors.$dark;
     font-weight: 700;
     text-decoration: none;
     border-radius: 6px;
+    // box-shadow: 0 0 4px -2px colors.$white;
     transition: all 300ms;
 
     &:hover {
       color: colors.$dark;
-      background-color: colors.$highlight-80;
+      background-color: colors.$highlight;
     }
   }
 

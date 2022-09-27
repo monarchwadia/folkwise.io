@@ -16,8 +16,8 @@
   @use 'src/styles/colors' as colors;
   header {
     background-image: url('/assets/kikko-light-optimized.svg');
-    background-size: 100%, 100%;
-    background-position: left -11.4rem top -2rem;
+    background-size: 100%;
+    background-position: left 2rem top -2rem;
     background-repeat: no-repeat;
   }
 </style>

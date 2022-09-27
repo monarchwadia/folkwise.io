@@ -10,7 +10,6 @@
 
 <div class="home">
   <div class="blog-snippets-container">
-    <div class="blog-header">What we belive in:</div>
     {#each posts as post}
       <div class="blog-snippet">
         <div class="text-container">
@@ -33,13 +32,12 @@
   @use 'src/styles/colors' as colors;
   @use 'src/styles/sizing' as sizing;
 
-
-  .blog-header {
-    padding: 1rem sizing.$gutters;
-    font-size: 2rem;
-    font-weight: 700;
-    background: colors.$white;
-  }
+  // .blog-header {
+  //   padding: 1rem sizing.$gutters;
+  //   font-size: 2rem;
+  //   font-weight: 700;
+  //   background: colors.$white;
+  // }
 
   .blog-snippets-container {
     display: flex;
@@ -54,7 +52,7 @@
     justify-content: space-between;
     padding: 2rem sizing.$gutters;
     background-color: colors.$lightgrey;
-    transition: all ease-in 1s;
+    transition: all ease-in 300ms;
     &:hover {
       background-color: colors.$white;
     }

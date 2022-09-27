@@ -66,7 +66,8 @@
     align-items: baseline;
     margin: 0 auto;
     padding: 0 sizing.$gutters;
-    background: linear-gradient(250deg, colors.$dark 22%, colors.$dark-85 90%);
+    // background: linear-gradient(250deg, colors.$dark 22%, colors.$dark-85 90%);
+    background: colors.$dark;
     border-bottom: 1px solid colors.$grey-50;
     .logo {
       display: flex;
