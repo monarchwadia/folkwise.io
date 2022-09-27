@@ -1,12 +1,7 @@
 <script lang="ts">
-<<<<<<< HEAD:src/lib/navbar.svelte
-  import { ffEnableEmailForms } from './client/config';
-  import Hamburger from './hamburger.svelte';
-=======
   import { ffEnableEmailForms } from '../client/config';
   import Hamburger from '../hamburger.svelte';
   import { navActive } from './store';
->>>>>>> 5778cb737fa64b3c932cce7095b413f6f3653af0:src/lib/Header/Navbar.svelte
 
   let isOpen = false;
 
