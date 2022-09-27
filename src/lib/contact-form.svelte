@@ -1,10 +1,11 @@
 <script lang="ts">
   import type { StaffMember } from '../types';
-  import { notifications } from '../stores/notifications';
+  import { showNotification } from '../stores/showNotification';
   import Notification from './notification.svelte';
   import Captcha from './captcha.svelte';
+  import { getNotification } from '../notifications';
 
-  //default undefined to prevent errors on the contact page
+  // Default undefined to prevent errors on the contact page
   export let staffMember: StaffMember | undefined = undefined;
   export let onClick: Function | undefined = undefined;
 
@@ -12,7 +13,6 @@
   let email = '';
   let message = '';
   let username: string;
-  // let notVerified = true;
 
   if (staffMember) {
     username = staffMember.username;
@@ -20,86 +20,73 @@
     username = 'monarchwadia';
   }
 
-  //Validation
-
+  // Validation
   let errors = {
     name: '',
     email: '',
     message: ''
   };
 
-  let valid = false;
+  let valid = true;
 
   const validateForm = (name: string, email: string, message: string) => {
-    valid = true;
+    // const validation = [
+    //   {
+    //     type: 'name',
+    //     valid: true,
+    //     error: 'contactName'
+    //   },
+    //   {
+    //     type: 'email',
+    //     valid: true,
+    //     error: 'contactEmail'
+    //   },
+    //   {
+    //     type: 'message',
+    //     valid: true,
+    //     error: 'contactMessage'
+    //   }
+    // ];
+
+    // // check validations for validation object, if not valid set valid to false for each and then getNotification(error)
+    // validation.forEach((item) => {
+    //   if (!item.valid) {
+    //     valid = false;
+    //     errors[item.type] = getNotification(item.error);
+    //   }
+    // });
 
     if (name.trim() === '') {
       valid = false;
-      errors.name = 'Please enter your name';
-      notifications.update(() => {
-        return [
-          {
-            type: 'error',
-            header: 'Whoops!',
-            message: 'Please check that all fields have been filled out properly.'
-          }
-        ];
-      });
-      console.log(errors.name);
-      console.log($notifications);
+      showNotification.set(true);
+      const errorType = getNotification('contactName');
+      if (errorType) errors.name = errorType.message;
     } else {
       errors.name = '';
-      // notificationStore.update(() => undefined);
     }
 
     if (email.trim() === '' || !email.includes('@') || !email.includes('.')) {
       valid = false;
-      errors.email = 'Please enter a valid email';
-      notifications.update(() => {
-        return [
-          {
-            type: 'error',
-            header: 'Whoops!',
-            message: 'Please check that all fields have been filled out properly.'
-          }
-        ];
-      });
-      console.log(errors.email);
-      console.log($notifications);
+      showNotification.set(true);
+      const errorType = getNotification('contactEmail');
+      if (errorType) errors.email = errorType.message;
     } else {
       errors.email = '';
-      // notificationStore.update(() => undefined);
     }
 
     if (message.length < 10) {
       valid = false;
-      errors.message = 'Message must be at least 10 characters long.';
-      notifications.update(() => {
-        return [
-          {
-            type: 'error',
-            header: 'Whoops!',
-            message: 'Please check that all fields have been filled out properly.'
-          }
-        ];
-      });
-      console.log(errors.message);
-      console.log($notifications);
+      showNotification.set(true);
+      const errorType = getNotification('contactMessage');
+      if (errorType) errors.message = errorType.message;
     } else {
       errors.message = '';
-      // notificationStore.update(() => undefined);
     }
 
     if (valid) {
-      console.log('Validation successful.');
-      notifications.update(() => {
-        return [{ type: 'success', header: 'Success!', message: 'Your message has been sent.' }];
-      });
-      setTimeout(() => notifications.set([]), 5000);
-      //set timeout to update to []
+      showNotification.set(false);
+      return getNotification('success');
     }
-
-    return valid;
   };
 
   const submitForm = async () => {
@@ -112,21 +99,15 @@
         username
       })
     });
-
-    const data = await response.json();
-    console.log(JSON.stringify(data));
   };
 
   const handleSubmit = () => {
-    const validation = validateForm(name, email, message);
-
+    validateForm(name, email, message);
     if (valid) {
       submitForm();
       name = '';
       email = '';
       message = '';
-      valid = false;
-      //add in success/error handling/view, then set timeout on onClick() to close modal
       if (onClick) {
         onClick();
       }
@@ -145,7 +126,7 @@
   {:else}
     <h1>Get in touch with us</h1>
   {/if}
-  {#if $notifications[0]}
+  {#if $showNotification}
     <div class="notification">
       <Notification />
     </div>
@@ -227,7 +208,7 @@
     input,
     textarea {
       color: colors.$white;
-      background-color: colors.$dark-50;
+      background-color: colors.$dark-85;
       outline: none;
       border: none;
       padding: 0.5rem;

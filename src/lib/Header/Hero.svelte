@@ -1,48 +1,44 @@
 <script lang="ts">
-  import {ffEnableEmailForms} from "./client/config";
+  import { ffEnableEmailForms } from '../client/config';
 </script>
+
 <section class="hero">
   <div class="hero-container">
     <div class="hero-text-container">
-      <h1 class="hero-title">We build vibrant communities around ethical software.</h1>
-      <p class="bold-text">
-        We write software that respects users' rights, design audience journeys that empower your users, and grow communities full of fans.
+      <h1 class="hero-title">We build vibrant<br /> communities around ethical<br /> software.</h1>
+      <p class="bold-text sub-title">
+        We write software that respects users' rights, design<br /> audience journeys that empower
+        your users, and grow<br /> communities full of fans.
       </p>
+      {#if ffEnableEmailForms}
+        <div class="hero-cta-container">
+          <a class="hero-cta" href="/contact">Let's grow.</a>
+        </div>
+      {/if}
     </div>
-    {#if ffEnableEmailForms}
-    <div class="hero-cta-container">
-      <a class="hero-cta" href="/contact">Let's grow.</a>
-    </div>
-    {/if}
   </div>
 </section>
 
 <style type="scss">
   @use 'src/styles/colors' as colors;
+  @use 'src/styles/sizing' as sizing;
 
   .hero {
-    margin-inline: -1rem;
-    background-color: colors.$medium;
-    background-image: url('/assets/kikko-light-optimized.svg'),
-      linear-gradient(to left, colors.$white, colors.$white, colors.$light);
-    background-size: 90%, 100%;
-    background-position: -50% 50%, 100% 100%;
-    background-repeat: no-repeat;
+    background: linear-gradient(300deg, colors.$dark 30%, colors.$dark-85 90%);
   }
 
   .hero-container {
-    display: grid;
-    grid-template-columns: 60% 40%;
-    max-width: 750px;
+    display: flex;
+    flex-direction: column;
     margin: 0 auto;
-    padding: 0 1rem;
   }
 
   .hero-text-container {
     display: flex;
     flex-direction: column;
+    max-width: 50%;
     gap: 1rem;
-    padding: 2rem 0;
+    padding: 2rem sizing.$gutters;
     background-color: rbga(0 0 0 0.5);
     p {
       margin: 0;
@@ -50,8 +46,14 @@
   }
 
   .hero-title {
+    color: colors.$light;
+
     font-size: 2.25rem;
     line-height: 2.25rem;
+  }
+
+  .sub-title {
+    color: colors.$light;
   }
 
   .hero-cta-container {
@@ -62,8 +64,8 @@
 
   .hero-cta {
     padding: 1rem 1.5rem;
-    color: colors.$highlight;
-    background-color: colors.$dark;
+    color: colors.$dark;
+    background-color: colors.$highlight;
     font-weight: 700;
     text-decoration: none;
     border-radius: 6px;
@@ -71,7 +73,7 @@
 
     &:hover {
       color: colors.$dark;
-      background-color: colors.$highlight;
+      background-color: colors.$highlight-80;
     }
   }
 

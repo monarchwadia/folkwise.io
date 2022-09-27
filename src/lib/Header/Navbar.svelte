@@ -1,26 +1,58 @@
 <script lang="ts">
+<<<<<<< HEAD:src/lib/navbar.svelte
   import { ffEnableEmailForms } from './client/config';
   import Hamburger from './hamburger.svelte';
+=======
+  import { ffEnableEmailForms } from '../client/config';
+  import Hamburger from '../hamburger.svelte';
+  import { navActive } from './store';
+>>>>>>> 5778cb737fa64b3c932cce7095b413f6f3653af0:src/lib/Header/Navbar.svelte
 
   let isOpen = false;
 
   let vwidth: number;
+
+  const navItems = [
+    { name: 'Home', href: '/' },
+    { name: 'Blog', href: '/blog' },
+    { name: 'About', href: '/about' },
+    { name: 'Contact', href: '/contact' }
+  ];
 </script>
 
 <!-- Svelte's method for getting window properties: https://svelte.dev/tutorial/svelte-window-bindings -->
 <svelte:window bind:innerWidth={vwidth} />
 
 <div class="navbar">
-  <a href="/" class="logo-link"><img class="logo-img" src="/assets/wordmark.png" alt="logo" /></a>
+  <a href="/" class="logo"><img src="/assets/wordmark.png" alt="logo" title="test" /></a>
   {#if isOpen || vwidth >= 768}
     <div class={isOpen === true ? 'navlink-container' : 'navlink-container hidden-nav'}>
       <ul>
-        <li><a href="/" on:click={() => (isOpen = false)}>Home</a></li>
-        <li><a href="/blog" on:click={() => (isOpen = false)}>Blog</a></li>
-        <li><a href="/about" on:click={() => (isOpen = false)}>About</a></li>
-        {#if ffEnableEmailForms}
-          <li><a href="/contact" on:click={() => (isOpen = false)}>Contact</a></li>
-        {/if}
+        {#each navItems as item}
+          {#if item.name === 'Contact'}
+            {#if ffEnableEmailForms}
+              <li>
+                <a
+                  href={item.href}
+                  on:click={() => {
+                    isOpen = false;
+                    navActive.set(item.name);
+                  }}>{item.name}</a
+                >
+              </li>
+            {/if}
+          {:else}
+            <li>
+              <a
+                href={item.href}
+                on:click={() => {
+                  isOpen = false;
+                  navActive.set(item.name);
+                }}>{item.name}</a
+              >
+            </li>
+          {/if}
+        {/each}
       </ul>
     </div>
   {/if}
@@ -29,33 +61,40 @@
 
 <style type="scss">
   @use 'src/styles/colors' as colors;
+  @use 'src/styles/sizing' as sizing;
 
   .navbar {
     position: relative;
     gap: 1rem;
     display: flex;
-    justify-content: left;
+    justify-content: space-between;
     align-items: baseline;
-    max-width: 750px;
     margin: 0 auto;
-    padding: 0 1rem;
-
-    .logo-img {
-      max-width: 8rem;
-      margin: 0;
-      padding-top: 1rem;
+    padding: 0 sizing.$gutters;
+    background: linear-gradient(250deg, colors.$dark 22%, colors.$dark-85 90%);
+    border-bottom: 1px solid colors.$grey-50;
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 0;
+      img {
+        max-width: 8rem;
+      }
     }
 
     ul {
-      padding: 0;
-      margin: 0;
       display: flex;
-      align-items: baseline;
+      align-items: center;
       list-style: none;
       gap: 1.25rem;
-      background-color: colors.$dark;
+      height: 100%;
 
       li {
+        display: flex;
+        align-items: center;
+        height: 100%;
+
         a {
           position: relative;
           text-decoration: none;
@@ -94,13 +133,17 @@
     .navbar {
       justify-content: space-between;
       padding-inline: 0.75rem;
+      height: 4rem;
     }
 
     .navlink-container {
       position: absolute;
-      right: 7px;
-      top: 100%;
+      margin: 0;
+      padding: 0;
+      right: 0;
+      top: 3rem;
       width: 50%;
+      // border: yellow solid;
 
       ul {
         flex-direction: column;
