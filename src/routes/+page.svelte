@@ -121,12 +121,12 @@
 
   .podcast-section {
     margin: 0 auto;
-    padding: 2rem 0;
+    padding: 2rem sizing.$gutters;
     // background-color: colors.$dark;
   }
 
   .playlist-container {
-    max-width: 750px;
+    width: 100%;
     margin: 0 auto;
     padding: 0;
 

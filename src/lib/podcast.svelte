@@ -46,8 +46,8 @@
   .podcast-container {
     display: flex;
     gap: 1rem;
-    padding: 3rem 2rem;
-    max-width: 750px;
+    padding: 3rem 5rem;
+
     margin: 0 auto;
     border-radius: 25px;
     background-image: linear-gradient(

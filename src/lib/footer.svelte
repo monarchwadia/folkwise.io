@@ -1,7 +1,7 @@
 <script>
-import { ffEnableEmailForms } from "./client/config";
-
+  import { ffEnableEmailForms } from './client/config';
 </script>
+
 <footer class="footer">
   <div class="footer-content-container">
     <h3 class="footer-heading">Folkwise</h3>
@@ -42,8 +42,7 @@ import { ffEnableEmailForms } from "./client/config";
   .footer {
     padding: 2rem 1rem;
     background-color: colors.$dark;
-    background-image: url('/assets/kikko-optimized.svg'),
-      linear-gradient(to left, colors.$medium, colors.$dark, colors.$dark, colors.$dark);
+    background-image: colors.$dark;
     background-repeat: no-repeat;
     background-size: 60%, 100%;
     background-position: 108% 7%, 0 0;
