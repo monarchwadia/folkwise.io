@@ -7,3 +7,13 @@ node_modules
 .env.*
 !.env.example
 /static/socialpreviews
+
+# Gitignore from https://yarnpkg.com/getting-started/qa
+# Assuming we are not using zero-installs
+.yarn/*
+!.yarn/cache
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions

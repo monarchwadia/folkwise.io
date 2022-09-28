@@ -1,7 +1,10 @@
-<script lang="ts">
+<script>
+  // @ts-nocheck
+  // we're using @ts-nocheck because mdsvex does not handle TS files yet, as per https://github.com/pngwn/MDsveX/issues/116
+
   // This file is specified in svelte.config.js
-  export let title: string;
-  export let date: Date;
+  export let title; // string
+  export let date; // date
 </script>
 
 <div class="post-content-container">
