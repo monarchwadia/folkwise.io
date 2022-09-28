@@ -1,5 +1,6 @@
 export type Post = {
   id: string;
+  date: string;
   slug: string;
   html: string;
   username: string;

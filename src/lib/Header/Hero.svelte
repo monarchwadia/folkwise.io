@@ -29,6 +29,7 @@
     // background-position: left 2rem top -2rem;
     // background-repeat: no-repeat;
     // background: linear-gradient(300deg, colors.$dark-85 30%, colors.$dark 90%);
+    padding: 2rem 0;
     background: radial-gradient(ellipse at right, colors.$dark-85 30%, colors.$dark 90%);
   }
 

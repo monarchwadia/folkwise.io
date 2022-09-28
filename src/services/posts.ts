@@ -8,12 +8,14 @@ export const getPosts = () => {
     .map(([filepath, module]): Post => {
       const slug = urlJoin('/', filepath).replace(/\/\.\.(.*)(\.[^.]+$)/, '$1');
       const id = slug.split('/')[2];
+      const { date } = module;
       const { metadata } = module;
       const { username } = module;
       const { html } = (module.default.render && module.default.render()) || '';
 
       return {
         id,
+        date,
         slug,
         html,
         username,
