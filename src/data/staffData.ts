@@ -19,18 +19,18 @@ export const staffMembers: StaffMemberRaw[] = [
     twitterURL: 'https://twitter.com/monarchwadia',
     contactEmail: 'monarch@zeroprojects.ca'
   },
-  {
-    username: 'dlmarshall3',
-    firstName: 'David',
-    lastName: 'Marshall',
-    role: 'Software Engineer',
-    imgURL: '/assets/david-optimized.jpg',
-    miniBio:
-      'David is a software engineer who works at Folkwise. His cross-disciplinary expertise includes the automotive industry, sales, and rocking out as a touring musician.',
-    isAcceptingProjects: false,
-    linkedInURL: 'https://www.linkedin.com/in/thehenshincoder/',
-    contactEmail: 'test@test.ca'
-  },
+  // {
+  //   username: 'dlmarshall3',
+  //   firstName: 'David',
+  //   lastName: 'Marshall',
+  //   role: 'Software Engineer',
+  //   imgURL: '/assets/david-optimized.jpg',
+  //   miniBio:
+  //     'David is a software engineer who works at Folkwise. His cross-disciplinary expertise includes the automotive industry, sales, and rocking out as a touring musician.',
+  //   isAcceptingProjects: false,
+  //   linkedInURL: 'https://www.linkedin.com/in/thehenshincoder/',
+  //   contactEmail: 'test@test.ca'
+  // },
   {
     username: 'jojawhi',
     firstName: 'Josh',
@@ -42,17 +42,17 @@ export const staffMembers: StaffMemberRaw[] = [
     isAcceptingProjects: true,
     linkedInURL: 'https://www.linkedin.com/in/jojawhi/',
     contactEmail: 'jojawhi@gmail.com'
-  },
-  {
-    username: 'ddupasquier',
-    firstName: 'Dylan',
-    lastName: 'Dupasquier',
-    role: 'Software Engineer',
-    imgURL: '/assets/dylan.jpg',
-    miniBio:
-      'Dylan is a software engineer who works at Folkwise. His cross-disciplinary expertise includes front-end development, construction, sarcasm, and rock climbing.',
-    isAcceptingProjects: true,
-    linkedInURL: 'https://www.linkedin.com/in/dylan-dupasquier/',
-    contactEmail: 'dylan.dupasquier@folkwise.io'
   }
+  // {
+  //   username: 'ddupasquier',
+  //   firstName: 'Dylan',
+  //   lastName: 'Dupasquier',
+  //   role: 'Software Engineer',
+  //   imgURL: '/assets/dylan.jpg',
+  //   miniBio:
+  //     'Dylan is a software engineer who works at Folkwise. His cross-disciplinary expertise includes front-end development, construction, sarcasm, and rock climbing.',
+  //   isAcceptingProjects: true,
+  //   linkedInURL: 'https://www.linkedin.com/in/dylan-dupasquier/',
+  //   contactEmail: 'dylan.dupasquier@folkwise.io'
+  // }
 ];

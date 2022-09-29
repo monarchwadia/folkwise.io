@@ -27,25 +27,31 @@
           {#each navItems as item}
             {#if item.name === 'Contact'}
               {#if ffEnableEmailForms}
-                <li>
+                <li class={item.name === $navActive ? 'nav-link active' : 'nav-link'}>
                   <a
                     href={item.href}
                     on:click={() => {
                       isOpen = false;
                       navActive.set(item.name);
-                    }}>{item.name}</a
+                      console.log($navActive);
+                    }}
                   >
+                    {item.name}
+                  </a>
                 </li>
               {/if}
             {:else}
-              <li>
+              <li class={item.name === $navActive ? 'nav-link active' : 'nav-link'}>
                 <a
                   href={item.href}
                   on:click={() => {
                     isOpen = false;
                     navActive.set(item.name);
-                  }}>{item.name}</a
+                    console.log($navActive);
+                  }}
                 >
+                  {item.name}
+                </a>
               </li>
             {/if}
           {/each}
@@ -74,6 +80,7 @@
     margin: 0 auto;
     padding: 0;
     max-width: 800px;
+
     // background: linear-gradient(250deg, colors.$dark 22%, colors.$dark-85 90%);
 
     .logo {
@@ -91,12 +98,30 @@
       align-items: center;
       list-style: none;
       gap: 1.25rem;
-      height: 100%;
+      margin: 0;
+      padding: 0;
 
       li {
-        display: flex;
-        align-items: center;
-        height: 100%;
+        // display: flex;
+        // align-items: center;
+
+        // &::after {
+        //   position: absolute;
+        //   bottom: -4px;
+        //   left: 0;
+        //   content: '';
+        //   width: 100%;
+        //   height: 2px;
+        //   background-color: colors.$light;
+        //   opacity: 0;
+        //   transition: all 300ms;
+        // }
+
+        // &:hover {
+        //   &::after {
+        //     opacity: 1;
+        //   }
+        // }
 
         a {
           position: relative;
@@ -107,25 +132,56 @@
           &:hover {
             color: colors.$light;
 
-            &::after {
-              opacity: 1;
-            }
+            // &::after {
+            //   opacity: 1;
+            // }
           }
 
-          &::after {
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            content: '';
-            width: 100%;
-            height: 2px;
-            background-color: colors.$light;
-            opacity: 0;
-            transition: all 300ms;
-          }
+          // &::after {
+          //   position: absolute;
+          //   bottom: -4px;
+          //   left: 0;
+          //   content: '';
+          //   width: 100%;
+          //   height: 2px;
+          //   background-color: colors.$light;
+          //   opacity: 0;
+          //   transition: all 300ms;
+          // }
         }
       }
     }
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    height: 3rem;
+    border-bottom: 2px solid transparent;
+    transition: all 300ms;
+
+    // &::after {
+    //   position: absolute;
+    //   bottom: -4px;
+    //   left: 0;
+    //   content: '';
+    //   width: 100%;
+    //   height: 2px;
+    //   background-color: colors.$light;
+    //   opacity: 0;
+    //   transition: all 300ms;
+    // }
+
+    &:hover {
+      border-bottom: 2px solid colors.$light;
+      // &::after {
+      //   opacity: 1;
+      // }
+    }
+  }
+
+  .active {
+    border-bottom: 2px solid colors.$highlight;
   }
 
   .hidden-nav {
