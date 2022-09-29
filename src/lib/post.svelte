@@ -21,8 +21,8 @@
   @use 'src/styles/sizing' as sizing;
 
   .post {
-    border-bottom: 3px solid colors.$highlight;
-    padding: 2rem sizing.$gutters;
+    border-bottom: 3px solid colors.$dark;
+    padding: 3rem 2rem;
     background-color: colors.$white;
 
     a {

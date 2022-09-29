@@ -5,14 +5,14 @@ excerpt: 'Aesthetics, code quality, feature richness, even reliability are unimp
 username: 'monarchwadia'
 ---
 
-&nbsp;&nbsp;Complaining about code quality is easy. Writing code that turns a profit is infinitely harder.
+Complaining about code quality is easy. Writing code that turns a profit is infinitely harder.
 
-&nbsp;&nbsp;Your instincts might tell you to clean up technical debt. Or you might want to write a feature, or fix a bug.
+Your instincts might tell you to clean up technical debt. Or you might want to write a feature, or fix a bug.
 
-&nbsp;&nbsp;But _should you do it?_ Is it worth the expense in terms of dollars? Aesthetics, code quality, feature richness, even reliability are unimportant compared to the bottom line.
+But _should you do it?_ Is it worth the expense in terms of dollars? Aesthetics, code quality, feature richness, even reliability are unimportant compared to the bottom line.
 
-&nbsp;&nbsp;Which is exactly why code that makes money stinks. Most of the time, it ain't worth fixing.
+Which is exactly why code that makes money stinks. Most of the time, it ain't worth fixing.
 
-&nbsp;&nbsp;Instead, choose simpler technology that's easier to manage. Talk to your users. Get involved on the business side. Write less code. You're not just a coder, you're a problem solver. So solve problems with your whole skillset. Not just with your programming skills.
+Instead, choose simpler technology that's easier to manage. Talk to your users. Get involved on the business side. Write less code. You're not just a coder, you're a problem solver. So solve problems with your whole skillset. Not just with your programming skills.
 
-&nbsp;&nbsp;You'll have more fun, write better code, build better products, and make more money.
+You'll have more fun, write better code, build better products, and make more money.

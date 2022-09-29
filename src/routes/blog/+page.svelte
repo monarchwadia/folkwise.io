@@ -31,8 +31,8 @@
   .blog-posts {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
-    width: 100%;
-    margin: 0 auto;
+    gap: 1rem;
+    max-width: 800px;
+    margin: 1rem auto;
   }
 </style>

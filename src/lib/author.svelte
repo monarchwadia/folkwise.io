@@ -6,14 +6,14 @@
   import type { StaffMember } from 'src/types';
   import Modal from './modal.svelte';
   import ContactForm from './contact-form.svelte';
-  import {ffEnableEmailForms} from "./client/config";
+  import { ffEnableEmailForms } from './client/config';
 
   export let author: StaffMember;
 
   type IconOption = {
-    hasProperty?: string | boolean,
-    component: any
-  }
+    hasProperty?: string | boolean;
+    component: any;
+  };
 
   let iconOptions: IconOption[] = [
     {
@@ -30,7 +30,7 @@
     iconOptions.push({
       hasProperty: author.hasEmail,
       component: Email2
-    })
+    });
   }
 
   const keyPress = (event: KeyboardEvent) => {
@@ -108,11 +108,12 @@
     gap: 1rem;
     width: 100%;
     margin-top: 1rem;
+    padding: 0.5rem;
   }
 
   .bio-container {
     display: grid;
-    grid-template-columns: 20% 70%;
+    grid-template-columns: 10% 90%;
     grid-gap: 0.75rem;
   }
 
@@ -120,8 +121,13 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    h3 {
+      font-size: 1rem;
+    }
+
     p {
-      max-width: 30%;
+      font-size: 0.875rem;
     }
   }
 
@@ -129,6 +135,10 @@
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+
+    p {
+      font-size: 1rem;
+    }
   }
 
   .social-container {
@@ -146,7 +156,7 @@
 
   .author-image {
     width: 100%;
-    box-shadow: 0 0 3px 1px colors.$dark;
+    box-shadow: 0 0 3px 1px colors.$medium;
   }
 
   .accepting {
