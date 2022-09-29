@@ -11,20 +11,22 @@
 <div class="home">
   <div class="blog-snippets-container">
     {#each posts as post}
-      <div class="blog-snippet">
-        <div class="text-container">
-          <h3 class="title">{post.title}</h3>
-          <em class="date">
-            {new Date(post.date).toLocaleDateString('en-US', {
-              weekday: 'long',
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric'
-            })}
-          </em>
-          <p class="base-text">{post.excerpt}</p>
+      <div class="full-width-blog-snippet">
+        <div class="blog-snippet">
+          <div class="text-container">
+            <h3 class="title">{post.title}</h3>
+            <em class="date">
+              {new Date(post.date).toLocaleDateString('en-US', {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+              })}
+            </em>
+            <p class="base-text">{post.excerpt}</p>
+          </div>
+          <a class="snippet-read-more" href={post.slug}>Read more →</a>
         </div>
-        <a class="snippet-read-more" href={post.slug}>Read more →</a>
       </div>
     {/each}
   </div>
@@ -52,6 +54,15 @@
     flex-direction: column;
   }
 
+  .full-width-blog-snippet {
+    background-color: colors.$light;
+    transition: all ease-in 300ms;
+
+    &:hover {
+      background-color: colors.$white;
+    }
+  }
+
   .blog-snippet {
     display: grid;
     grid-template-columns: 80% 1fr;
@@ -59,11 +70,9 @@
     align-items: center;
     justify-content: space-between;
     padding: 2rem sizing.$gutters;
-    background-color: colors.$light;
+    max-width: 800px;
+    margin: 0 auto;
     transition: all ease-in 300ms;
-    &:hover {
-      background-color: colors.$white;
-    }
     &:hover .snippet-read-more {
       opacity: 1;
     }
@@ -122,6 +131,7 @@
   .podcast-section {
     margin: 0 auto;
     padding: 2rem sizing.$gutters;
+    max-width: 800px;
     // background-color: colors.$dark;
   }
 

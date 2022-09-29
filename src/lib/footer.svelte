@@ -14,6 +14,7 @@
           <li><a class="footer-link" href="/contact">Contact</a></li>
         {/if}
       </ul>
+      <p class="copyright">© Copyright 2022 Zero Projects Inc.</p>
     </div>
     <!-- <div class="other-container">
       <ul>
@@ -33,7 +34,6 @@
       </ul>
     </div> -->
   </div>
-  <p class="copyright">© Copyright 2022 Zero Projects Inc.</p>
 </footer>
 
 <style type="scss">
@@ -49,12 +49,14 @@
   }
 
   .footer-content-container {
-    display: grid;
-    grid-template-columns: 20% 25%;
-    grid-template-areas:
-      'heading heading'
-      'company other';
-    max-width: 750px;
+    display: flex;
+    flex-direction: column;
+    // display: grid;
+    // grid-template-columns: 20% 25%;
+    // grid-template-areas:
+    //   'heading heading'
+    //   'company other';
+    max-width: 800px;
     margin: 0 auto;
 
     .footer-heading {
@@ -65,12 +67,7 @@
       grid-area: company;
     }
 
-    .other-container {
-      grid-area: other;
-    }
-
-    .company-container,
-    .other-container {
+    .company-container {
       ul {
         display: flex;
         gap: 0.25rem;
@@ -112,7 +109,7 @@
   }
 
   .copyright {
-    max-width: 750px;
+    max-width: 800px;
     margin: 0 auto;
     color: colors.$white;
     font-size: 0.875rem;

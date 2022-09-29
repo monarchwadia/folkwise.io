@@ -5,10 +5,10 @@
 <section class="hero">
   <div class="hero-container">
     <div class="hero-text-container">
-      <h1 class="hero-title">We build vibrant<br /> communities around ethical<br /> software.</h1>
+      <h1 class="hero-title">We build vibrant communities around ethical software.</h1>
       <p class="bold-text sub-title">
-        We write software that respects users' rights, design<br /> audience journeys that empower
-        your users, and grow<br /> communities full of fans.
+        We write software that respects users' rights, design audience journeys that empower your
+        users, and grow communities full of fans.
       </p>
     </div>
     {#if ffEnableEmailForms}
@@ -35,6 +35,7 @@
 
   .hero-container {
     display: flex;
+    max-width: 800px;
     margin: 0 auto;
   }
 
@@ -43,7 +44,7 @@
     flex-direction: column;
     max-width: 50%;
     gap: 1rem;
-    padding: 2rem sizing.$gutters;
+    padding: 2rem 0;
     background-color: rbga(0 0 0 0.5);
     p {
       margin: 0;
@@ -65,6 +66,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0 auto;
   }
 
   .hero-cta {

@@ -18,14 +18,26 @@
 <!-- Svelte's method for getting window properties: https://svelte.dev/tutorial/svelte-window-bindings -->
 <svelte:window bind:innerWidth={vwidth} />
 
-<div class="navbar">
-  <a href="/" class="logo"><img src="/assets/wordmark.png" alt="logo" title="test" /></a>
-  {#if isOpen || vwidth >= 768}
-    <div class={isOpen === true ? 'navlink-container' : 'navlink-container hidden-nav'}>
-      <ul>
-        {#each navItems as item}
-          {#if item.name === 'Contact'}
-            {#if ffEnableEmailForms}
+<div class="navbar-wrapper">
+  <div class="navbar">
+    <a href="/" class="logo"><img src="/assets/wordmark.png" alt="logo" title="test" /></a>
+    {#if isOpen || vwidth >= 768}
+      <div class={isOpen === true ? 'navlink-container' : 'navlink-container hidden-nav'}>
+        <ul>
+          {#each navItems as item}
+            {#if item.name === 'Contact'}
+              {#if ffEnableEmailForms}
+                <li>
+                  <a
+                    href={item.href}
+                    on:click={() => {
+                      isOpen = false;
+                      navActive.set(item.name);
+                    }}>{item.name}</a
+                  >
+                </li>
+              {/if}
+            {:else}
               <li>
                 <a
                   href={item.href}
@@ -36,27 +48,22 @@
                 >
               </li>
             {/if}
-          {:else}
-            <li>
-              <a
-                href={item.href}
-                on:click={() => {
-                  isOpen = false;
-                  navActive.set(item.name);
-                }}>{item.name}</a
-              >
-            </li>
-          {/if}
-        {/each}
-      </ul>
-    </div>
-  {/if}
-  <Hamburger {isOpen} onClick={() => (isOpen = !isOpen)} />
+          {/each}
+        </ul>
+      </div>
+    {/if}
+    <Hamburger {isOpen} onClick={() => (isOpen = !isOpen)} />
+  </div>
 </div>
 
 <style type="scss">
   @use 'src/styles/colors' as colors;
   @use 'src/styles/sizing' as sizing;
+
+  .navbar-wrapper {
+    background-color: colors.$dark;
+    border-bottom: 1px solid colors.$medium;
+  }
 
   .navbar {
     position: relative;
@@ -65,10 +72,10 @@
     justify-content: space-between;
     align-items: baseline;
     margin: 0 auto;
-    padding: 0 sizing.$gutters;
+    padding: 0;
+    max-width: 800px;
     // background: linear-gradient(250deg, colors.$dark 22%, colors.$dark-85 90%);
-    background: colors.$dark;
-    border-bottom: 1px solid colors.$grey-50;
+
     .logo {
       display: flex;
       align-items: center;

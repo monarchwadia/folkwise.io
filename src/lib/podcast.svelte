@@ -46,7 +46,7 @@
   .podcast-container {
     display: flex;
     gap: 1rem;
-    padding: 3rem 5rem;
+    padding: 2rem 3rem;
 
     margin: 0 auto;
     border-radius: 25px;
