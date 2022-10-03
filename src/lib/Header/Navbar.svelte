@@ -1,7 +1,7 @@
 <script lang="ts">
   import { ffEnableEmailForms } from '../client/config';
   import Hamburger from '../hamburger.svelte';
-  import { navActive } from './store';
+  import { navActive } from './navStore';
 
   let isOpen = false;
 

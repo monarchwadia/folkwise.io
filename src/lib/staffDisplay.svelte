@@ -8,7 +8,14 @@
   import ContactForm from './contact-form.svelte';
   import { ffEnableEmailForms } from './client/config';
 
-  export let author: StaffMember;
+  export let staffMember: StaffMember;
+
+  export let displayConfig: string;
+
+  // const displayConfig = {
+  //   post: 'post',
+  //   about: 'about'
+  // };
 
   type IconOption = {
     hasProperty?: string | boolean;
@@ -17,18 +24,18 @@
 
   let iconOptions: IconOption[] = [
     {
-      hasProperty: author.linkedInURL,
+      hasProperty: staffMember.linkedInURL,
       component: LinkedinSquare
     },
     {
-      hasProperty: author.twitterURL,
+      hasProperty: staffMember.twitterURL,
       component: TwitterSquare
     }
   ];
 
   if (ffEnableEmailForms) {
     iconOptions.push({
-      hasProperty: author.hasEmail,
+      hasProperty: staffMember.hasEmail,
       component: Email2
     });
   }
@@ -54,26 +61,28 @@
   let isOpen = false;
 </script>
 
-<br />
-<div class="author-container">
-  <div class="bio-container">
-    <img src={author.imgURL} alt={author.firstName} class="author-image" />
-
-    <div class="bio">
-      <h3>{author.firstName} {author.lastName}</h3>
-      <p>{author.miniBio}</p>
-    </div>
+<div class={displayConfig === 'about' ? 'about-staff-container' : 'staff-member-container'}>
+  <div class="img-container">
+    <img src={staffMember.imgURL} alt={staffMember.firstName} class="staff-member-image" />
   </div>
+  <div class="bio-container">
+    <h3>{staffMember.firstName} {staffMember.lastName}</h3>
+    {#if displayConfig === 'about'}
+      <p class="bold-text">{staffMember.role}</p>
+    {/if}
+    <p>{staffMember.miniBio}</p>
+  </div>
+
   <div class="cta-container">
-    {#if author.isAcceptingProjects === true}
-      <p class="bold-text accepting">{author.firstName} is accepting new projects!</p>
+    {#if staffMember.isAcceptingProjects === true}
+      <p class="bold-text accepting">{staffMember.firstName} is accepting new projects!</p>
     {:else}
       <p class="bold-text not-accepting">
-        {author.firstName} isn't currently accepting new projects.
+        {staffMember.firstName} isn't currently accepting new projects.
       </p>
     {/if}
     <div class="social-container">
-      <p class="bold-text">Contact {author.firstName}:</p>
+      <p class="bold-text">Contact {staffMember.firstName}:</p>
 
       {#each iconOptions as option}
         {#if option.hasProperty && typeof option.hasProperty != 'boolean'}
@@ -93,7 +102,7 @@
     </div>
     {#if isOpen}
       <Modal {isOpen} {onClick}>
-        <ContactForm staffMember={author} {onClick} />
+        <ContactForm {staffMember} {onClick} />
       </Modal>
     {/if}
   </div>
@@ -102,21 +111,54 @@
 <style type="scss">
   @use 'src/styles/colors' as colors;
 
-  .author-container {
+  .staff-member-container {
     display: flex;
     flex-direction: column;
     gap: 1rem;
     width: 100%;
-    margin-top: 1rem;
+    // margin-top: 1rem;
+  }
+
+  .about-staff-container {
+    display: grid;
+    grid-template-columns: 40% 55%;
+    grid-template-rows: 70% 30%;
+    grid-template-areas:
+      'img bio'
+      'img cta';
+    gap: 1rem;
+    padding: 1.5rem;
+    background-color: colors.$white;
+    color: colors.$white;
+    box-shadow: 0 4px 6px 0 colors.$medium;
+    transition: all 300ms;
+
+    .bio-container {
+      grid-area: bio;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+
+      h3 {
+        font-size: 1.375rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+
+      .bold-text {
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+
+  .img-container {
+    grid-area: img;
   }
 
   .bio-container {
-    display: grid;
-    grid-template-columns: 10% 90%;
-    grid-gap: 0.75rem;
-  }
-
-  .bio {
+    grid-area: bio;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -131,6 +173,7 @@
   }
 
   .cta-container {
+    grid-area: cta;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
@@ -153,7 +196,8 @@
     }
   }
 
-  .author-image {
+  .staff-member-image {
+    grid-area: img;
     width: 100%;
     box-shadow: 0 0 3px 1px colors.$medium;
   }
@@ -167,26 +211,18 @@
   }
 
   @media screen and (max-width: 768px) {
-    .author-container {
+    .staff-member-container {
       width: 100%;
     }
   }
 
   @media screen and (max-width: 440px) {
-    .author-image {
+    .staff-member-image {
       display: none;
     }
 
     .bio-container {
       grid-template-columns: 1fr;
-    }
-
-    .bio {
-      justify-content: flex-end;
-
-      p {
-        display: none;
-      }
     }
   }
 </style>
