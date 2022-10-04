@@ -1,4 +1,5 @@
 <script lang="ts">
+  export let handleSubmit: () => void;
 </script>
 
 <svelte:head>
@@ -6,10 +7,11 @@
 </svelte:head>
 
 <div
+  id="hcaptcha"
   class="h-captcha"
   data-sitekey="20000000-ffff-ffff-ffff-000000000002"
-  data-size="normal"
-  data-theme="dark"
+  data-size="invisible"
+  data-callback={handleSubmit}
 />
 
 <style type="scss">

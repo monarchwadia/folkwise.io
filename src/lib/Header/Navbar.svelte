@@ -1,7 +1,8 @@
 <script lang="ts">
   import { ffEnableEmailForms } from '../client/config';
   import Hamburger from '../hamburger.svelte';
-  import { navActive } from './navStore';
+  import { page } from '$app/stores';
+  // import { navActive } from './navStore';
 
   let isOpen = false;
 
@@ -24,37 +25,64 @@
     {#if isOpen || vwidth >= 768}
       <div class={isOpen === true ? 'navlink-container' : 'navlink-container hidden-nav'}>
         <ul>
-          {#each navItems as item}
-            {#if item.name === 'Contact'}
-              {#if ffEnableEmailForms}
-                <li class={item.name === $navActive ? 'nav-link active' : 'nav-link'}>
-                  <a
-                    href={item.href}
-                    on:click={() => {
-                      isOpen = false;
-                      navActive.set(item.name);
-                      console.log($navActive);
-                    }}
-                  >
-                    {item.name}
-                  </a>
-                </li>
-              {/if}
-            {:else}
-              <li class={item.name === $navActive ? 'nav-link active' : 'nav-link'}>
-                <a
-                  href={item.href}
-                  on:click={() => {
-                    isOpen = false;
-                    navActive.set(item.name);
-                    console.log($navActive);
-                  }}
-                >
-                  {item.name}
-                </a>
-              </li>
-            {/if}
-          {/each}
+          <!-- {#each navItems as item} -->
+          <!-- {#if item.name === 'Contact'} -->
+          <li class:active={$page.url.pathname === `/`}>
+            <a
+              href="/"
+              on:click={() => {
+                isOpen = false;
+                // navActive.set(item.name);
+                console.log($page.url.pathname);
+              }}
+            >
+              Home
+            </a>
+          </li>
+          <li class:active={$page.url.pathname === `/blog`}>
+            <a
+              href="/blog"
+              on:click={() => {
+                isOpen = false;
+                // navActive.set(item.name);
+                console.log($page.url.pathname);
+              }}
+            >
+              Blog
+            </a>
+          </li>
+
+          <li class:active={$page.url.pathname === `/about`}>
+            <a
+              href="/about"
+              on:click={() => {
+                isOpen = false;
+                // navActive.set(item.name);
+                console.log($page.url.pathname);
+              }}
+            >
+              About
+            </a>
+          </li>
+
+          {#if ffEnableEmailForms}
+            <li class:active={$page.url.pathname === `/contact`}>
+              <a
+                href="/contact"
+                on:click={() => {
+                  isOpen = false;
+                  // navActive.set(item.name);
+                  console.log($page.url.pathname);
+                }}
+              >
+                Contact
+              </a>
+            </li>
+          {/if}
+          <!-- {:else} -->
+
+          <!-- {/if} -->
+          <!-- {/each} -->
         </ul>
       </div>
     {/if}
@@ -102,26 +130,15 @@
       padding: 0;
 
       li {
-        // display: flex;
-        // align-items: center;
+        display: flex;
+        align-items: center;
+        height: 3rem;
+        border-bottom: 2px solid transparent;
+        transition: all 300ms;
 
-        // &::after {
-        //   position: absolute;
-        //   bottom: -4px;
-        //   left: 0;
-        //   content: '';
-        //   width: 100%;
-        //   height: 2px;
-        //   background-color: colors.$light;
-        //   opacity: 0;
-        //   transition: all 300ms;
-        // }
-
-        // &:hover {
-        //   &::after {
-        //     opacity: 1;
-        //   }
-        // }
+        &:hover {
+          border-bottom: 2px solid colors.$light;
+        }
 
         a {
           position: relative;
@@ -131,57 +148,14 @@
 
           &:hover {
             color: colors.$light;
-
-            // &::after {
-            //   opacity: 1;
-            // }
           }
-
-          // &::after {
-          //   position: absolute;
-          //   bottom: -4px;
-          //   left: 0;
-          //   content: '';
-          //   width: 100%;
-          //   height: 2px;
-          //   background-color: colors.$light;
-          //   opacity: 0;
-          //   transition: all 300ms;
-          // }
         }
       }
+
+      li.active {
+        border-bottom: 2px solid colors.$highlight;
+      }
     }
-  }
-
-  .nav-link {
-    display: flex;
-    align-items: center;
-    height: 3rem;
-    border-bottom: 2px solid transparent;
-    transition: all 300ms;
-
-    // &::after {
-    //   position: absolute;
-    //   bottom: -4px;
-    //   left: 0;
-    //   content: '';
-    //   width: 100%;
-    //   height: 2px;
-    //   background-color: colors.$light;
-    //   opacity: 0;
-    //   transition: all 300ms;
-    // }
-
-    &:hover {
-      border-bottom: 2px solid colors.$light;
-      // &::after {
-      //   opacity: 1;
-      // }
-    }
-  }
-
-  .active {
-    border-bottom: 2px solid colors.$highlight;
   }
 
   .hidden-nav {
