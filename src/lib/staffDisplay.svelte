@@ -61,6 +61,10 @@
   let isOpen = false;
 </script>
 
+{#if displayConfig === 'post'}
+  <br />
+{/if}
+
 <div class={displayConfig === 'about' ? 'about-staff-container' : 'staff-member-container'}>
   <div class="img-container">
     <img src={staffMember.imgURL} alt={staffMember.firstName} class="staff-member-image" />
@@ -112,11 +116,21 @@
   @use 'src/styles/colors' as colors;
 
   .staff-member-container {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 13% 80%;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+      'img bio'
+      'cta cta';
     gap: 1rem;
+    align-items: flex-start;
     width: 100%;
-    // margin-top: 1rem;
+
+    .staff-member-image {
+      grid-area: img;
+      width: 100%;
+      box-shadow: 0 0 3px 1px colors.$medium;
+    }
   }
 
   .about-staff-container {

@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { Post as PostType, StaffMember as StaffType } from '../types';
   import Author from './author.svelte';
+  import StaffDisplay from './staffDisplay.svelte';
 
   export let post: PostType;
   export let staffMember: StaffType;
@@ -10,7 +11,7 @@
   {@html post.html}
   <br />
 
-  <Author author={staffMember} />
+  <StaffDisplay {staffMember} displayConfig="post" />
 
   <br />
   <a class="post-link" href={post.slug}>Link to this post</a>
