@@ -34,6 +34,6 @@ export type Podcast = {
 
 export type ToastNotification = {
   type: string;
-  header?: string;
+  header: string | null;
   message: string;
 };

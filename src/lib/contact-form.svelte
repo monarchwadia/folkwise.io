@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { StaffMember } from '../types';
+  import type { StaffMember, ToastNotification } from '../types';
   import { showNotification } from '../stores/showNotification';
   import Notification from './notification.svelte';
   import Captcha from './captcha.svelte';
@@ -13,12 +13,15 @@
   let email = '';
   let message = '';
   let username: string;
+  let hcaptchaToken: string;
 
   if (staffMember) {
     username = staffMember.username;
   } else {
     username = 'monarchwadia';
   }
+
+  let notification: ToastNotification | undefined;
 
   // Validation
   let errors = {
@@ -30,37 +33,11 @@
   let valid = true;
 
   const validateForm = (name: string, email: string, message: string) => {
-    // const validation = [
-    //   {
-    //     type: 'name',
-    //     valid: true,
-    //     error: 'contactName'
-    //   },
-    //   {
-    //     type: 'email',
-    //     valid: true,
-    //     error: 'contactEmail'
-    //   },
-    //   {
-    //     type: 'message',
-    //     valid: true,
-    //     error: 'contactMessage'
-    //   }
-    // ];
-
-    // // check validations for validation object, if not valid set valid to false for each and then getNotification(error)
-    // validation.forEach((item) => {
-    //   if (!item.valid) {
-    //     valid = false;
-    //     errors[item.type] = getNotification(item.error);
-    //   }
-    // });
-
     if (name.trim() === '') {
       valid = false;
       showNotification.set(true);
-      const errorType = getNotification('contactName');
-      if (errorType) errors.name = errorType.message;
+      notification = getNotification('error');
+      errors.name = 'Please enter your name';
     } else {
       errors.name = '';
     }
@@ -68,8 +45,8 @@
     if (email.trim() === '' || !email.includes('@') || !email.includes('.')) {
       valid = false;
       showNotification.set(true);
-      const errorType = getNotification('contactEmail');
-      if (errorType) errors.email = errorType.message;
+      notification = getNotification('error');
+      errors.email = 'Please enter a valid email';
     } else {
       errors.email = '';
     }
@@ -77,15 +54,16 @@
     if (message.length < 10) {
       valid = false;
       showNotification.set(true);
-      const errorType = getNotification('contactMessage');
-      if (errorType) errors.message = errorType.message;
+      notification = getNotification('error');
+      errors.message = 'Message must be at least 10 characters long.';
     } else {
       errors.message = '';
     }
 
     if (valid) {
-      showNotification.set(false);
-      return getNotification('success');
+      // Move this notification to backend on successful email send
+      showNotification.set(true);
+      notification = getNotification('success');
     }
   };
 
@@ -96,7 +74,8 @@
         name,
         email,
         message,
-        username
+        username,
+        hcaptchaToken
       })
     });
   };
@@ -128,7 +107,7 @@
   {/if}
   {#if $showNotification}
     <div class="notification">
-      <Notification />
+      <Notification {notification} />
     </div>
   {/if}
   <div class="form-group">
@@ -160,7 +139,7 @@
       <div class="validation">{errors.message}</div>
     {/if}
   </div>
-  <Captcha />
+  <Captcha {handleSubmit} />
   <button type="submit">Send</button>
 </form>
 
@@ -173,6 +152,7 @@
     align-self: center;
     gap: 1rem;
     padding: 1rem;
+    box-shadow: 0 4px 6px 0 colors.$medium;
 
     button {
       padding: 0.75rem 1.5rem;

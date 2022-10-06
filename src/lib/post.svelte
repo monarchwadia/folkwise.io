@@ -21,9 +21,10 @@
   @use 'src/styles/sizing' as sizing;
 
   .post {
-    border-bottom: 3px solid colors.$dark;
-    padding: 3rem 2rem;
+    margin: 1rem 0;
+    padding: 2rem;
     background-color: colors.$white;
+    box-shadow: 0 4px 6px 0 colors.$medium;
 
     a {
       color: colors.$highlight-red;

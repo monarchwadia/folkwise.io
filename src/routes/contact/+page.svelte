@@ -16,7 +16,7 @@
     flex-direction: column;
     justify-content: center;
     width: 100%;
-    max-width: 750px;
+    max-width: 800px;
     margin: 1rem auto;
     background-color: colors.$white;
   }
