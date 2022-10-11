@@ -1,8 +1,8 @@
 import type { RequestHandler } from './$types';
+import type { StaffMemberRaw } from 'src/data/staffData';
 import serverConfig from '$lib/server/serverConfig';
 import clientConfig from '$lib/client/clientConfig';
 import sgMail from '@sendgrid/mail';
-import type { StaffMemberRaw } from 'src/data/staffData';
 import { getStaffMemberByUsername } from '../../../services/staffDAO';
 // import { getNotification } from '../../../notifications';
 // import { showNotification } from '../../../stores/showNotification';

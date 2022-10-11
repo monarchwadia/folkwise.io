@@ -45,7 +45,8 @@ if (browser) {
 const serverConfig = {
   sendgridSecret: process.env.SENDGRID_SECRET,
   sendgridSenderEmail: process.env.SENDGRID_SENDER_EMAIL,
-  hCaptchaSecret: process.env.HCAPTCHA_SECRET
+  //remove _TEST for production
+  hCaptchaSecret: process.env.HCAPTCHA_SECRET_TEST
 };
 
 export default serverConfig;

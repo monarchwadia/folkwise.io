@@ -96,6 +96,7 @@
 
     if (errors.name === '' && errors.email === '' && errors.message === '') {
       valid = true;
+      showNotification.set(false);
     }
 
     if (valid) {
