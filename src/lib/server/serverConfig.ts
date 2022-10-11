@@ -1,6 +1,10 @@
-import { HCAPTCHA_SECRET } from '$env/static/private';
-import { SENDGRID_SECRET } from '$env/static/private';
-import { SENDGRID_SENDER_EMAIL } from '$env/static/private';
+// import { HCAPTCHA_SECRET } from '$env/static/private';
+// import { SENDGRID_SECRET } from '$env/static/private';
+// import { SENDGRID_SENDER_EMAIL } from '$env/static/private';
+
+const HCAPTCHA_SECRET = (await import('$env/static/private')).HCAPTCHA_SECRET;
+const SENDGRID_SECRET = (await import('$env/static/private')).SENDGRID_SECRET;
+const SENDGRID_SENDER_EMAIL = (await import('$env/static/private')).SENDGRID_SENDER_EMAIL;
 
 // **** New import method for .env variables not currently supported by Vercel
 // **** These will work in dev mode, but for production, process.env will pull
