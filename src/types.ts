@@ -37,3 +37,10 @@ export type ToastNotification = {
   header: string | null;
   message: string;
 };
+
+declare global {
+  interface Window {
+    hcaptcha: HCaptcha;
+    handleSubmit: () => void;
+  }
+}

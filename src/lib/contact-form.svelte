@@ -2,18 +2,47 @@
   import type { StaffMember, ToastNotification } from '../types';
   import { showNotification } from '../stores/showNotification';
   import Notification from './notification.svelte';
-  import Captcha from './captcha.svelte';
   import { getNotification } from '../notifications';
+  import clientConfig from './client/clientConfig';
+  import { onMount, onDestroy } from 'svelte';
+  import { browser } from '$app/environment';
 
   // Default undefined to prevent errors on the contact page
   export let staffMember: StaffMember | undefined = undefined;
   export let onClick: Function | undefined = undefined;
 
+  /** @typedef {{
+    execute(hcaptchaWidgetID?: string , opts?: { async: boolean }): Promise<HCaptchaExecuteResponse> | null;
+    render(id?: string, config?: { sitekey: string; size: string; theme: string }): string | null;
+  } | null}*/
+
+  let hcaptcha: HCaptcha;
+  let hcaptchaWidgetID: string;
+
+  onMount(() => {
+    if (browser) {
+      hcaptcha = window.hcaptcha;
+      // window.handleSubmit = handleSubmit;
+      if (hcaptcha.render) {
+        hcaptchaWidgetID = hcaptcha.render('hcaptcha', {
+          sitekey: clientConfig.hCaptchaSiteKeyTest,
+          size: 'invisible',
+          theme: 'dark'
+        });
+      }
+    }
+  });
+
+  onDestroy(() => {
+    if (browser) {
+      hcaptcha = { execute: async () => ({ response: '' }), render: () => {} };
+    }
+  });
+
   let name = '';
   let email = '';
   let message = '';
   let username: string;
-  let hcaptchaToken: string;
 
   if (staffMember) {
     username = staffMember.username;
@@ -33,20 +62,24 @@
   let valid = true;
 
   const validateForm = (name: string, email: string, message: string) => {
-    if (name.trim() === '') {
+    console.log('validation started');
+
+    if (!name.trim()) {
       valid = false;
       showNotification.set(true);
-      notification = getNotification('error');
+      notification = getNotification('form-error');
       errors.name = 'Please enter your name';
+      console.log('name error');
     } else {
       errors.name = '';
     }
 
-    if (email.trim() === '' || !email.includes('@') || !email.includes('.')) {
+    if (!email.trim() || !email.includes('@') || !email.includes('.')) {
       valid = false;
       showNotification.set(true);
-      notification = getNotification('error');
+      notification = getNotification('form-error');
       errors.email = 'Please enter a valid email';
+      console.log('email error');
     } else {
       errors.email = '';
     }
@@ -54,45 +87,98 @@
     if (message.length < 10) {
       valid = false;
       showNotification.set(true);
-      notification = getNotification('error');
+      notification = getNotification('form-error');
       errors.message = 'Message must be at least 10 characters long.';
+      console.log('message error');
     } else {
       errors.message = '';
     }
 
+    if (errors.name === '' && errors.email === '' && errors.message === '') {
+      valid = true;
+    }
+
     if (valid) {
       // Move this notification to backend on successful email send
-      showNotification.set(true);
-      notification = getNotification('success');
+      console.log('Form validation successful');
     }
   };
 
-  const submitForm = async () => {
-    const response = await fetch('/api/sendEmail', {
-      method: 'POST',
-      body: JSON.stringify({
-        name,
-        email,
-        message,
-        username,
-        hcaptchaToken
-      })
-    });
+  // const submitForm = async () => {
+  //   const response = await fetch('api/verify', {
+  //     method: 'POST',
+  //     credentials: 'omit',
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //     },
+  //     body: JSON.stringify({
+  //       name,
+  //       email,
+  //       message,
+  //       username,
+  //       response: hCaptchaResponse
+  //     })
+  //   });
+  // };
+
+  const clearFormFields = () => {
+    name = '';
+    email = '';
+    message = '';
   };
 
-  const handleSubmit = () => {
-    validateForm(name, email, message);
-    if (valid) {
-      submitForm();
-      name = '';
-      email = '';
-      message = '';
-      if (onClick) {
-        onClick();
+  const handleSubmit = async () => {
+    try {
+      const { response: hCaptchaResponse } = (await hcaptcha.execute(hcaptchaWidgetID, {
+        async: true
+      })) as HCaptchaResponse;
+
+      // const responseObject = (await hcaptcha.execute(hcaptchaWidgetID, {
+      //   async: true
+      // })) as HCaptchaResponse;
+
+      // const response = responseObject.response;
+
+      // console.log(`Response: ${response: hCaptchaResponse}`);
+
+      validateForm(name, email, message);
+
+      if (valid) {
+        // submitForm();
+        console.log('beginning fetch');
+
+        await fetch('api/verify', {
+          method: 'POST',
+          credentials: 'omit',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            name,
+            email,
+            message,
+            username,
+            response: hCaptchaResponse
+          })
+        });
+
+        clearFormFields();
+
+        if (onClick) {
+          onClick();
+        }
       }
+    } catch (error) {
+      console.log(`Error: ${error}`);
+      showNotification.set(true);
+      notification = getNotification('error');
     }
   };
 </script>
+
+<svelte:head>
+  <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+</svelte:head>
 
 <form
   id="contact-form"
@@ -139,8 +225,24 @@
       <div class="validation">{errors.message}</div>
     {/if}
   </div>
-  <Captcha {handleSubmit} />
-  <button type="submit">Send</button>
+  <!-- <Captcha {handleSubmit} /> -->
+  <!-- <button
+    type="submit"
+    class="h-captcha"
+    data-sitekey={clientConfig.hCaptchaSiteKey}
+    data-callback={handleSubmit}
+  >
+    Send
+  </button> -->
+  <div
+    id="hcaptcha"
+    class="h-captcha"
+    data-sitekey={clientConfig.hCaptchaSiteKey}
+    data-size="invisible"
+    data-theme="dark"
+  />
+
+  <button type="submit"> Send </button>
 </form>
 
 <style type="scss">

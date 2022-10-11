@@ -6,7 +6,7 @@
   import type { StaffMember } from 'src/types';
   import Modal from './modal.svelte';
   import ContactForm from './contact-form.svelte';
-  import { ffEnableEmailForms } from './client/config';
+  import clientConfig from '$lib/client/clientConfig';
 
   export let staffMember: StaffMember;
 
@@ -33,7 +33,7 @@
     }
   ];
 
-  if (ffEnableEmailForms) {
+  if (clientConfig.ffEnableEmailForms) {
     iconOptions.push({
       hasProperty: staffMember.hasEmail,
       component: Email2

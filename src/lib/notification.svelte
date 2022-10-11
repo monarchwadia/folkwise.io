@@ -82,7 +82,8 @@
     }
   }
 
-  .error {
+  .error,
+  .form-error {
     border-bottom: 6px solid colors.$highlight-red;
 
     h4 {

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { ffEnableEmailForms } from '../client/config';
+  import clientConfig from '$lib/client/clientConfig';
 </script>
 
 <section class="hero">
@@ -11,7 +11,7 @@
         users, and grow communities full of fans.
       </p>
     </div>
-    {#if ffEnableEmailForms}
+    {#if clientConfig.ffEnableEmailForms}
       <div class="hero-cta-container">
         <a class="hero-cta" href="/contact">Let's grow.</a>
       </div>

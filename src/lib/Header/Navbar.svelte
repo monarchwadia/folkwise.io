@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { ffEnableEmailForms } from '../client/config';
+  import clientConfig from '$lib/client/clientConfig';
   import Hamburger from '../hamburger.svelte';
   import { page } from '$app/stores';
   // import { navActive } from './navStore';
@@ -65,7 +65,7 @@
             </a>
           </li>
 
-          {#if ffEnableEmailForms}
+          {#if clientConfig.ffEnableEmailForms}
             <li class:active={$page.url.pathname === `/contact`}>
               <a
                 href="/contact"

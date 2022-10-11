@@ -3,7 +3,7 @@ import type { RequestHandler } from '@sveltejs/kit';
 import type { StaffMemberRaw } from 'src/data/staffData';
 import { getStaffMemberByUsername } from '../../../services/staffDAO';
 
-import config from '$lib/server/config';
+import config from '$lib/server/serverConfig';
 
 const sendgrid = config.sendgridSecret as string;
 
@@ -11,7 +11,7 @@ console.log(sendgrid); //returns undefined
 
 sgMail.setApiKey(sendgrid);
 
-export const post: RequestHandler = async ({ request }: { request: Request }) => {
+export const POST: RequestHandler = async ({ request }: { request: Request }) => {
   const body = await request.json();
 
   const username = body.username;
@@ -24,9 +24,7 @@ export const post: RequestHandler = async ({ request }: { request: Request }) =>
 
   sendEmail(messageObject, username);
 
-  return {
-    body: messageObject
-  };
+  return new Response(JSON.stringify(body.messageObject));
 };
 
 const sendEmail = async (formObject: Record<string, string>, username: string) => {

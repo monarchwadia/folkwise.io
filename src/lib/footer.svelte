@@ -1,5 +1,5 @@
 <script>
-  import { ffEnableEmailForms } from './client/config';
+  import clientConfig from '$lib/client/clientConfig';
 </script>
 
 <footer class="footer">
@@ -10,7 +10,7 @@
         <li><a class="footer-link" href="/">Home</a></li>
         <li><a class="footer-link" href="/about">About</a></li>
         <li><a class="footer-link" href="/blog">Blog</a></li>
-        {#if ffEnableEmailForms}
+        {#if clientConfig.ffEnableEmailForms}
           <li><a class="footer-link" href="/contact">Contact</a></li>
         {/if}
       </ul>
