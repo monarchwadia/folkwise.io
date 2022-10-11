@@ -21,12 +21,15 @@ const getEnvValue = (key: string) => {
   let value;
   try {
     value = process.env[key];
-  } catch (e) {
-    try {
-      value = key;
-    } catch (e) {
-      return undefined;
+    if (value === undefined) {
+      try {
+        value = key;
+      } catch (e) {
+        return undefined;
+      }
     }
+  } catch (e) {
+    console.log(e);
   }
   return value;
 };
