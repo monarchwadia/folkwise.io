@@ -1,4 +1,3 @@
-import { HCAPTCHA_SECRET_TEST } from '$env/static/private';
 import { HCAPTCHA_SECRET } from '$env/static/private';
 import { SENDGRID_SECRET } from '$env/static/private';
 import { SENDGRID_SENDER_EMAIL } from '$env/static/private';
@@ -16,8 +15,7 @@ if (browser) {
 const serverConfig = {
   sendgridSecret: SENDGRID_SECRET,
   sendgridSenderEmail: SENDGRID_SENDER_EMAIL,
-  hCaptchaSecret: HCAPTCHA_SECRET,
-  hCaptchaSecretTest: HCAPTCHA_SECRET_TEST
+  hCaptchaSecret: HCAPTCHA_SECRET
 };
 
 export default serverConfig;
