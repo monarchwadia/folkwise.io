@@ -1,17 +1,23 @@
-//pull any secret env variables into the config object with process.env, and then import config where you need to access them
+import { HCAPTCHA_SECRET_TEST } from '$env/static/private';
+import { HCAPTCHA_SECRET } from '$env/static/private';
+import { SENDGRID_SECRET } from '$env/static/private';
+import { SENDGRID_SENDER_EMAIL } from '$env/static/private';
+
+//import any secret env variables into this file and then assign them to the config object
+//then import serverConfig where you need to access them
 
 // import 'dotenv/config';
-// import { browser } from '$app/env';
+import { browser } from '$app/environment';
 
-// if (browser) {
-//   throw new Error('import of server config from browser');
-// }
+if (browser) {
+  throw new Error('import of server config from browser');
+}
 
 const serverConfig = {
-  sendgridSecret: process.env.SENDGRID_SECRET,
-  sendgridSenderEmail: process.env.SENDGRID_SENDER_EMAIL,
-  hCaptchaSecret: process.env.HCAPTCHA_SECRET,
-  hCaptchaSecretTest: process.env.HCAPTCHA_SECRET_TEST
+  sendgridSecret: SENDGRID_SECRET,
+  sendgridSenderEmail: SENDGRID_SENDER_EMAIL,
+  hCaptchaSecret: HCAPTCHA_SECRET,
+  hCaptchaSecretTest: HCAPTCHA_SECRET_TEST
 };
 
 export default serverConfig;

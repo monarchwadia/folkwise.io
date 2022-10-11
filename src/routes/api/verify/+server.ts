@@ -3,7 +3,7 @@
 import type { RequestHandler } from './$types';
 import serverConfig from '$lib/server/serverConfig';
 import clientConfig from '$lib/client/clientConfig';
-import * as sgMail from '@sendgrid/mail';
+import sgMail from '@sendgrid/mail';
 import type { StaffMemberRaw } from 'src/data/staffData';
 import { getStaffMemberByUsername } from '../../../services/staffDAO';
 // import { getNotification } from '../../../notifications';
@@ -11,6 +11,12 @@ import { getStaffMemberByUsername } from '../../../services/staffDAO';
 // import type { ToastNotification } from 'src/types';
 
 // let notification: ToastNotification | undefined;
+
+const sendgrid = serverConfig.sendgridSecret as string;
+
+console.log(sendgrid);
+
+sgMail.setApiKey(sendgrid);
 
 export const POST: RequestHandler = async ({ request }: { request: Request }) => {
   try {
@@ -49,6 +55,8 @@ export const POST: RequestHandler = async ({ request }: { request: Request }) =>
     //Test values
     // const hCaptchaResponse = body.response;
     const secret: string = serverConfig.hCaptchaSecretTest as string;
+    console.log('hCaptcha secret:', secret);
+
     const siteKey: string = clientConfig.hCaptchaSiteKeyTest;
     const hCaptchaBody = new URLSearchParams({ response: hCaptchaClientResponse, secret, siteKey });
 
