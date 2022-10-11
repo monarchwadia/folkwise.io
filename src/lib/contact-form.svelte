@@ -25,7 +25,7 @@
       // window.handleSubmit = handleSubmit;
       if (hcaptcha.render) {
         hcaptchaWidgetID = hcaptcha.render('hcaptcha', {
-          sitekey: clientConfig.hCaptchaSiteKeyTest,
+          sitekey: clientConfig.hCaptchaSiteKey,
           size: 'invisible',
           theme: 'dark'
         });

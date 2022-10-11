@@ -1,5 +1,3 @@
-// throw new Error("@migration task: Update +server.js (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292701)");
-
 import type { RequestHandler } from './$types';
 import serverConfig from '$lib/server/serverConfig';
 import clientConfig from '$lib/client/clientConfig';
@@ -36,29 +34,15 @@ export const POST: RequestHandler = async ({ request }: { request: Request }) =>
       message
     };
 
-    // const body = await request.json();
-
-    // const username = body.username;
-
-    // const messageObject = {
-    //   name: body.name,
-    //   email: body.email,
-    //   message: body.message
-    // };
-
     //Prod values
-    // const hCaptchaResponse = body.response;
-    // const secret: string = serverConfig.hCaptchaSecret as string;
-    // const siteKey: string = clientConfig.hCaptchaSiteKey;
-    // const hCaptchaBody = new URLSearchParams({ hCaptchaResponse, secret, siteKey });
+    const secret: string = serverConfig.hCaptchaSecret as string;
+    const siteKey: string = clientConfig.hCaptchaSiteKey;
+    const hCaptchaBody = new URLSearchParams({ response: hCaptchaClientResponse, secret, siteKey });
 
     //Test values
-    // const hCaptchaResponse = body.response;
-    const secret: string = serverConfig.hCaptchaSecretTest as string;
-    console.log('hCaptcha secret:', secret);
-
-    const siteKey: string = clientConfig.hCaptchaSiteKeyTest;
-    const hCaptchaBody = new URLSearchParams({ response: hCaptchaClientResponse, secret, siteKey });
+    // const secret: string = serverConfig.hCaptchaSecretTest as string;
+    // const siteKey: string = clientConfig.hCaptchaSiteKeyTest;
+    // const hCaptchaBody = new URLSearchParams({ response: hCaptchaClientResponse, secret, siteKey });
 
     console.log('Request sent');
 
