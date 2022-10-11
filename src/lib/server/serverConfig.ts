@@ -12,7 +12,7 @@
 // **** These will work in dev mode, but for production, process.env will pull
 // **** the variables that you enter into Vercel's Environment Variable UI
 
-import 'dotenv/config';
+// import 'dotenv/config';
 import { browser } from '$app/environment';
 
 if (browser) {
@@ -45,8 +45,8 @@ if (browser) {
 const serverConfig = {
   sendgridSecret: process.env.SENDGRID_SECRET,
   sendgridSenderEmail: process.env.SENDGRID_SENDER_EMAIL,
-  //remove _TEST for production
-  hCaptchaSecret: process.env.HCAPTCHA_SECRET_TEST
+  //add _TEST to HCAPTCHA_SECRET for local dev
+  hCaptchaSecret: process.env.HCAPTCHA_SECRET
 };
 
 export default serverConfig;

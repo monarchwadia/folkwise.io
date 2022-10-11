@@ -7,8 +7,8 @@
 
 const clientConfig = {
   hCaptchaVerifyURL: import.meta.env.VITE_HCAPTCHA_VERIFY_URL,
-  //remove _TEST for production
-  hCaptchaSiteKey: import.meta.env.VITE_HCAPTCHA_SITE_KEY_TEST,
+  //add _TEST to VITE_HCAPTCHA_SITE_KEY for local dev
+  hCaptchaSiteKey: import.meta.env.VITE_HCAPTCHA_SITE_KEY,
   ffEnableEmailForms: import.meta.env.VITE_FF_ENABLE_EMAIL_FORMS
 };
 

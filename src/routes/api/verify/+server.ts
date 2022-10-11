@@ -12,7 +12,7 @@ import { getStaffMemberByUsername } from '../../../services/staffDAO';
 
 const sendgrid = serverConfig.sendgridSecret as string;
 
-console.log(sendgrid);
+console.log('Sendgrid key:', sendgrid);
 
 sgMail.setApiKey(sendgrid);
 
