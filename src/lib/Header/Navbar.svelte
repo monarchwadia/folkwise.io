@@ -164,7 +164,7 @@
 
   @media screen and (max-width: 767px) {
     .navbar {
-      justify-content: space-between;
+      gap: 0;
       padding-inline: 0.75rem;
       height: 4rem;
     }
@@ -175,19 +175,25 @@
       padding: 0;
       right: 0;
       top: 3rem;
-      width: 60%;
+      width: 75%;
       // border: yellow solid;
       background-color: colors.$dark;
 
       ul {
         flex-direction: column;
+        gap: 0;
         align-items: center;
-        padding: 1rem 1rem 1rem 1rem;
+        padding: 1rem;
 
         li {
           width: 80%;
-          padding: 0.75rem 0.5rem 0 0.5rem;
+          padding: 1rem 0.5rem;
           border-top: 1px solid colors.$white;
+        }
+
+        li.active {
+          border-right: 2px solid colors.$highlight;
+          border-bottom: 2px solid transparent;
         }
       }
     }
