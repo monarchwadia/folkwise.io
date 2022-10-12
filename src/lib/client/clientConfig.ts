@@ -1,4 +1,4 @@
-// import 'dotenv/config';
+import 'dotenv/config';
 // import { browser } from '$app/environment';
 
 // if (browser) {
