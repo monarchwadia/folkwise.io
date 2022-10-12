@@ -7,6 +7,8 @@
   import { onMount, onDestroy } from 'svelte';
   import { browser } from '$app/environment';
 
+  console.log('Enable forms:', clientConfig.ffEnableEmailForms);
+
   // Default undefined to prevent errors on the contact page
   export let staffMember: StaffMember | undefined = undefined;
   export let onClick: Function | undefined = undefined;
