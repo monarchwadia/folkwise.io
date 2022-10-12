@@ -175,8 +175,9 @@
       padding: 0;
       right: 0;
       top: 3rem;
-      width: 50%;
+      width: 60%;
       // border: yellow solid;
+      background-color: colors.$dark;
 
       ul {
         flex-direction: column;
