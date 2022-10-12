@@ -93,8 +93,8 @@
     .hero {
       display: flex;
       flex-direction: column;
-      margin-inline: -0.75rem;
-      background-image: linear-gradient(to top, colors.$white, colors.$white, colors.$light);
+      // margin-inline: -0.75rem;
+      background-image: linear-gradient(to bottom, colors.$white, colors.$white, colors.$light);
       background-size: 100%;
     }
 

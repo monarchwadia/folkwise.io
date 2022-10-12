@@ -8,12 +8,12 @@
 
   let vwidth: number;
 
-  const navItems = [
-    { name: 'Home', href: '/' },
-    { name: 'Blog', href: '/blog' },
-    { name: 'About', href: '/about' },
-    { name: 'Contact', href: '/contact' }
-  ];
+  // const navItems = [
+  //   { name: 'Home', href: '/' },
+  //   { name: 'Blog', href: '/blog' },
+  //   { name: 'About', href: '/about' },
+  //   { name: 'Contact', href: '/contact' }
+  // ];
 </script>
 
 <!-- Svelte's method for getting window properties: https://svelte.dev/tutorial/svelte-window-bindings -->
@@ -164,8 +164,7 @@
 
   @media screen and (max-width: 767px) {
     .navbar {
-      gap: 0;
-      padding-inline: 0.75rem;
+      padding: 0.75rem 0.75rem 0 0.75rem;
       height: 4rem;
     }
 
@@ -174,7 +173,7 @@
       margin: 0;
       padding: 0;
       right: 0;
-      top: 3rem;
+      top: 4rem;
       width: 75%;
       // border: yellow solid;
       background-color: colors.$dark;
