@@ -224,15 +224,17 @@
     color: colors.$grey;
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     .staff-member-container {
-      width: 100%;
+      display: flex;
+      flex-direction: column;
     }
   }
 
   @media screen and (max-width: 440px) {
     .staff-member-image {
-      display: none;
+      max-width: 40%;
+      border-radius: 50%;
     }
 
     .bio-container {

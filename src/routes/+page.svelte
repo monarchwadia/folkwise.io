@@ -82,6 +82,7 @@
   .text-container {
     display: flex;
     flex-direction: column;
+
     .title {
       margin-bottom: 0;
     }
