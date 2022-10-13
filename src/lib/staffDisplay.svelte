@@ -229,12 +229,29 @@
       display: flex;
       flex-direction: column;
     }
+
+    .about-staff-container {
+      display: flex;
+      flex-direction: column;
+
+      .bio-container {
+        h3 {
+          text-align: center;
+        }
+
+        p:nth-child(2) {
+          text-align: center;
+        }
+      }
+    }
   }
 
   @media screen and (max-width: 440px) {
-    .staff-member-image {
-      max-width: 40%;
-      border-radius: 50%;
+    .staff-member-container {
+      .staff-member-image {
+        max-width: 40%;
+        border-radius: 50%;
+      }
     }
 
     .bio-container {
