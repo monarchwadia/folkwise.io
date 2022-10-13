@@ -29,14 +29,12 @@
   }
 
   @media screen and (max-width: 767px) {
-    .post-content-container {
-      h1 {
-        font-size: 1.25rem;
-      }
+    h1 {
+      font-size: 1.25rem;
+    }
 
-      em {
-        font-size: 0.85rem;
-      }
+    em {
+      font-size: 0.85rem;
     }
   }
   /* For some reason, SCSS doesn't work in this file. */
