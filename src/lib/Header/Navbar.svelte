@@ -182,7 +182,7 @@
         flex-direction: column;
         gap: 0;
         align-items: center;
-        padding: 1rem;
+        padding: 1rem 1rem 0 1rem;
 
         li {
           width: 80%;
