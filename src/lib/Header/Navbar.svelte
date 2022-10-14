@@ -106,7 +106,7 @@
     justify-content: space-between;
     align-items: baseline;
     margin: 0 auto;
-    padding: 0;
+    padding: 0 0.5rem;
     max-width: 800px;
 
     // background: linear-gradient(250deg, colors.$dark 22%, colors.$dark-85 90%);
@@ -171,10 +171,10 @@
     .navlink-container {
       position: absolute;
       margin: 0;
-      padding: 0;
+      padding-bottom: 1rem;
       right: 0;
       top: 4rem;
-      width: 75%;
+      width: 70%;
       // border: yellow solid;
       background-color: colors.$dark;
 

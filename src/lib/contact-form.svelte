@@ -230,6 +230,8 @@
     flex-direction: column;
     align-self: center;
     gap: 1rem;
+    background-color: colors.$white;
+    box-shadow: 0 4px 6px 0 colors.$medium;
     padding: 1rem;
   }
 
