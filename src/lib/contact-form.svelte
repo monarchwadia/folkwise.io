@@ -195,7 +195,6 @@
       name="message"
       id="message"
       rows="8"
-      cols={vwidth > 767 ? 30 : null}
       placeholder="Type your message"
       novalidate
     />

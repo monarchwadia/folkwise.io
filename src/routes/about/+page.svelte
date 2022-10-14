@@ -126,7 +126,7 @@
     text-align: left;
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     .about-container {
       margin: 0.75rem auto;
       padding: 0.75rem 0;

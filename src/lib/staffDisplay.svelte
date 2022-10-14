@@ -213,7 +213,7 @@
   .staff-member-image {
     grid-area: img;
     width: 100%;
-    box-shadow: 0 0 3px 1px colors.$medium;
+    box-shadow: 0 3px 6px 0 colors.$medium;
   }
 
   .accepting {
@@ -233,6 +233,11 @@
     .about-staff-container {
       display: flex;
       flex-direction: column;
+
+      .img-container {
+        max-width: 400px;
+        margin: 0 auto;
+      }
 
       .bio-container {
         h3 {

@@ -14,7 +14,6 @@
   .contact-section {
     display: flex;
     flex-direction: column;
-    max-width: 800px;
     margin: 1rem auto;
   }
 
@@ -22,15 +21,15 @@
     display: flex;
     flex-direction: column;
     align-self: center;
+    max-width: 800px;
     gap: 1rem;
-    // padding: 1rem;
     background-color: colors.$white;
     box-shadow: 0 4px 6px 0 colors.$medium;
   }
 
   @media screen and (max-width: 768px) {
     section {
-      padding: 0.75rem;
+      padding: 0.5rem;
     }
   }
 </style>
