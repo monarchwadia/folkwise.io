@@ -129,6 +129,7 @@
     .staff-member-image {
       grid-area: img;
       width: 100%;
+
       box-shadow: 0 0 3px 1px colors.$medium;
     }
   }
@@ -214,6 +215,7 @@
     grid-area: img;
     width: 100%;
     box-shadow: 0 3px 6px 0 colors.$medium;
+    border-radius: 50%;
   }
 
   .accepting {
@@ -228,6 +230,10 @@
     .staff-member-container {
       display: flex;
       flex-direction: column;
+
+      .staff-member-image {
+        max-width: 30%;
+      }
     }
 
     .about-staff-container {
@@ -252,13 +258,6 @@
   }
 
   @media screen and (max-width: 440px) {
-    .staff-member-container {
-      .staff-member-image {
-        max-width: 40%;
-        border-radius: 50%;
-      }
-    }
-
     .bio-container {
       grid-template-columns: 1fr;
     }
