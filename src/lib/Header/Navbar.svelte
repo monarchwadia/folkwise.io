@@ -108,6 +108,7 @@
     margin: 0 auto;
     padding: 0 0.5rem;
     max-width: 800px;
+    z-index: 9999;
 
     // background: linear-gradient(250deg, colors.$dark 22%, colors.$dark-85 90%);
 
