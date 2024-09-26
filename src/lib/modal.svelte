@@ -44,16 +44,17 @@
     align-items: center;
     justify-content: center;
     width: 100%;
+    padding: 0;
     background-color: colors.$dark-85;
   }
 
   .modal {
     position: relative;
-    width: 85%;
+    width: 100%;
     max-width: 500px;
     padding: 1rem;
-    background-color: colors.$white;
-    filter: drop-shadow(0 4px 4px colors.$dark);
+    // background-color: colors.$white;
+    // filter: drop-shadow(0 4px 4px colors.$dark);
   }
 
   .visible {
@@ -62,8 +63,8 @@
 
   .close {
     position: absolute;
-    top: 1rem;
-    right: 1rem;
+    top: 2rem;
+    right: 2rem;
 
     :global(#close-button) {
       transition: all 300ms;
@@ -78,12 +79,12 @@
 
   @media screen and (max-width: 420px) {
     .modal {
-      padding: 0.75rem;
+      padding: 0.5rem;
     }
 
     .close {
-      top: 0.75rem;
-      right: 0.75rem;
+      top: 1rem;
+      right: 1rem;
 
       :global(#close-button) {
         transform: scale(0.85);

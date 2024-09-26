@@ -4,7 +4,9 @@
 
 <div class="contact-container">
   <section class="contact-section">
-    <ContactForm />
+    <div class="form-container">
+      <ContactForm />
+    </div>
   </section>
 </div>
 
@@ -14,16 +16,20 @@
   .contact-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     width: 100%;
     max-width: 800px;
-    margin: 1rem auto;
-    background-color: colors.$white;
+    margin: 2rem auto;
+  }
+
+  .contact-section {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
   }
 
   @media screen and (max-width: 768px) {
     .contact-section {
-      padding: 0.75rem;
+      padding: 0.5rem;
     }
   }
 </style>

@@ -129,6 +129,7 @@
     .staff-member-image {
       grid-area: img;
       width: 100%;
+
       box-shadow: 0 0 3px 1px colors.$medium;
     }
   }
@@ -213,7 +214,8 @@
   .staff-member-image {
     grid-area: img;
     width: 100%;
-    box-shadow: 0 0 3px 1px colors.$medium;
+    box-shadow: 0 3px 6px 0 colors.$medium;
+    border-radius: 50%;
   }
 
   .accepting {
@@ -224,17 +226,38 @@
     color: colors.$grey;
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     .staff-member-container {
-      width: 100%;
+      display: flex;
+      flex-direction: column;
+
+      .staff-member-image {
+        max-width: 30%;
+      }
+    }
+
+    .about-staff-container {
+      display: flex;
+      flex-direction: column;
+
+      .img-container {
+        max-width: 400px;
+        margin: 0 auto;
+      }
+
+      .bio-container {
+        h3 {
+          text-align: center;
+        }
+
+        p:nth-child(2) {
+          text-align: center;
+        }
+      }
     }
   }
 
   @media screen and (max-width: 440px) {
-    .staff-member-image {
-      display: none;
-    }
-
     .bio-container {
       grid-template-columns: 1fr;
     }

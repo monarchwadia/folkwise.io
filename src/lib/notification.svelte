@@ -53,6 +53,10 @@
     background-color: colors.$white;
     box-shadow: 0 3px 6px 0 colors.$medium;
 
+    h4 {
+      margin-bottom: 0.5rem;
+    }
+
     p {
       font-size: 0.875rem;
     }
@@ -94,8 +98,8 @@
   .close-button {
     cursor: pointer;
     position: absolute;
-    top: 0.5rem;
-    right: 0.75rem;
+    top: 0.25rem;
+    right: 0.5rem;
     display: flex;
     width: 0.75rem;
     margin: 0;

@@ -8,12 +8,12 @@
 
   let vwidth: number;
 
-  const navItems = [
-    { name: 'Home', href: '/' },
-    { name: 'Blog', href: '/blog' },
-    { name: 'About', href: '/about' },
-    { name: 'Contact', href: '/contact' }
-  ];
+  // const navItems = [
+  //   { name: 'Home', href: '/' },
+  //   { name: 'Blog', href: '/blog' },
+  //   { name: 'About', href: '/about' },
+  //   { name: 'Contact', href: '/contact' }
+  // ];
 </script>
 
 <!-- Svelte's method for getting window properties: https://svelte.dev/tutorial/svelte-window-bindings -->
@@ -106,8 +106,9 @@
     justify-content: space-between;
     align-items: baseline;
     margin: 0 auto;
-    padding: 0;
+    padding: 0 0.5rem;
     max-width: 800px;
+    z-index: 9999;
 
     // background: linear-gradient(250deg, colors.$dark 22%, colors.$dark-85 90%);
 
@@ -164,29 +165,35 @@
 
   @media screen and (max-width: 767px) {
     .navbar {
-      justify-content: space-between;
-      padding-inline: 0.75rem;
+      padding: 0.75rem 0.75rem 0 0.75rem;
       height: 4rem;
     }
 
     .navlink-container {
       position: absolute;
       margin: 0;
-      padding: 0;
+      padding-bottom: 1rem;
       right: 0;
-      top: 3rem;
-      width: 50%;
+      top: 4rem;
+      width: 70%;
       // border: yellow solid;
+      background-color: colors.$dark;
 
       ul {
         flex-direction: column;
+        gap: 0;
         align-items: center;
-        padding: 1rem 1rem 1rem 1rem;
+        padding: 1rem 1rem 0 1rem;
 
         li {
           width: 80%;
-          padding: 0.75rem 0.5rem 0 0.5rem;
+          padding: 1rem 0.5rem;
           border-top: 1px solid colors.$white;
+        }
+
+        li.active {
+          border-right: 2px solid colors.$highlight;
+          border-bottom: 2px solid transparent;
         }
       }
     }
